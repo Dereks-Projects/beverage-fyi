@@ -1,0 +1,137 @@
+/* 📄 FILE: src/styles/Header.css */
+/* Mobile-first approach with consistent styling */
+
+.header {
+  background-color: #1c1c1c;
+  color: white;
+  padding: 2rem 1rem 2.5rem 1rem;
+  text-align: center;
+}
+
+/* Title styling - consistent weight */
+.header-title {
+  font-size: 2.2rem;
+  margin: 0;
+  font-weight: 700; 
+  margin-bottom: -.5rem;
+}
+
+/* Subtitle styling */
+.header-subtitle {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-top: 0.6rem;
+  margin-bottom: 1.2rem;
+  color: #d0d0d0;
+}
+
+/* Search bar container */
+.header-searchbar {
+  margin: 0 auto;
+  position: relative;
+  max-width: 90%;
+}
+
+/* Search input wrapper */
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 22px;
+  padding: 0.4rem 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Magnify icon */
+.search-icon {
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Input field */
+.search-wrapper input {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  flex: 1;
+  background: transparent;
+  /* Font family inherited */
+}
+
+/* Dropdown result list */
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  background: #fff;
+  border-radius: 6px;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  padding: 0;
+  margin: 0.5rem auto 0 auto;
+  list-style: none;
+  z-index: 10;
+}
+
+/* Dropdown item */
+.search-results li {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #222;
+}
+
+.search-results li:hover {
+  background-color: #f2f2f2;
+}
+
+/* ===== DESKTOP OVERRIDES ===== */
+@media (min-width: 1024px) {
+  .header {
+    padding: 2.5rem 1rem 3rem 1rem;
+  }
+  
+  /* Larger title on desktop but keep it bold */
+  .header-title {
+    font-size: 3.2rem;
+    font-weight: 700; /* Keep consistent with mobile */
+    text-transform: none; /* Remove the lowercase transform */
+    letter-spacing: -0.5px;
+  }
+  
+  /* Optional: If you want the special casing on desktop only */
+  /* Uncomment these lines:
+  .header-title {
+    text-transform: lowercase;
+    font-weight: 400;
+  }
+  .header-title::first-letter {
+    text-transform: uppercase;
+  }
+  */
+  
+  .header-subtitle {
+    font-size: 1.25rem;
+    margin-top: 8px;
+    margin-bottom: 24px;
+    opacity: 0.92;
+  }
+  
+  /* Constrain search bar width on desktop */
+  .header-searchbar {
+    max-width: 560px;
+    width: 50%;
+  }
+  
+  .search-wrapper {
+    padding: 0.5rem 1.2rem;
+  }
+  
+  .search-wrapper input {
+    font-size: 1.1rem;
+  }
+}

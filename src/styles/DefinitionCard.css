@@ -1,0 +1,29 @@
+/* 📄 FILE: src/styles/DefinitionCard.css */
+/* 🧠 PURPOSE: Styles for the term definition card */
+
+.definition-card {
+  background: #fafafa;
+  border-radius: 18px;
+  box-shadow: 3px 3px 14px #ececec, -3px -3px 14px #f7f7f7;
+  padding: 1.7rem 1.25rem 1.25rem 1.25rem;
+  margin: 2rem auto 1.5rem auto;
+  max-width: 490px;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.definition-term {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.43rem;
+  font-weight: 700;
+  margin: 0 0 1.1rem 0;
+  color: #1a1a1a;
+}
+
+.definition-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.11rem;
+  color: #2c2c2c;
+  line-height: 1.56;
+  margin: 0;
+}

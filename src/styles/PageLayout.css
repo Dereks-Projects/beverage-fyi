@@ -1,0 +1,14 @@
+/* 📄 FILE: src/styles/PageLayout.css */
+
+.page-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden; /* prevent double scrollbars */
+}
+
+.page-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 4rem; /* optional space for nav/footer */
+}

@@ -1,0 +1,51 @@
+/* 📄 FILE: src/styles/MobileNav.css */
+/* 🧠 PURPOSE: Styles the fixed mobile bottom navigation bar */
+
+.mobile-nav {
+  background: #262626;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: -1px; /* Adjusted to ensure it sits at the bottom */
+  left: 0;
+  width: 100vw;
+  height: 85px;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.10);
+  z-index: 1000;
+  
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  cursor: pointer;
+  padding: 0.3rem 0.2rem;
+  transition: color 0.15s;
+}
+
+.nav-btn.active,
+.nav-btn:active,
+.nav-btn:focus {
+  color: #ffe082;
+}
+
+.nav-btn span {
+  font-size: 1.7rem;
+}
+
+.nav-label {
+  font-size: 0.80rem;
+  font-weight: 400;
+  margin-top: 0.1rem;
+  letter-spacing: 0.5px;
+}

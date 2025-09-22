@@ -1,0 +1,50 @@
+/* 📄 FILE: src/styles/DefinitionPage.css */
+
+/* DefinitionPage styles */
+
+/* DefinitionPage styles */
+
+.definition-page {
+  min-height: 100vh; /* Ensures full height view */
+  padding: 0 1rem 0 1rem;
+  max-width: 530px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.definition-loading {
+  color: #888;
+  text-align: center;
+  padding: 2.5rem 0;
+  font-size: 1.1rem;
+}
+
+.definition-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 120px; /* ⬅️ ensures the button clears the footer */
+}
+
+.definition-back-btn {
+  margin-top: 2rem;
+  background: #262626;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.04rem;
+  font-weight: 500;
+  padding: 0.66rem 2.2rem;
+  border-radius: 22px;
+  border: none;
+  cursor: pointer;
+  align-self: center;
+  transition: background 0.14s;
+}
+
+.definition-back-btn:hover,
+.definition-back-btn:focus {
+  background: #333;
+}
+

@@ -1,0 +1,162 @@
+/* 📄 FILE: src/styles/WineResultsList.css */
+/* SCOPED COMPONENT STYLES - Only affects elements inside .wine-results-container */
+/* This prevents styles from leaking to other components */
+
+/* === Container Root === */
+.wine-results-container {
+  padding: 20px 16px;
+  max-width: 100%;
+}
+
+/* === Results Header Section === */
+.wine-results-container .results-header {
+  margin-bottom: 16px;
+}
+
+.wine-results-container .results-count {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  text-align: center;
+}
+
+/* === No Results State === */
+.wine-results-container .no-results {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+  font-style: italic;
+}
+
+/* === Wine List Container === */
+.wine-results-container .wine-results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  /* Mobile only - add bottom margin to clear nav */
+  margin-bottom: 90px;
+}
+
+/* === Individual Wine Item === */
+.wine-results-container .wine-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+}
+
+/* === Accordion Header Button === */
+/* IMPORTANT: This .wine-header is now scoped and won't conflict with page headers */
+.wine-results-container .wine-header {
+  width: 100%;
+  padding: 16px;
+  background-color: #f8f8f8;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s ease;
+  text-align: left;
+}
+
+.wine-results-container .wine-header:hover {
+  background-color: #f0f0f0;
+}
+
+.wine-results-container .wine-header.expanded {
+  background-color: #e8e8e8;
+}
+
+/* === Wine Name & Toggle === */
+.wine-results-container .wine-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+}
+
+.wine-results-container .wine-toggle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #666;
+  margin-left: 12px;
+}
+
+/* === Expanded Description Section === */
+.wine-results-container .wine-description {
+  padding: 16px;
+  border-top: 1px solid #e0e0e0;
+  background-color: white;
+}
+
+.wine-results-container .wine-description p {
+  margin: 0 0 16px 0;
+  color: #555;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* === Wine Details Grid === */
+.wine-results-container .wine-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.wine-results-container .wine-detail {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.wine-results-container .wine-detail strong {
+  color: #333;
+  font-weight: 600;
+}
+
+/* === Desktop Responsive Styles === */
+@media (min-width: 1024px) {
+  .wine-results-container {
+    padding: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .wine-results-container .results-count {
+    font-size: 1.2rem;
+    text-align: left;
+  }
+
+  .wine-results-container .wine-results-list {
+    gap: 12px;
+    margin-bottom: 0;  /* Remove bottom margin on desktop */
+  }
+
+  .wine-results-container .wine-header {
+    padding: 20px;
+  }
+
+  .wine-results-container .wine-name {
+    font-size: 1.1rem;
+  }
+
+  .wine-results-container .wine-description {
+    padding: 20px;
+  }
+
+  .wine-results-container .wine-description p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .wine-results-container .wine-details {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 12px;
+  }
+
+  .wine-results-container .wine-detail {
+    font-size: 0.9rem;
+  }
+}

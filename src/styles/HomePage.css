@@ -1,0 +1,453 @@
+/* 📄 FILE: src/styles/HomePage.css */
+
+/* ============================================================
+   MOBILE STYLES (DEFAULT - MOBILE FIRST APPROACH)
+   All base styles apply to mobile devices by default
+   ============================================================ */
+
+/* GENERAL CONTAINER */
+.homepage {
+  width: 100%;
+  overflow-x: hidden;
+  margin-top: -1px;
+}
+
+/* ========================
+   HERO SECTION - MOBILE
+   ======================== */
+.hero-section {
+  min-height: 100vh;
+  background-image: url('/beverage-background-mobile.png');  /* Mobile-specific image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-content {
+  text-align: center;
+  color: white;
+  max-width: 900px;
+  width: 100%;
+  margin-top: -9rem;
+}
+
+.hero-logo {
+  width: 100px;
+  height: 100px;
+  margin-top: -1rem;
+  margin-bottom: 0px;
+}
+
+.hero-title {
+  font-size: 44px;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  line-height: 1.25;
+}
+
+/* Split title styling for mobile ONLY */
+.hero-title-small {
+  display: block;
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+
+.hero-title-main {
+  display: block;
+  font-size: 44px;
+  font-weight: bold;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  font-weight: normal;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.hero-tagline {
+  font-style: italic;
+  font-size: 18px;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.scroll-hint {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.book-name {
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* ========================
+   BOOK SECTION - MOBILE
+   ======================== */
+.book-section {
+  background: #fafafa;
+  padding: 60px 20px;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.book-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.book-text {
+  order: 2;
+  text-align: left;
+  width: 100%;
+}
+
+.book-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin-bottom: 5px;
+  text-align: left;
+  width: 110%;
+}
+
+.book-subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  margin-top: .5rem;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.book-description {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 20px;
+  max-width: 390px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.book-image {
+  order: 1;
+  width: 100%;
+  max-width: 300px;
+}
+
+.book-image img {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  border-radius: 20px;
+}
+
+.book-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+/* ========================
+   ABOUT SECTION - MOBILE
+   ======================== */
+.about-section {
+  background: white;
+  padding: 60px 20px;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-text {
+  order: 2;
+  text-align: left;
+}
+
+.about-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin-bottom: 25px;
+}
+
+.about-description {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-image {
+  order: 1;
+  width: 100%;
+  max-width: 300px;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.about-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+/* ========================
+   BUTTONS - MOBILE
+   ======================== */
+.btn-primary, .btn-secondary {
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 25px;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 140px;
+}
+
+.btn-primary {
+  background: white;
+  color: #1a1a1a;
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: white;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: white;
+  color: #1a1a1a;
+}
+
+.btn-dark, .btn-dark-outline {
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 140px;
+}
+
+.btn-dark {
+  background: #1a1a1a;
+  color: white;
+  border: 2px solid #1a1a1a;
+}
+
+.btn-dark:hover {
+  background: #333;
+  border-color: #333;
+}
+
+.btn-dark-outline {
+  background: transparent;
+  color: #1a1a1a;
+  border: 2px solid #1a1a1a;
+}
+
+.btn-dark-outline:hover {
+  background: #1a1a1a;
+  color: white;
+}
+
+/* ========================
+   FOOTER - MOBILE
+   ======================== */
+.homepage-footer {
+  background: white;
+  padding: 30px 20px;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
+
+.footer-link {
+  font-size: 12px;
+  color: #666;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+  color: #1a1a1a;
+}
+
+
+/* ============================================================
+   DESKTOP STYLES (768px AND ABOVE)
+   These styles override mobile styles when viewport is 768px+
+   ============================================================ */
+
+@media (min-width: 768px) {
+  
+  /* ========================
+     HERO SECTION - DESKTOP
+     ======================== */
+    .hero-section {
+    background-image: url('/beverage-background.png') !important;
+  }
+  
+  
+     .hero-title {
+    font-size: 48px;
+    margin-top: 1rem;
+  }
+
+  /* CRITICAL: Reset split title for desktop - make it unified */
+  .hero-title-small {
+    display: inline;
+    font-size: 58px;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+
+  .hero-title-main {
+    display: inline;
+    font-size: 58px;
+    font-weight: bold;
+  }
+
+  .hero-subtitle {
+    font-size: 22px;
+  }
+
+  .hero-logo {
+    width: 110px;
+    height: 110px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-tagline {
+    font-size: 18px;
+  }
+
+  /* ========================
+     BOOK SECTION - DESKTOP
+     ======================== */
+  .book-content {
+    flex-direction: row;
+    align-items: center;
+    gap: 80px;
+  }
+
+  .book-text {
+    order: 1;
+    text-align: left;
+    flex: 1;
+  }
+
+  .book-image {
+    order: 2;
+    flex: 0 0 350px;
+  }
+
+  .book-title {
+    font-size: 36px;
+  }
+
+  .book-subtitle {
+    font-size: 22px;
+  }
+
+  .book-description {
+    font-size: 16px;
+    max-width: none;
+  }
+
+  .book-buttons {
+    justify-content: flex-start;
+  }
+
+  /* ========================
+     ABOUT SECTION - DESKTOP
+     ======================== */
+  .about-content {
+    flex-direction: row;
+    align-items: center;
+    gap: 80px;
+  }
+
+  .about-text {
+    order: 1;
+    flex: 1;
+  }
+
+  .about-text .about-title,
+  .about-text .about-description,
+  .about-text .about-buttons {
+    text-align: left;
+  }
+
+  .about-image {
+    order: 2;
+    flex: 0 0 350px;
+  }
+
+  .about-title {
+    font-size: 36px;
+  }
+
+  .about-description {
+    font-size: 16px;
+    max-width: none;
+  }
+
+  .about-buttons {
+    justify-content: flex-start;
+  }
+
+  /* ========================
+     BUTTONS - DESKTOP
+     ======================== */
+  .btn-primary, .btn-secondary,
+  .btn-dark, .btn-dark-outline {
+    font-size: 16px;
+    padding: 14px 32px;
+  }
+}

@@ -1,0 +1,42 @@
+/* 📄 FILE: src/styles/TermList.css */
+/* 🧠 PURPOSE: Styles for the list of terms shown for each letter */
+
+.term-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0 0 0;
+}
+
+.term-list li {
+  margin-bottom: 0.7rem;
+}
+
+.term-btn {
+  width: 100%;
+  text-align: left;
+  background: #fff;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 2px 2px 6px #eee, -2px -2px 6px #fafafa;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.12rem;
+  color: #262626;
+  font-weight: 600;
+  padding: 0.78rem 1.1rem;
+  cursor: pointer;
+  transition: background 0.13s, box-shadow 0.13s;
+}
+
+.term-btn:hover,
+.term-btn:focus {
+  background: #f8f8f8;
+  box-shadow: 1px 1px 2px #e0e0e0, -1px -1px 2px #fff;
+}
+
+.empty-list {
+  color: #999;
+  text-align: center;
+  font-style: italic;
+  padding: 2rem 0;
+  font-size: 1rem;
+}

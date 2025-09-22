@@ -1,0 +1,205 @@
+/* 📄 FILE: src/styles/desktop.css */
+/* Desktop-only helpers and layout. These rules DO NOT apply on mobile. */
+
+.desktop-only { display: none; }
+
+/* ===== Desktop breakpoint ===== */
+@media (min-width: 1024px) {
+  /* Remove default body margin on desktop that can cause a sliver */
+  html, body, #root { height: 100%; }
+  body { margin: 0; }
+
+  /* Show desktop regions */
+  .desktop-only { display: flex; flex-direction: column; }
+
+  /* Hide the mobile bottom nav on desktop */
+  .mobile-nav { display: none !important; }
+
+  /* Utility to hide mobile-only blocks on desktop */
+  .hide-on-desktop { display: none !important; }
+
+  /* Make the main content area grow so the footer sits at the bottom naturally */
+  .desktop-container {
+    flex: 1;                 /* <-- key: pushes footer down */
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 24px 56px; /* normal bottom padding; footer is NOT fixed */
+    box-sizing: border-box;
+  }
+
+  /* ===== Desktop header (title + subtitle) ===== */
+  .desktop-header h1 {
+    margin: 0;
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+  }
+  .desktop-header p {
+    margin: 6px 0 28px;
+    font-size: 1.2rem;
+    color: #444;
+  }
+
+  /* ===== Desktop grid for letter buttons on Home ===== */
+  .desktop-letter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  @media (min-width: 1280px) {
+    .desktop-letter-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  /* ===== LetterPage desktop links ===== */
+  .desktop-links-grid a { color: #1a0dab; text-decoration: underline; }
+
+  /* ===== Generic desktop back button ===== */
+  .desktop-back {
+    display: inline-block;
+    margin: 24px 0;
+    padding: 10px 16px;
+    border-radius: 20px;
+    background: #222;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* ===== Desktop letter button ===== */
+  .dbtn {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    width: 100%;
+    padding: 18px 20px;
+    border-radius: 14px;
+    border: 1px solid #e6e6e6;
+    background: #fff;
+    cursor: pointer;
+    text-align: left;
+    transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+  }
+  .dbtn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(0,0,0,.06);
+    border-color: #dcdcdc;
+  }
+  .dbtn-left { font-weight: 800; font-size: 2rem; line-height: 1; margin-right: 16px; }
+  .dbtn-middle { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .dbtn-term { color: #222; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .dbtn-term-first { opacity: .9; }
+  .dbtn-term-last  { opacity: .65; }
+  .dbtn-right { display: flex; align-items: center; justify-content: center; margin-left: 12px; }
+  .dbtn-arrow { width: 24px; height: 24px; display: block; }
+
+  /* ===== Header desktop tuning REMOVED ===== */
+  /* Header styles now handled in Header.css with proper media queries */
+
+  /* ===== LetterPage (DESKTOP) ===== */
+
+  /* Make the page content fill available height so the footer sits at the bottom */
+  .letterpage-desktop {
+    flex: 1;                   /* grow in the .desktop-only column layout */
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 24px 24px;
+    box-sizing: border-box;
+  }
+
+  /* Title/subtitle hero (matches mock) */
+  .lpd-hero {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .lpd-title {
+    font-size: 48px;
+    line-height: 1.1;
+    margin: 0 0 8px 0;
+    font-weight: 800;
+  }
+  .lpd-subtitle {
+    font-size: 20px;
+    color: #555;
+    margin: 0;
+  }
+
+  /* Classic blue link grid */
+  .lpd-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr)); /* 5 columns desktop */
+    gap: 16px 32px;               /* row/column spacing */
+    justify-items: start;         /* left-align each link */
+    margin: 10px 0;
+    padding: 20px;
+    background: #fafafa;          /* light panel bg */
+  }
+
+  .lpd-link {
+    display: inline-block;
+    text-decoration: underline;
+    color: #1a0dab;               /* traditional link blue */
+    font-size: 16px;
+    line-height: 1.6;
+    word-break: break-word;
+  }
+  .lpd-link:visited { color: #5a33a2; }
+  .lpd-link:hover { text-decoration-thickness: 2px; }
+
+  /* Centered "back to list" button under the grid */
+  .lpd-back {
+    display: inline-block;
+    margin: 16px auto 32px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: #222;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  .lpd-back:hover { opacity: 0.9; }
+
+  /* If your layout uses a mobile safety padding on <main>, kill it on desktop
+     to prevent the tiny sliver under the footer. If you don't have .main-content,
+     you can skip this rule. */
+  .main-content { padding-bottom: 0; }
+
+  /* ===== DefinitionPage (DESKTOP) ===== */
+
+  /* Grow the page content so the footer sits at the bottom on short pages */
+  .definition-desktop {
+    flex: 1;                 /* inside .desktop-only flex column */
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 24px 24px;
+    box-sizing: border-box;
+  }
+
+  /* Center the card area and the back button */
+  .def-card-outer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* centers the back button */
+    gap: 16px;
+  }
+
+  /* Make the inner DefinitionCard a fixed width (800px), centered */
+  .def-card-fixed > * {
+    max-width: 800px !important;  /* <– fixed width target */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Desktop back button (centered by parent align-items:center) */
+  .desktop-back {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 20px;
+    background: #222;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 24px;
+  }
+  .desktop-back:hover { opacity: 0.9; }
+}
