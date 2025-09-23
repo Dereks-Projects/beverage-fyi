@@ -10,7 +10,7 @@
   bottom: -1px; /* Adjusted to ensure it sits at the bottom */
   left: 0;
   width: 100vw;
-  height: 85px;
+  height: 75px;
   box-shadow: 0 -2px 12px rgba(0,0,0,0.10);
   z-index: 1000;
   
@@ -44,7 +44,7 @@
 }
 
 .nav-label {
-  font-size: 0.80rem;
+  font-size: 0.60rem;
   font-weight: 400;
   margin-top: 0.1rem;
   letter-spacing: 0.5px;

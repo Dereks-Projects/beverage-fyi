@@ -24,7 +24,9 @@
 /* === No Results State === */
 .wine-results-container .no-results {
   text-align: center;
+  font-size: .7rem;
   padding: 40px 20px;
+  padding-bottom: 120px; /* Extra bottom padding for mobile nav */
   color: #666;
   font-style: italic;
 }
