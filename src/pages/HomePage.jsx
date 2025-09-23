@@ -74,7 +74,7 @@ export default function HomePage() {
               <div className="stat-content">
                 <h3 className="stat-label">HOSPITALITY IMPACT</h3>
                 <p className="stat-text">
-                  Restaurants with curated wine/beer/spirits menus report 30% higher revenue compared to those without.
+                  Restaurants with curated beverage menus report 30% higher revenue compared to those without.
                 </p>
               </div>
             </div>
