@@ -10,6 +10,10 @@ export default function HomePage() {
     document.getElementById('section2').scrollIntoView({ behavior: 'smooth' });
   };
 
+  const scrollToStats = () => {
+    document.getElementById('stats').scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="homepage">
       {/* SECTION 1 - Hero Section */}
@@ -31,13 +35,53 @@ export default function HomePage() {
             </button>
             <button 
               className="btn-secondary"
-              onClick={scrollToSection2}
+              onClick={scrollToStats}
             >
-              About the Book
+              Learn More
             </button>
           </div>
           <p className="scroll-hint">
             Scroll down for more about our book, <br/> <span className="book-name">The Beverage Compass</span>.
+          </p>
+        </div>
+      </section>
+
+      {/* NEW SECTION - Stats/Impact Section */}
+      <section id="stats" className="stats-section">
+        <div className="section-container">
+          <div className="stats-header">
+            <h2 className="stats-title">
+              Transform Your Knowledge About the <span className="bold-text">World of Beverages</span>
+            </h2>
+            <p className="stats-subtitle">
+              Our web application and book combination elevate your understanding of beverages from around the world, from Absinthe to Zinfandel.
+            </p>
+          </div>
+
+          <div className="stats-boxes">
+            <div className="stat-box">
+              <span className="stat-icon">💵</span>
+              <div className="stat-content">
+                <h3 className="stat-label">GLOBAL IMPACT</h3>
+                <p className="stat-text">
+                  In 2024, the global alcoholic beverages market was estimated at about USD $2.41 trillion.
+                </p>
+              </div>
+            </div>
+
+            <div className="stat-box">
+              <span className="stat-icon">🍷</span>
+              <div className="stat-content">
+                <h3 className="stat-label">HOSPITALITY IMPACT</h3>
+                <p className="stat-text">
+                  Restaurants with curated wine/beer/spirits menus report 30% higher revenue compared to those without.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <p className="stats-quote">
+            <em>According to a Travel Agent Central survey, 62% of travelers feel a trip is wasted if they don't experience the local culture during their travels.</em>
           </p>
         </div>
       </section>
@@ -53,7 +97,7 @@ export default function HomePage() {
                 Finally, a beverage guide that speaks to everyone, from curious enthusiasts to seasoned professionals.
                 Written by a 20-year veteran of America's finest restaurants, The Beverage Compass breaks down the 
                 barriers that have kept beverage knowledge locked behind industry doors. This comprehensive guide transforms 
-                intimidating wine lists, mysterious spirits, and complex coffee culture into accessible, engaging education.
+                intimidating wine lists, mysterious spirits, and complex coffee culture into accessible, engaging education. Follow the link below to purchase your copy today!
               </p>
               <div className="book-buttons">
                 <button 
@@ -93,7 +137,7 @@ export default function HomePage() {
               </p>
               <p className="about-description">
                 The Beverage Compass, alongside Beverage.fyi, creates an ecosystem of learning that brings your understanding 
-                of beverages around the world to new heights.
+                of beverages around the world to new heights. Questions, comments, or collaborations? I'd love to hear from you!
               </p>
               <div className="about-buttons">
                 <button 

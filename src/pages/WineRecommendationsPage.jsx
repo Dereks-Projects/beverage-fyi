@@ -71,7 +71,7 @@ export default function WineRecommendationsPage() {
           <div className="wine-mobile-header">
             <h2 className="wine-mobile-title">Wine Recommendations</h2>
             <p className="wine-mobile-subtitle">
-              Use the filters below to learn more about wine. A great tool for finding your next great bottle.
+              Explore the world of wine with confidence. Use the filters below to find your next great bottle.
             </p>
           </div>
 
