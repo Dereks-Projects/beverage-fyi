@@ -1,25 +1,23 @@
 // 📄 FILE: src/components/MobileNav.jsx
 // 🧠 PURPOSE: Persistent bottom navigation bar for mobile users, matching your mockup.
-//             Contains 4 main navigation buttons/icons. (Icons are text for now.)
+//             Contains 5 main navigation buttons/icons.
 
 import React from "react";
 import "../styles/MobileNav.css"; // Import CSS for MobileNav
 import { useNavigate, useLocation } from "react-router-dom";
 
-// Array of nav items, could be expanded later with icons
+// Array of nav items - NOW WITH 5 ITEMS INCLUDING COCKTAILS
 const navItems = [
   { label: "Home", path: "/" },
   { label: "Terminology", path: "/terminology" },                       
-  { label: "Wine", path: "/wine-recommendations" },               // Now functional!
-  { label: "About", path: "/about" },                             // Functional!
+  { label: "Wine", path: "/wine-recommendations" },
+  { label: "Cocktails", path: "/cocktails" },                    // ADDED THIS LINE!
+  { label: "About", path: "/about" },
 ];
 
 export default function MobileNav() {
   const navigate = useNavigate();
   const location = useLocation();
-
-  // Home, Wine, and About buttons are functional for MVP
-  // Other paths will not be recognized by router yet, but we wire them up for design
 
   return (
     <nav className="mobile-nav" role="navigation" aria-label="Main mobile navigation">
@@ -28,10 +26,9 @@ export default function MobileNav() {
           key={item.label}
           className={`nav-btn${location.pathname === item.path ? " active" : ""}`}
           onClick={() => {
-            if (item.path === "/" || item.path === "/about" || item.path === "/wine-recommendations" || item.path === "/terminology") {
+            if (item.path === "/" || item.path === "/about" || item.path === "/wine-recommendations" || item.path === "/terminology" || item.path === "/cocktails") {
               navigate(item.path);
             }
-            // Other buttons (Guides) still do nothing for now
           }}
           type="button"
         >
@@ -39,6 +36,7 @@ export default function MobileNav() {
           {item.label === "Home" && <span role="img" aria-label="Home">🏠</span>}
           {item.label === "Terminology" && <span role="img" aria-label="Terminology">📚</span>}
           {item.label === "Wine" && <span role="img" aria-label="Wine">🍷</span>}
+          {item.label === "Cocktails" && <span role="img" aria-label="Cocktails">🍸</span>}
           {item.label === "About" && <span role="img" aria-label="About">ℹ️</span>}
           <div className="nav-label">{item.label}</div>
         </button>

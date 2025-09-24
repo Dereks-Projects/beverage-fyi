@@ -14,6 +14,7 @@ import WineRecommendationsPage from "./pages/WineRecommendationsPage";
 import "./styles/global.css";
 import TermsPage from './pages/TermsPage';
 import PrivacyPage from './pages/PrivacyPage';
+import CocktailPage from './pages/CocktailPage';
 
 function AppContent() {
   const location = useLocation();
@@ -35,6 +36,7 @@ function AppContent() {
           <Route path="/wine-recommendations" element={<WineRecommendationsPage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/cocktails" element={<CocktailPage />} />
         </Routes>
       </main>
 

@@ -43,5 +43,14 @@
     color: #333;
     margin: 0;               /* no mystery bottom gap from margins */
   }
-  .footer-copy a { color: #111; text-decoration: underline; }
+  
+  /* Copyright as link to About page */
+  .footer-copyright-link { 
+    color: inherit;          /* maintains #333 from parent */
+    text-decoration: none;   /* no underline by default */
+  }
+  .footer-copyright-link:hover,
+  .footer-copyright-link:active { 
+    text-decoration: underline; /* underline on hover/click only */
+  }
 }

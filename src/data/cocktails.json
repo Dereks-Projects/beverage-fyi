@@ -1,0 +1,722 @@
+[
+  {
+    "cocktail":"Moscow Mule",
+    "recipe1":"2 oz vodka, 0.5 oz lime juice, 4\u20136 oz ginger beer",
+    "recipe2":"Add vodka and lime juice to a copper mug with ice, top with ginger beer, stir gently, and garnish with lime and mint.",
+    "baseSpirit":"Vodka"
+  },
+  {
+    "cocktail":"Cosmopolitan",
+    "recipe1":"1.5 oz vodka, 1 oz Cointreau or triple sec, 0.5 oz lime juice, 0.5 oz cranberry juice",
+    "recipe2":"Shake all ingredients with ice, strain into a chilled coupe or cocktail glass, and garnish with a lime wheel or orange twist.",
+    "baseSpirit":"Vodka"
+  },
+  {
+    "cocktail":"Bloody Mary",
+    "recipe1":"2 oz vodka, 4 oz tomato juice, 0.5 oz lemon juice, 2 dashes Worcestershire sauce, 2 dashes hot sauce, pinch of salt and pepper",
+    "recipe2":"Build in a pint glass with ice, stir gently, and garnish with celery, lemon, or pickles.",
+    "baseSpirit":"Vodka"
+  },
+  {
+    "cocktail":"Espresso Martini",
+    "recipe1":"2 oz vodka, 0.5 oz coffee liqueur, 1 oz fresh espresso, 0.25 oz simple syrup (optional)",
+    "recipe2":"Shake all ingredients with ice and strain into a chilled coupe or martini glass, garnished with three coffee beans.",
+    "baseSpirit":"Vodka"
+  },
+  {
+    "cocktail":"White Russian",
+    "recipe1":"2 oz vodka, 1 oz coffee liqueur, 1 oz heavy cream or milk",
+    "recipe2":"Build over ice in an old fashioned glass and stir gently.",
+    "baseSpirit":"Vodka"
+  },
+  {
+    "cocktail":"Vodka Martini",
+    "recipe1":"2.5 oz vodka, 0.5 oz dry vermouth",
+    "recipe2":"Stir or shake with ice, strain into a chilled cocktail or martini glass, and garnish with a twist or olive.",
+    "baseSpirit":"Vodka"
+  },
+  {
+    "cocktail":"Screwdriver",
+    "recipe1":"2 oz vodka, 4 oz orange juice",
+    "recipe2":"Build over ice in a highball glass, stir, and garnish with an orange slice.",
+    "baseSpirit":"Vodka"
+  },
+  {
+    "cocktail":"Sex on the Beach",
+    "recipe1":"1.5 oz vodka, 0.5 oz peach schnapps, 1.5 oz cranberry juice, 1.5 oz orange juice",
+    "recipe2":"Shake ingredients with ice and strain into a highball glass over fresh ice, garnished with an orange wedge or cherry.",
+    "baseSpirit":"Vodka"
+  },
+  {
+    "cocktail":"Cape Codder",
+    "recipe1":"2 oz vodka, 4 oz cranberry juice",
+    "recipe2":"Build over ice in a highball glass and garnish with a lime wedge.",
+    "baseSpirit":"Vodka"
+  },
+  {
+    "cocktail":"Vodka Collins",
+    "recipe1":"2 oz vodka, 1 oz lemon juice, 0.5 oz simple syrup, top with club soda",
+    "recipe2":"Shake vodka, lemon juice, and syrup with ice, strain into a Collins glass over ice, and top with club soda and lemon.",
+    "baseSpirit":"Vodka"
+  },
+  {
+    "cocktail":"Black Russian",
+    "recipe1":"2 oz vodka, 1 oz coffee liqueur",
+    "recipe2":"Build over ice in an old fashioned glass and stir gently.",
+    "baseSpirit":"Vodka"
+  },
+  {
+    "cocktail":"Bay Breeze",
+    "recipe1":"2 oz vodka, 2 oz cranberry juice, 2 oz pineapple juice",
+    "recipe2":"Build over ice in a highball glass and garnish with a lime wedge or pineapple slice.",
+    "baseSpirit":"Vodka"
+  },
+  {
+    "cocktail":"Sea Breeze",
+    "recipe1":"2 oz vodka, 3 oz cranberry juice, 1 oz grapefruit juice",
+    "recipe2":"Build over ice in a highball glass and garnish with a lime wedge.",
+    "baseSpirit":"Vodka"
+  },
+  {
+    "cocktail":"Lemon Drop Martini",
+    "recipe1":"2 oz vodka, 1 oz lemon juice, 0.5 oz triple sec, 0.5 oz simple syrup",
+    "recipe2":"Shake with ice and strain into a chilled martini glass, garnish with a sugared rim and lemon twist.",
+    "baseSpirit":"Vodka"
+  },
+  {
+    "cocktail":"Salty Dog",
+    "recipe1":"2 oz vodka, 4 oz grapefruit juice",
+    "recipe2":"Shake or build in a highball glass with a salted rim and garnish with a grapefruit slice.",
+    "baseSpirit":"Vodka"
+  },
+  {
+    "cocktail":"Vodka Tonic",
+    "recipe1":"2 oz vodka, 4 oz tonic water",
+    "recipe2":"Build over ice in a highball glass and garnish with a lime wedge.",
+    "baseSpirit":"Vodka"
+  },
+  {
+    "cocktail":"Kamikaze",
+    "recipe1":"1 oz vodka, 1 oz triple sec, 1 oz lime juice",
+    "recipe2":"Shake with ice and strain into a chilled shot glass or serve in a coupe.",
+    "baseSpirit":"Vodka"
+  },
+  {
+    "cocktail":"Harvey Wallbanger",
+    "recipe1":"1.5 oz vodka, 3 oz orange juice, 0.5 oz Galliano",
+    "recipe2":"Build vodka and juice over ice in a highball glass, float Galliano on top and garnish with an orange slice.",
+    "baseSpirit":"Vodka"
+  },
+  {
+    "cocktail":"Blue Lagoon",
+    "recipe1":"1.5 oz vodka, 1 oz blue cura\u00e7ao, 4 oz lemonade",
+    "recipe2":"Shake or build in a highball glass over ice and garnish with a lemon wheel or cherry.",
+    "baseSpirit":"Vodka"
+  },
+  {
+    "cocktail":"Chi Chi",
+    "recipe1":"1.5 oz vodka, 1 oz cream of coconut, 2 oz pineapple juice",
+    "recipe2":"Blend with crushed ice and serve in a hurricane or highball glass, garnish with pineapple and cherry.",
+    "baseSpirit":"Vodka"
+  },
+  {
+    "cocktail":"Gin & Tonic",
+    "recipe1":"2 oz gin, 4 oz tonic water",
+    "recipe2":"Build over ice in a highball glass and garnish with a lime wedge or cucumber.",
+    "baseSpirit":"Gin"
+  },
+  {
+    "cocktail":"Tom Collins",
+    "recipe1":"2 oz gin, 1 oz lemon juice, 0.5 oz simple syrup, top with club soda",
+    "recipe2":"Shake gin, lemon juice, and syrup with ice, strain into a Collins glass over ice, and top with soda and lemon.",
+    "baseSpirit":"Gin"
+  },
+  {
+    "cocktail":"Negroni",
+    "recipe1":"1 oz gin, 1 oz Campari, 1 oz sweet vermouth",
+    "recipe2":"Stir over ice in an old fashioned glass and garnish with an orange peel.",
+    "baseSpirit":"Gin"
+  },
+  {
+    "cocktail":"Martini (Dry Gin Martini)",
+    "recipe1":"2.5 oz gin, 0.5 oz dry vermouth",
+    "recipe2":"Stir with ice, strain into a chilled martini glass, and garnish with an olive or lemon twist.",
+    "baseSpirit":"Gin"
+  },
+  {
+    "cocktail":"Aviation",
+    "recipe1":"2 oz gin, 0.5 oz maraschino liqueur, 0.25 oz cr\u00e8me de violette, 0.75 oz lemon juice",
+    "recipe2":"Shake with ice, strain into a coupe glass, and garnish with a cherry.",
+    "baseSpirit":"Gin"
+  },
+  {
+    "cocktail":"French 75",
+    "recipe1":"1 oz gin, 0.5 oz lemon juice, 0.5 oz simple syrup, 3 oz Champagne",
+    "recipe2":"Shake first three ingredients with ice, strain into a flute, and top with Champagne and lemon twist.",
+    "baseSpirit":"Gin"
+  },
+  {
+    "cocktail":"Bee's Knees",
+    "recipe1":"2 oz gin, 0.75 oz lemon juice, 0.75 oz honey syrup",
+    "recipe2":"Shake with ice, strain into a chilled coupe glass, and garnish with a lemon twist.",
+    "baseSpirit":"Gin"
+  },
+  {
+    "cocktail":"Last Word",
+    "recipe1":"0.75 oz gin, 0.75 oz green Chartreuse, 0.75 oz maraschino liqueur, 0.75 oz lime juice",
+    "recipe2":"Shake with ice, strain into a coupe glass, and serve with no garnish.",
+    "baseSpirit":"Gin"
+  },
+  {
+    "cocktail":"Clover Club",
+    "recipe1":"1.5 oz gin, 0.5 oz raspberry syrup, 0.75 oz lemon juice, 1 egg white",
+    "recipe2":"Dry shake, then shake with ice, strain into a coupe glass, and serve up.",
+    "baseSpirit":"Gin"
+  },
+  {
+    "cocktail":"Gimlet",
+    "recipe1":"2 oz gin, 1 oz lime juice, 0.75 oz simple syrup",
+    "recipe2":"Shake with ice and strain into a coupe or cocktail glass, garnish with a lime wheel.",
+    "baseSpirit":"Gin"
+  },
+  {
+    "cocktail":"Southside",
+    "recipe1":"2 oz gin, 1 oz lime juice, 0.75 oz simple syrup, 6\u20138 mint leaves",
+    "recipe2":"Shake with ice and fine strain into a coupe glass, garnish with mint.",
+    "baseSpirit":"Gin"
+  },
+  {
+    "cocktail":"Gin Fizz",
+    "recipe1":"2 oz gin, 1 oz lemon juice, 0.75 oz simple syrup, top with soda water",
+    "recipe2":"Shake with ice, strain into a Collins glass over fresh ice, and top with soda.",
+    "baseSpirit":"Gin"
+  },
+  {
+    "cocktail":"Pink Lady",
+    "recipe1":"1.5 oz gin, 0.5 oz apple brandy, 0.5 oz lemon juice, 0.25 oz grenadine, 1 egg white",
+    "recipe2":"Shake all ingredients well, strain into a coupe glass, and serve up.",
+    "baseSpirit":"Gin"
+  },
+  {
+    "cocktail":"White Lady",
+    "recipe1":"1.5 oz gin, 0.75 oz triple sec, 0.75 oz lemon juice",
+    "recipe2":"Shake with ice, strain into a coupe glass, and garnish with a lemon twist.",
+    "baseSpirit":"Gin"
+  },
+  {
+    "cocktail":"Corpse Reviver #2",
+    "recipe1":"0.75 oz gin, 0.75 oz Cointreau, 0.75 oz Lillet Blanc, 0.75 oz lemon juice, dash absinthe",
+    "recipe2":"Shake with ice, strain into a coupe glass rinsed with absinthe, and serve immediately.",
+    "baseSpirit":"Gin"
+  },
+  {
+    "cocktail":"Bramble",
+    "recipe1":"2 oz gin, 0.75 oz lemon juice, 0.5 oz simple syrup, 0.5 oz cr\u00e8me de m\u00fbre",
+    "recipe2":"Shake all but liqueur, strain into an old fashioned glass with crushed ice, and float cr\u00e8me de m\u00fbre on top.",
+    "baseSpirit":"Gin"
+  },
+  {
+    "cocktail":"Ramos Gin Fizz",
+    "recipe1":"2 oz gin, 1 oz heavy cream, 0.5 oz lemon juice, 0.5 oz lime juice, 0.75 oz simple syrup, 1 egg white, 2 drops orange flower water, top with soda",
+    "recipe2":"Dry shake, then shake with ice, strain into a fizz glass, and top with soda.",
+    "baseSpirit":"Gin"
+  },
+  {
+    "cocktail":"Gin Rickey",
+    "recipe1":"2 oz gin, 0.5 oz lime juice, top with club soda",
+    "recipe2":"Build over ice in a highball glass and garnish with a lime wedge.",
+    "baseSpirit":"Gin"
+  },
+  {
+    "cocktail":"London Mule",
+    "recipe1":"2 oz gin, 0.5 oz lime juice, 4\u20136 oz ginger beer",
+    "recipe2":"Build over ice in a copper mug or highball glass and garnish with lime and mint.",
+    "baseSpirit":"Gin"
+  },
+  {
+    "cocktail":"Basil Smash",
+    "recipe1":"2 oz gin, 1 oz lemon juice, 0.75 oz simple syrup, handful of basil leaves",
+    "recipe2":"Muddle basil with lemon and syrup, add gin, shake with ice, strain into a rocks glass with ice, and garnish with basil.",
+    "baseSpirit":"Gin"
+  },
+  {
+    "cocktail":"Daiquiri",
+    "recipe1":"2 oz white rum, 1 oz lime juice, 0.75 oz simple syrup",
+    "recipe2":"Shake with ice, strain into a coupe glass, and garnish with a lime wheel.",
+    "baseSpirit":"Rum"
+  },
+  {
+    "cocktail":"Mojito",
+    "recipe1":"2 oz white rum, 1 oz lime juice, 0.75 oz simple syrup, 6\u20138 mint leaves, soda water",
+    "recipe2":"Muddle mint with lime and syrup, add rum, shake lightly, strain into a highball glass with ice, and top with soda.",
+    "baseSpirit":"Rum"
+  },
+  {
+    "cocktail":"Mai Tai",
+    "recipe1":"1 oz light rum, 1 oz dark rum, 0.5 oz lime juice, 0.5 oz orange cura\u00e7ao, 0.25 oz orgeat syrup",
+    "recipe2":"Shake with ice, strain into a rocks glass with crushed ice, and garnish with mint and lime.",
+    "baseSpirit":"Rum"
+  },
+  {
+    "cocktail":"Pi\u00f1a Colada",
+    "recipe1":"2 oz white rum, 1 oz cream of coconut, 1 oz heavy cream, 3 oz pineapple juice",
+    "recipe2":"Blend with crushed ice, serve in a hurricane glass, and garnish with pineapple and cherry.",
+    "baseSpirit":"Rum"
+  },
+  {
+    "cocktail":"Cuba Libre",
+    "recipe1":"2 oz light rum, 4 oz cola, 0.5 oz lime juice",
+    "recipe2":"Build over ice in a highball glass, stir, and garnish with a lime wedge.",
+    "baseSpirit":"Rum"
+  },
+  {
+    "cocktail":"Dark \u2018n\u2019 Stormy",
+    "recipe1":"2 oz dark rum, 4 oz ginger beer, 0.5 oz lime juice",
+    "recipe2":"Build over ice in a highball glass and garnish with lime.",
+    "baseSpirit":"Rum"
+  },
+  {
+    "cocktail":"Rum Punch",
+    "recipe1":"1.5 oz dark rum, 1.5 oz light rum, 1 oz orange juice, 1 oz pineapple juice, 0.25 oz grenadine",
+    "recipe2":"Shake with ice, strain into a hurricane glass with ice, and garnish with an orange slice and cherry.",
+    "baseSpirit":"Rum"
+  },
+  {
+    "cocktail":"Hemingway Daiquiri",
+    "recipe1":"2 oz white rum, 0.75 oz grapefruit juice, 0.5 oz lime juice, 0.5 oz maraschino liqueur",
+    "recipe2":"Shake with ice, strain into a coupe glass, and garnish with lime.",
+    "baseSpirit":"Rum"
+  },
+  {
+    "cocktail":"Rum Sour",
+    "recipe1":"2 oz aged rum, 0.75 oz lemon juice, 0.5 oz simple syrup, optional egg white",
+    "recipe2":"Shake (dry first if using egg white), strain into a coupe glass, and garnish with a lemon twist.",
+    "baseSpirit":"Rum"
+  },
+  {
+    "cocktail":"Planter\u2019s Punch",
+    "recipe1":"2 oz dark rum, 1 oz lime juice, 0.5 oz simple syrup, 2 dashes Angostura bitters",
+    "recipe2":"Shake with ice, strain into a highball glass, and garnish with an orange slice and cherry.",
+    "baseSpirit":"Rum"
+  },
+  {
+    "cocktail":"Jungle Bird",
+    "recipe1":"1.5 oz dark rum, 0.75 oz Campari, 0.5 oz lime juice, 0.5 oz simple syrup, 1.5 oz pineapple juice",
+    "recipe2":"Shake with ice, strain into a rocks glass with ice, and garnish with pineapple or lime.",
+    "baseSpirit":"Rum"
+  },
+  {
+    "cocktail":"Zombie",
+    "recipe1":"1 oz light rum, 1 oz dark rum, 1 oz overproof rum, 0.5 oz lime juice, 0.5 oz grapefruit juice, 0.5 oz cinnamon syrup, 0.25 oz grenadine",
+    "recipe2":"Shake with ice, strain into a tiki or hurricane glass, and garnish with mint and cherry.",
+    "baseSpirit":"Rum"
+  },
+  {
+    "cocktail":"Scorpion",
+    "recipe1":"1 oz light rum, 1 oz brandy, 0.75 oz lime juice, 0.5 oz orange juice, 0.5 oz orgeat",
+    "recipe2":"Shake with ice, strain into a tiki mug or rocks glass with ice, and garnish with orange and cherry.",
+    "baseSpirit":"Rum"
+  },
+  {
+    "cocktail":"Navy Grog",
+    "recipe1":"1 oz white rum, 1 oz dark rum, 1 oz demerara rum, 0.75 oz lime juice, 0.75 oz grapefruit juice, 0.5 oz honey syrup",
+    "recipe2":"Shake with ice, strain into a rocks glass with crushed ice, and garnish with mint.",
+    "baseSpirit":"Rum"
+  },
+  {
+    "cocktail":"El Presidente",
+    "recipe1":"1.5 oz white rum, 0.75 oz dry vermouth, 0.25 oz orange cura\u00e7ao, 1 dash grenadine",
+    "recipe2":"Stir with ice, strain into a coupe glass, and garnish with an orange twist.",
+    "baseSpirit":"Rum"
+  },
+  {
+    "cocktail":"Ti\u2019 Punch",
+    "recipe1":"2 oz rhum agricole, 0.25 oz cane syrup, lime coin",
+    "recipe2":"Stir with ice in a rocks glass and garnish with the lime coin.",
+    "baseSpirit":"Rum"
+  },
+  {
+    "cocktail":"Hot Buttered Rum",
+    "recipe1":"2 oz dark rum, 1 tbsp spiced butter batter, 4 oz hot water",
+    "recipe2":"Build in a mug, stir to dissolve the batter, and garnish with a cinnamon stick.",
+    "baseSpirit":"Rum"
+  },
+  {
+    "cocktail":"Frozen Daiquiri",
+    "recipe1":"2 oz white rum, 1 oz lime juice, 0.75 oz simple syrup, 1 cup crushed ice",
+    "recipe2":"Blend all ingredients until smooth and serve in a coupe or specialty glass.",
+    "baseSpirit":"Rum"
+  },
+  {
+    "cocktail":"Kingston Negroni",
+    "recipe1":"1 oz Jamaican rum, 1 oz Campari, 1 oz sweet vermouth",
+    "recipe2":"Stir with ice, strain into a rocks glass over ice, and garnish with orange peel.",
+    "baseSpirit":"Rum"
+  },
+  {
+    "cocktail":"Bacardi Cocktail",
+    "recipe1":"1.5 oz Bacardi rum, 0.75 oz lime juice, 0.5 oz grenadine",
+    "recipe2":"Shake with ice, strain into a coupe glass, and garnish with lime.",
+    "baseSpirit":"Rum"
+  },
+  {
+    "cocktail":"Margarita",
+    "recipe1":"2 oz tequila, 1 oz lime juice, 0.75 oz triple sec or Cointreau",
+    "recipe2":"Shake with ice, strain into a rocks glass with a salted rim, and garnish with a lime wheel.",
+    "baseSpirit":"Tequila"
+  },
+  {
+    "cocktail":"Tequila Sunrise",
+    "recipe1":"2 oz tequila, 4 oz orange juice, 0.5 oz grenadine",
+    "recipe2":"Build tequila and orange juice over ice in a highball glass, slowly pour grenadine to sink, and garnish with an orange slice and cherry.",
+    "baseSpirit":"Tequila"
+  },
+  {
+    "cocktail":"Paloma",
+    "recipe1":"2 oz tequila, 0.5 oz lime juice, pinch of salt, top with grapefruit soda",
+    "recipe2":"Build over ice in a highball glass and garnish with a lime wedge.",
+    "baseSpirit":"Tequila"
+  },
+  {
+    "cocktail":"Ranch Water",
+    "recipe1":"2 oz tequila, 0.5 oz lime juice, top with Topo Chico or sparkling water",
+    "recipe2":"Build over ice in a highball glass and garnish with lime.",
+    "baseSpirit":"Tequila"
+  },
+  {
+    "cocktail":"Tequila Mule",
+    "recipe1":"2 oz tequila, 0.5 oz lime juice, 4 oz ginger beer",
+    "recipe2":"Build in a copper mug over ice and garnish with lime and mint.",
+    "baseSpirit":"Tequila"
+  },
+  {
+    "cocktail":"Matador",
+    "recipe1":"2 oz tequila, 1 oz pineapple juice, 0.5 oz lime juice",
+    "recipe2":"Shake with ice, strain into a cocktail glass, and garnish with lime.",
+    "baseSpirit":"Tequila"
+  },
+  {
+    "cocktail":"Bloody Maria",
+    "recipe1":"2 oz tequila, 4 oz tomato juice, 0.5 oz lime juice, 2 dashes Worcestershire, 2 dashes hot sauce, salt and pepper",
+    "recipe2":"Build over ice in a pint glass, stir gently, and garnish with celery and lime.",
+    "baseSpirit":"Tequila"
+  },
+  {
+    "cocktail":"El Diablo",
+    "recipe1":"2 oz tequila, 0.5 oz cr\u00e8me de cassis, 0.5 oz lime juice, top with ginger beer",
+    "recipe2":"Build over ice in a highball glass and garnish with a lime wedge.",
+    "baseSpirit":"Tequila"
+  },
+  {
+    "cocktail":"Tequila Sour",
+    "recipe1":"2 oz tequila, 0.75 oz lemon juice, 0.5 oz simple syrup, optional egg white",
+    "recipe2":"Shake (dry first if using egg white), strain into a coupe glass, and garnish with a lemon twist.",
+    "baseSpirit":"Tequila"
+  },
+  {
+    "cocktail":"Tequila Collins",
+    "recipe1":"2 oz tequila, 1 oz lemon juice, 0.5 oz simple syrup, top with club soda",
+    "recipe2":"Shake first three ingredients with ice, strain into a Collins glass, and top with soda and lemon.",
+    "baseSpirit":"Tequila"
+  },
+  {
+    "cocktail":"Spicy Margarita",
+    "recipe1":"2 oz tequila, 1 oz lime juice, 0.75 oz triple sec, 2\u20133 jalape\u00f1o slices",
+    "recipe2":"Muddle jalape\u00f1o, shake all ingredients with ice, strain into a rocks glass, and garnish with lime.",
+    "baseSpirit":"Tequila"
+  },
+  {
+    "cocktail":"Tequila Negroni",
+    "recipe1":"1 oz tequila, 1 oz Campari, 1 oz sweet vermouth",
+    "recipe2":"Stir with ice, strain into a rocks glass, and garnish with orange peel.",
+    "baseSpirit":"Tequila"
+  },
+  {
+    "cocktail":"Tequila Smash",
+    "recipe1":"2 oz tequila, 1 oz lime juice, 0.75 oz simple syrup, handful of mint or basil",
+    "recipe2":"Muddle herbs, shake with other ingredients and ice, strain into a rocks glass, and garnish with herbs.",
+    "baseSpirit":"Tequila"
+  },
+  {
+    "cocktail":"Oaxacan Old Fashioned",
+    "recipe1":"1.5 oz reposado tequila, 0.5 oz mezcal, 1 tsp agave syrup, 2 dashes Angostura bitters",
+    "recipe2":"Stir with ice, strain into a rocks glass, and garnish with orange twist.",
+    "baseSpirit":"Tequila"
+  },
+  {
+    "cocktail":"Rosita",
+    "recipe1":"1.5 oz tequila, 0.5 oz sweet vermouth, 0.5 oz dry vermouth, 0.5 oz Campari, dash Angostura bitters",
+    "recipe2":"Stir with ice, strain into a rocks glass, and garnish with a grapefruit twist.",
+    "baseSpirit":"Tequila"
+  },
+  {
+    "cocktail":"Batanga",
+    "recipe1":"2 oz tequila, 0.5 oz lime juice, top with cola",
+    "recipe2":"Build over ice in a highball glass and stir with a salted rim.",
+    "baseSpirit":"Tequila"
+  },
+  {
+    "cocktail":"Tequila Mojito",
+    "recipe1":"2 oz tequila, 0.75 oz lime juice, 0.5 oz simple syrup, 6 mint leaves, top with soda",
+    "recipe2":"Muddle mint, shake with tequila, lime, and syrup, strain into a highball glass, and top with soda.",
+    "baseSpirit":"Tequila"
+  },
+  {
+    "cocktail":"Tequila Highball",
+    "recipe1":"2 oz tequila, top with soda water",
+    "recipe2":"Build over ice in a highball glass and garnish with a grapefruit or lime wedge.",
+    "baseSpirit":"Tequila"
+  },
+  {
+    "cocktail":"Pepino Margarita",
+    "recipe1":"2 oz tequila, 0.75 oz lime juice, 0.5 oz agave syrup, 3 cucumber slices",
+    "recipe2":"Muddle cucumber, shake with remaining ingredients and ice, strain into a rocks glass, and garnish with cucumber wheel.",
+    "baseSpirit":"Tequila"
+  },
+  {
+    "cocktail":"Cantarito",
+    "recipe1":"2 oz tequila, 1 oz lime juice, 1 oz orange juice, 1 oz grapefruit juice, pinch of salt, top with grapefruit soda",
+    "recipe2":"Build in a clay cup or highball glass over ice and garnish with citrus slices.",
+    "baseSpirit":"Tequila"
+  },
+  {
+    "cocktail":"Old Fashioned",
+    "recipe1":"2 oz bourbon or rye, 1 sugar cube, 2 dashes Angostura bitters, splash of water",
+    "recipe2":"Muddle sugar, bitters, and water in a rocks glass, add whiskey and ice, and stir with an orange peel garnish.",
+    "baseSpirit":"Whiskey"
+  },
+  {
+    "cocktail":"Whiskey Sour",
+    "recipe1":"2 oz bourbon, 0.75 oz lemon juice, 0.5 oz simple syrup, optional egg white",
+    "recipe2":"Shake (dry first if using egg), strain into a rocks or coupe glass, and garnish with a cherry or lemon twist.",
+    "baseSpirit":"Whiskey"
+  },
+  {
+    "cocktail":"Manhattan",
+    "recipe1":"2 oz rye whiskey, 1 oz sweet vermouth, 2 dashes Angostura bitters",
+    "recipe2":"Stir with ice, strain into a coupe glass, and garnish with a cherry.",
+    "baseSpirit":"Whiskey"
+  },
+  {
+    "cocktail":"Mint Julep",
+    "recipe1":"2 oz bourbon, 0.5 oz simple syrup, 8\u201310 mint leaves",
+    "recipe2":"Muddle mint and syrup in a julep cup, add crushed ice and bourbon, and garnish with a mint bouquet.",
+    "baseSpirit":"Whiskey"
+  },
+  {
+    "cocktail":"Boulevardier",
+    "recipe1":"1 oz bourbon or rye, 1 oz Campari, 1 oz sweet vermouth",
+    "recipe2":"Stir with ice, strain into a rocks or coupe glass, and garnish with an orange twist.",
+    "baseSpirit":"Whiskey"
+  },
+  {
+    "cocktail":"Sazerac",
+    "recipe1":"2 oz rye whiskey, 1 sugar cube, 2 dashes Peychaud\u2019s bitters, absinthe rinse",
+    "recipe2":"Muddle sugar and bitters, add whiskey and ice, stir, strain into an absinthe-rinsed rocks glass, and garnish with lemon peel.",
+    "baseSpirit":"Whiskey"
+  },
+  {
+    "cocktail":"Irish Coffee",
+    "recipe1":"1.5 oz Irish whiskey, 4 oz hot coffee, 0.5 oz demerara syrup, whipped cream",
+    "recipe2":"Build in a warm mug, stir, and float whipped cream on top.",
+    "baseSpirit":"Whiskey"
+  },
+  {
+    "cocktail":"Rob Roy",
+    "recipe1":"2 oz Scotch whisky, 1 oz sweet vermouth, 2 dashes Angostura bitters",
+    "recipe2":"Stir with ice, strain into a coupe glass, and garnish with a cherry.",
+    "baseSpirit":"Whiskey"
+  },
+  {
+    "cocktail":"Penicillin",
+    "recipe1":"2 oz blended Scotch, 0.75 oz lemon juice, 0.75 oz honey-ginger syrup, 0.25 oz Islay Scotch",
+    "recipe2":"Shake and strain into a rocks glass with ice, float the Islay Scotch, and garnish with candied ginger.",
+    "baseSpirit":"Whiskey"
+  },
+  {
+    "cocktail":"Gold Rush",
+    "recipe1":"2 oz bourbon, 0.75 oz lemon juice, 0.75 oz honey syrup",
+    "recipe2":"Shake with ice, strain into a rocks glass, and serve over ice.",
+    "baseSpirit":"Whiskey"
+  },
+  {
+    "cocktail":"Brown Derby",
+    "recipe1":"1.5 oz bourbon, 1 oz grapefruit juice, 0.5 oz honey syrup",
+    "recipe2":"Shake with ice, strain into a coupe glass, and garnish with a grapefruit twist.",
+    "baseSpirit":"Whiskey"
+  },
+  {
+    "cocktail":"New York Sour",
+    "recipe1":"2 oz rye or bourbon, 0.75 oz lemon juice, 0.5 oz simple syrup, 0.5 oz red wine",
+    "recipe2":"Shake whiskey, lemon, and syrup with ice, strain into a rocks glass, and float red wine on top.",
+    "baseSpirit":"Whiskey"
+  },
+  {
+    "cocktail":"Paper Plane",
+    "recipe1":"0.75 oz bourbon, 0.75 oz Aperol, 0.75 oz Amaro Nonino, 0.75 oz lemon juice",
+    "recipe2":"Shake with ice, strain into a coupe glass, and garnish with a lemon twist.",
+    "baseSpirit":"Whiskey"
+  },
+  {
+    "cocktail":"Rusty Nail",
+    "recipe1":"1.5 oz Scotch, 0.75 oz Drambuie",
+    "recipe2":"Build in a rocks glass over ice and stir gently.",
+    "baseSpirit":"Whiskey"
+  },
+  {
+    "cocktail":"Whiskey Smash",
+    "recipe1":"2 oz bourbon, 0.75 oz lemon juice, 0.5 oz simple syrup, 4\u20136 mint leaves",
+    "recipe2":"Muddle mint and lemon, shake with whiskey and ice, strain into a rocks glass, and garnish with mint.",
+    "baseSpirit":"Whiskey"
+  },
+  {
+    "cocktail":"John Collins",
+    "recipe1":"2 oz bourbon or rye, 1 oz lemon juice, 0.5 oz simple syrup, top with soda",
+    "recipe2":"Shake with ice, strain into a Collins glass with ice, and top with soda and lemon wedge.",
+    "baseSpirit":"Whiskey"
+  },
+  {
+    "cocktail":"Godfather",
+    "recipe1":"1.5 oz Scotch, 0.5 oz amaretto",
+    "recipe2":"Build in a rocks glass over ice and stir gently.",
+    "baseSpirit":"Whiskey"
+  },
+  {
+    "cocktail":"Brooklyn",
+    "recipe1":"2 oz rye, 0.75 oz dry vermouth, 0.25 oz maraschino liqueur, 0.25 oz Amer Picon or Amaro",
+    "recipe2":"Stir with ice, strain into a coupe glass, and garnish with a cherry or orange twist.",
+    "baseSpirit":"Whiskey"
+  },
+  {
+    "cocktail":"Algonquin",
+    "recipe1":"1.5 oz rye, 0.75 oz dry vermouth, 0.75 oz pineapple juice",
+    "recipe2":"Shake with ice, strain into a coupe glass, and serve up.",
+    "baseSpirit":"Whiskey"
+  },
+  {
+    "cocktail":"Man o\u2019 War",
+    "recipe1":"2 oz bourbon, 0.5 oz Cointreau, 0.5 oz sweet vermouth, 0.5 oz lemon juice",
+    "recipe2":"Shake with ice, strain into a coupe glass, and garnish with cherry or lemon peel.",
+    "baseSpirit":"Whiskey"
+  },
+  {
+    "cocktail":"B-52",
+    "recipe1":"0.5 oz Kahl\u00faa, 0.5 oz Baileys Irish Cream, 0.5 oz Grand Marnier",
+    "recipe2":"Layer ingredients carefully in order in a shot glass and serve without garnish.",
+    "baseSpirit":"More"
+  },
+  {
+    "cocktail":"Mudslide",
+    "recipe1":"1 oz vodka, 1 oz Kahl\u00faa, 1 oz Baileys Irish Cream",
+    "recipe2":"Shake with ice, strain into a rocks glass with ice, and garnish with chocolate shavings or syrup.",
+    "baseSpirit":"More"
+  },
+  {
+    "cocktail":"White Russian",
+    "recipe1":"2 oz vodka, 1 oz Kahl\u00faa, 1 oz heavy cream",
+    "recipe2":"Build over ice in a rocks glass and stir gently.",
+    "baseSpirit":"More"
+  },
+  {
+    "cocktail":"Black Russian",
+    "recipe1":"2 oz vodka, 1 oz Kahl\u00faa",
+    "recipe2":"Build over ice in a rocks glass and stir gently.",
+    "baseSpirit":"More"
+  },
+  {
+    "cocktail":"Espresso Martini",
+    "recipe1":"2 oz vodka, 0.5 oz Kahl\u00faa, 1 oz fresh espresso",
+    "recipe2":"Shake with ice, strain into a chilled coupe glass, and garnish with 3 coffee beans.",
+    "baseSpirit":"More"
+  },
+  {
+    "cocktail":"Amaretto Sour",
+    "recipe1":"2 oz amaretto, 0.75 oz lemon juice, 0.25 oz simple syrup",
+    "recipe2":"Shake with ice, strain into a rocks glass, and garnish with a cherry and lemon wheel.",
+    "baseSpirit":"More"
+  },
+  {
+    "cocktail":"Godmother",
+    "recipe1":"1.5 oz vodka, 0.5 oz amaretto",
+    "recipe2":"Build in a rocks glass with ice and stir gently.",
+    "baseSpirit":"More"
+  },
+  {
+    "cocktail":"Rusty Nail",
+    "recipe1":"1.5 oz Scotch, 0.75 oz Drambuie",
+    "recipe2":"Build over ice in a rocks glass and stir gently.",
+    "baseSpirit":"More"
+  },
+  {
+    "cocktail":"Harvey Wallbanger",
+    "recipe1":"1.5 oz vodka, 3 oz orange juice, 0.5 oz Galliano",
+    "recipe2":"Build vodka and orange juice in a highball glass, float Galliano on top, and garnish with an orange slice.",
+    "baseSpirit":"More"
+  },
+  {
+    "cocktail":"Nutty Russian",
+    "recipe1":"1 oz Frangelico, 1 oz vodka, 1 oz cream",
+    "recipe2":"Shake with ice, strain into a rocks glass with ice, and garnish with grated nutmeg.",
+    "baseSpirit":"More"
+  },
+  {
+    "cocktail":"Stinger",
+    "recipe1":"2 oz Cognac, 0.75 oz white cr\u00e8me de menthe",
+    "recipe2":"Shake with ice, strain into a rocks glass or coupe, and serve without garnish.",
+    "baseSpirit":"More"
+  },
+  {
+    "cocktail":"Grasshopper",
+    "recipe1":"1 oz green cr\u00e8me de menthe, 1 oz white cr\u00e8me de cacao, 1 oz cream",
+    "recipe2":"Shake with ice, strain into a chilled coupe glass, and garnish with mint or chocolate.",
+    "baseSpirit":"More"
+  },
+  {
+    "cocktail":"Golden Cadillac",
+    "recipe1":"1 oz Galliano, 1 oz white cr\u00e8me de cacao, 1 oz cream",
+    "recipe2":"Shake with ice, strain into a chilled cocktail glass, and serve up.",
+    "baseSpirit":"More"
+  },
+  {
+    "cocktail":"Sidecar",
+    "recipe1":"2 oz Cognac, 1 oz orange liqueur (Cointreau), 0.75 oz lemon juice",
+    "recipe2":"Shake with ice, strain into a coupe glass with a sugared rim, and garnish with orange peel.",
+    "baseSpirit":"More"
+  },
+  {
+    "cocktail":"Between the Sheets",
+    "recipe1":"1 oz Cognac, 1 oz rum, 1 oz Cointreau, 0.75 oz lemon juice",
+    "recipe2":"Shake with ice, strain into a coupe glass, and garnish with a lemon twist.",
+    "baseSpirit":"More"
+  },
+  {
+    "cocktail":"French Connection",
+    "recipe1":"1.5 oz Cognac, 0.75 oz amaretto",
+    "recipe2":"Build over ice in a rocks glass and stir gently.",
+    "baseSpirit":"More"
+  },
+  {
+    "cocktail":"Midori Sour",
+    "recipe1":"2 oz Midori, 1 oz lemon juice, 0.5 oz simple syrup",
+    "recipe2":"Shake with ice, strain into a rocks glass, and garnish with a cherry or lemon wheel.",
+    "baseSpirit":"More"
+  },
+  {
+    "cocktail":"Baileys White Russian",
+    "recipe1":"1 oz vodka, 1 oz Kahl\u00faa, 1 oz Baileys Irish Cream",
+    "recipe2":"Build over ice in a rocks glass and stir gently.",
+    "baseSpirit":"More"
+  },
+  {
+    "cocktail":"Borghetti Martini",
+    "recipe1":"1 oz Caff\u00e8 Borghetti, 1 oz vodka, 1 oz espresso",
+    "recipe2":"Shake with ice, strain into a chilled martini glass, and garnish with coffee beans.",
+    "baseSpirit":"More"
+  },
+  {
+    "cocktail":"Sambuca Coffee Shot",
+    "recipe1":"1.5 oz Sambuca, 3 coffee beans",
+    "recipe2":"Serve Sambuca in a shot glass with 3 coffee beans as garnish.",
+    "baseSpirit":"More"
+  }
+]

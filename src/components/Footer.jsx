@@ -1,33 +1,50 @@
-// 📄 FILE: src/components/Footer.jsx
+// 📄 FILE: src/components/MobileNav.jsx
+// 🧠 PURPOSE: Persistent bottom navigation bar for mobile users, matching your mockup.
+//             Contains 4 main navigation buttons/icons. (Icons are text for now.)
+
 import React from "react";
-import { Link } from "react-router-dom";
-import "../styles/Footer.css";
-import logo from "../assets/logo.png";
+import "../styles/MobileNav.css"; // Import CSS for MobileNav
+import { useNavigate, useLocation } from "react-router-dom";
 
-export default function Footer() {
+// Array of nav items, could be expanded later with icons
+const navItems = [
+  { label: "Home", path: "/" },
+  { label: "Terminology", path: "/terminology" },                       
+  { label: "Wine", path: "/wine-recommendations" },               // Now functional!
+  { label: "Cocktails", path: "/cocktails" },                    // New cocktails page!
+  { label: "About", path: "/about" },                             // Functional!
+];
+
+export default function MobileNav() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Home, Wine, and About buttons are functional for MVP
+  // Other paths will not be recognized by router yet, but we wire them up for design
+
   return (
-    <footer className="site-footer">
-      <div className="footer-inner">
-        <div className="footer-logo">
-          <img src={logo} alt="" />
-        </div>
-
-        <nav className="footer-links" aria-label="Footer">
-          <Link to="/">Home</Link>
-          <span className="dot">•</span>
-          <Link to="/terminology">Terminology</Link>
-          <span className="dot">•</span>
-          <Link to="/wine-recommendations">Wine Recommendations</Link>
-          <span className="dot">•</span>
-          <Link to="/about">About</Link>
-        </nav>
-
-        <div className="footer-copy">
-          &copy; 2025{" "}
-          <a href="mailto:derekengles@gmail.com">Derek Engles</a> – All Rights
-          Reserved
-        </div>
-      </div>
-    </footer>
+    <nav className="mobile-nav" role="navigation" aria-label="Main mobile navigation">
+      {navItems.map((item, idx) => (
+        <button
+          key={item.label}
+          className={`nav-btn${location.pathname === item.path ? " active" : ""}`}
+          onClick={() => {
+            if (item.path === "/" || item.path === "/about" || item.path === "/wine-recommendations" || item.path === "/terminology" || item.path === "/cocktails") {
+              navigate(item.path);
+            }
+            // Other buttons (Guides) still do nothing for now
+          }}
+          type="button"
+        >
+          {/* Temporary text icons. Replace with SVG or icon font if desired. */}
+          {item.label === "Home" && <span role="img" aria-label="Home">🏠</span>}
+          {item.label === "Terminology" && <span role="img" aria-label="Terminology">📚</span>}
+          {item.label === "Wine" && <span role="img" aria-label="Wine">🍷</span>}
+          {item.label === "Cocktails" && <span role="img" aria-label="Cocktails">🍸</span>}
+          {item.label === "About" && <span role="img" aria-label="About">ℹ️</span>}
+          <div className="nav-label">{item.label}</div>
+        </button>
+      ))}
+    </nav>
   );
 }
