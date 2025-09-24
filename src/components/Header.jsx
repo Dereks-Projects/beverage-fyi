@@ -1,6 +1,6 @@
 // 📄 FILE: src/components/Header.jsx
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../styles/Header.css";
 
 export default function Header() {
@@ -57,7 +57,19 @@ export default function Header() {
   return (
     <header className="header">
       <h1 className="header-title">Beverage.fyi</h1>
-      <h2 className="header-subtitle">Professional Beverage Resource</h2>
+      
+      {/* Desktop Navigation - moved between title and search */}
+      <nav className="header-nav">
+        <Link to="/">Home</Link>
+        <span className="nav-separator">|</span>
+        <Link to="/terminology">Terminology</Link>
+        <span className="nav-separator">|</span>
+        <Link to="/wine-recommendations">Wine</Link>
+        <span className="nav-separator">|</span>
+        <Link to="/cocktails">Cocktails</Link>
+        <span className="nav-separator">|</span>
+        <Link to="/about">About</Link>
+      </nav>
 
       <div className="header-searchbar">
         <div className="search-wrapper">

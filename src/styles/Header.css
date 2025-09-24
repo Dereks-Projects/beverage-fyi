@@ -8,21 +8,12 @@
   text-align: center;
 }
 
-/* Title styling - consistent weight */
+/* Title styling */
 .header-title {
   font-size: 2.1rem;
   margin: 0;
   font-weight: 700; 
-  margin-bottom: -.5rem;
-}
-
-/* Subtitle styling */
-.header-subtitle {
-  font-size: .9rem;
-  font-weight: 400;
-  margin-top: 0.6rem;
-  margin-bottom: 1rem;
-  color: #d0d0d0;
+  margin-bottom: 1rem; /* Space before search on mobile */
 }
 
 /* Search bar container */
@@ -56,7 +47,6 @@
   font-size: 1rem;
   flex: 1;
   background: transparent;
-  /* Font family inherited */
 }
 
 /* Dropdown result list */
@@ -90,36 +80,50 @@
   background-color: #f2f2f2;
 }
 
+/* === DESKTOP NAVIGATION - Hidden on mobile === */
+.header-nav {
+  display: none;
+}
+
 /* ===== DESKTOP OVERRIDES ===== */
 @media (min-width: 1024px) {
   .header {
-    padding: 2.5rem 1rem 3rem 1rem;
+    padding: 2rem 1rem 2.5rem 1rem;
   }
   
-  /* Larger title on desktop but keep it bold */
+  /* Larger title on desktop */
   .header-title {
     font-size: 3.2rem;
-    font-weight: 700; /* Keep consistent with mobile */
-    text-transform: none; /* Remove the lowercase transform */
+    font-weight: 700;
     letter-spacing: -0.5px;
+    margin-bottom: 10px; /* Space before navigation */
   }
   
-  /* Optional: If you want the special casing on desktop only */
-  /* Uncomment these lines:
-  .header-title {
-    text-transform: lowercase;
-    font-weight: 400;
+  /* === DESKTOP NAVIGATION VISIBLE === */
+  .header-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 20px; /* Space before search */
   }
-  .header-title::first-letter {
-    text-transform: uppercase;
-  }
-  */
   
-  .header-subtitle {
-    font-size: 1.25rem;
-    margin-top: 8px;
-    margin-bottom: 24px;
-    opacity: 0.92;
+  .header-nav a {
+    color: #d0d0d0; /* Light gray */
+    text-decoration: none;
+    transition: text-decoration 0.2s ease;
+  }
+  
+  .header-nav a:hover,
+  .header-nav a:active {
+    text-decoration: underline;
+  }
+  
+  .nav-separator {
+    color: #808080;
+    user-select: none;
   }
   
   /* Constrain search bar width on desktop */
