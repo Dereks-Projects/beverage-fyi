@@ -79,7 +79,7 @@ export default function HomePage() {
                 height="100%" 
                 frameBorder="0"
                 allow="fullscreen; picture-in-picture"
-                allowFullScreen
+                
               ></iframe>
             </div>
           </div>

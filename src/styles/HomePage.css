@@ -41,7 +41,7 @@
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .hero-brand-logo {
@@ -52,7 +52,7 @@
 
 .hero-brand-title {
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 500;
   color: white;
 }
 
@@ -98,20 +98,20 @@
 }
 
 .hero-button-primary {
-  background: #FFB800;
+  background: #FFE476;
   color: #1a1a1a;
-  border-color: #FFB800;
+  border-color: #FFE476;
 }
 
 .hero-button-primary:hover {
-  background: #FFB800;
-  border-color: #FFB800;
+  background: #ffd634;
+  border-color: #FFE476;
 }
 
 .hero-button-secondary {
   background: transparent;
   color: white;
-  border-color: #F4B183;
+  border-color: #ffc476;
 }
 
 .hero-button-secondary:hover {
