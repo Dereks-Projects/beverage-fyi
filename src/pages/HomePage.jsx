@@ -1,52 +1,95 @@
 // 📄 FILE: src/pages/HomePage.jsx
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/HomePage.css";
 
 export default function HomePage() {
   const navigate = useNavigate();
-
-  const scrollToSection2 = () => {
-    document.getElementById('section2').scrollIntoView({ behavior: 'smooth' });
-  };
+  const vimeoRef = useRef(null);
 
   const scrollToStats = () => {
     document.getElementById('stats').scrollIntoView({ behavior: 'smooth' });
   };
 
+  useEffect(() => {
+    // Create Vimeo iframe with autoplay
+    if (vimeoRef.current) {
+      const iframe = document.createElement('iframe');
+      iframe.src = "https://player.vimeo.com/video/1124882783?h=c083a41084&autoplay=1&loop=1&muted=1&background=1";
+      iframe.width = "100%";
+      iframe.height = "100%";
+      iframe.frameBorder = "0";
+      iframe.allow = "autoplay; fullscreen; picture-in-picture";
+      iframe.style.position = "absolute";
+      iframe.style.top = "0";
+      iframe.style.left = "0";
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      
+      vimeoRef.current.appendChild(iframe);
+    }
+  }, []);
+
   return (
     <div className="homepage">
       {/* SECTION 1 - Hero Section */}
       <section className="hero-section">
-        <div className="hero-content">
-          <img src="/beverage-logo-white.svg" alt="Beverage.fyi Logo" className="hero-logo" />
-          <h1 className="hero-title">
-            <span className="hero-title-small">Welcome to</span>
-            <span className="hero-title-main"> Beverage.fyi</span>
-          </h1>
-          <h3 className="hero-subtitle">A dedicated resource for beverage professionals & enthusiasts.</h3>
-          
-          <div className="hero-buttons">
-            <button 
-              className="btn-primary"
-              onClick={() => navigate('/terminology')}
-            >
-              Enter the Site
-            </button>
-            <button 
-              className="btn-secondary"
-              onClick={scrollToStats}
-            >
-              Learn More
-            </button>
+        <div className="hero-container">
+          <div className="hero-content-wrapper">
+            {/* Logo and Site Title */}
+            <div className="hero-brand">
+              <img src="/beverage-logo-landingpage.svg" alt="Beverage.fyi" className="hero-brand-logo" />
+              <span className="hero-brand-title">Beverage.fyi</span>
+            </div>
+
+            {/* Main Title */}
+            <h1 className="hero-main-title">
+              We take your beverage knowledge to new heights.
+            </h1>
+
+            {/* Description Paragraph */}
+            <p className="hero-description">
+              Beverage.fyi is a learning portal that covers the entire world of beverages. 
+              From key terms to wine pairing to cocktail recommendations, we have you covered.
+            </p>
+
+            {/* Action Buttons */}
+            <div className="hero-actions">
+              <button 
+                className="hero-button hero-button-primary"
+                onClick={scrollToStats}
+              >
+                Learn More
+              </button>
+              <button 
+                className="hero-button hero-button-secondary"
+                onClick={() => navigate('/terminology')}
+              >
+                Explore the Site
+              </button>
+            </div>
+
+            {/* Video Player - Mobile Position */}
+            <div className="hero-video-mobile">
+              <div className="hero-video-wrapper" ref={vimeoRef}></div>
+            </div>
+
+            {/* Tagline - Mobile Only */}
+            <p className="hero-tagline">
+              This site is best paired with The Beverage Compass, available on Amazon Kindle. 
+              Scroll down to learn more about this powerful book & web application combo.
+            </p>
           </div>
-          <p className="scroll-hint">
-            Scroll down for more about our book, <br/> <span className="book-name">The Beverage Compass</span>.
-          </p>
+
+          {/* Video Player - Desktop Position */}
+          <div className="hero-video-desktop">
+            <div className="hero-video-wrapper" ref={vimeoRef}></div>
+          </div>
         </div>
       </section>
 
-      {/* NEW SECTION - Stats/Impact Section */}
+      {/* REST OF YOUR SECTIONS REMAIN UNCHANGED */}
+      {/* Stats Section */}
       <section id="stats" className="stats-section">
         <div className="section-container">
           <div className="stats-header">
@@ -86,7 +129,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SECTION 2 - Book Section */}
+      {/* Book Section */}
       <section id="section2" className="book-section">
         <div className="section-container">
           <div className="book-content">
@@ -121,7 +164,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SECTION 3 - About Section */}
+      {/* About Section */}
       <section className="about-section">
         <div className="section-container">
           <div className="about-content">
@@ -158,7 +201,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FOOTER */}
+      {/* Footer */}
       <footer className="homepage-footer">
         <a href="/about" className="footer-link">
           Copyright 2025 · All Rights Reserved

@@ -2,10 +2,8 @@
 
 /* ============================================================
    MOBILE STYLES (DEFAULT - MOBILE FIRST APPROACH)
-   All base styles apply to mobile devices by default
    ============================================================ */
 
-/* GENERAL CONTAINER */
 .homepage {
   width: 100%;
   overflow-x: hidden;
@@ -17,7 +15,7 @@
    ======================== */
 .hero-section {
   min-height: 100vh;
-  background-image: url('/beverage-background-mobile.png');  /* Mobile-specific image */
+  background-image: url('/beverage-background-mobile.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -25,82 +23,136 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  padding: 60px 20px;
 }
 
-.hero-content {
-  text-align: center;
-  color: white;
-  max-width: 900px;
+.hero-container {
   width: 100%;
-  margin-top: -9rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.hero-logo {
-  width: 100px;
-  height: 100px;
-  margin-top: -1rem;
-  margin-bottom: 0px;
+.hero-content-wrapper {
+  width: 100%;
 }
 
-.hero-title {
-  font-size: 44px;
-  font-weight: bold;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  letter-spacing: 1px;
-  line-height: 1.25;
-}
-
-/* Split title styling for mobile ONLY */
-.hero-title-small {
-  display: block;
-  font-size: 32px;
-  font-weight: normal;
-  margin-bottom: 5px;
-}
-
-.hero-title-main {
-  display: block;
-  font-size: 44px;
-  font-weight: bold;
-}
-
-.hero-subtitle {
-  font-size: 18px;
-  font-weight: normal;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  line-height: 1.5;
-}
-
-.hero-tagline {
-  font-style: italic;
-  font-size: 18px;
-  margin-top: 1.5rem;
-  margin-bottom: 2rem;
-  opacity: 0.95;
-}
-
-.hero-buttons {
+/* Logo and Site Title */
+.hero-brand {
   display: flex;
+  align-items: center;
   gap: 15px;
-  justify-content: center;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
-.scroll-hint {
-  font-size: 14px;
-  opacity: 0.9;
+.hero-brand-logo {
+  width: 40px;
+  height: 40px;
 }
 
-.book-name {
-  font-style: italic;
+.hero-brand-title {
+  font-size: 24px;
   font-weight: 600;
+  color: white;
+}
+
+/* Main Title */
+.hero-main-title {
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: white;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Description */
+.hero-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 30px;
+  text-align: left;
+  max-width: 500px;
+}
+
+/* Action Buttons */
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+  align-items: flex-start;
+}
+
+.hero-button {
+  width: 340px;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  border: 2px solid;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.hero-button-primary {
+  background: #F4B183;
+  color: #1a1a1a;
+  border-color: #F4B183;
+}
+
+.hero-button-primary:hover {
+  background: #E89A6C;
+  border-color: #E89A6C;
+}
+
+.hero-button-secondary {
+  background: transparent;
+  color: white;
+  border-color: #F4B183;
+}
+
+.hero-button-secondary:hover {
+  background: rgba(244, 177, 131, 0.1);
+}
+
+/* Video Player - Mobile */
+.hero-video-mobile {
+  width: 100%;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hero-video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.hero-video-desktop {
+  display: none;
+}
+
+/* Tagline */
+.hero-tagline {
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: left;
+  margin-top: 20px;
 }
 
 /* ========================
-   STATS SECTION - MOBILE
+   OTHER SECTIONS - KEEPING EXISTING STYLES
    ======================== */
+
+/* Stats Section */
 .stats-section {
   background: #f8f8f8;
   padding: 60px 20px;
@@ -143,9 +195,9 @@
 .stat-box {
   background: #f0f0f0;
   padding: 20px;
-  border-radius: 12px 12px 0 0;  /* Rounded top corners only */
+  border-radius: 12px 12px 0 0;
   display: flex;
-  align-items: center;  /* Vertically center the icon */
+  align-items: center;
   gap: 15px;
 }
 
@@ -153,15 +205,15 @@
   font-size: 32px;
   flex-shrink: 0;
   line-height: 1;
-  width: 50px;  /* Fixed width */
+  width: 50px;
   display: flex;
-  justify-content: center;  /* Center icon within its space */
+  justify-content: center;
   align-items: center;
 }
 
 .stat-content {
   flex: 1;
-  text-align: left;  /* Left align all text */
+  text-align: left;
 }
 
 .stat-label {
@@ -191,9 +243,7 @@
   font-style: italic;
 }
 
-/* ========================
-   BOOK SECTION - MOBILE
-   ======================== */
+/* Book Section */
 .book-section {
   background: #fafafa;
   padding: 60px 20px;
@@ -223,7 +273,6 @@
   color: #1a1a1a;
   margin-bottom: 5px;
   text-align: left;
-  width: 110%;
 }
 
 .book-subtitle {
@@ -240,9 +289,6 @@
   line-height: 1.8;
   color: #444;
   margin-bottom: 20px;
-  max-width: 390px;
-  margin-left: auto;
-  margin-right: auto;
   text-align: left;
 }
 
@@ -266,9 +312,7 @@
   margin-top: 30px;
 }
 
-/* ========================
-   ABOUT SECTION - MOBILE
-   ======================== */
+/* About Section */
 .about-section {
   background: white;
   padding: 60px 20px;
@@ -298,9 +342,6 @@
   line-height: 1.8;
   color: #444;
   margin-bottom: 20px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .about-image {
@@ -322,40 +363,7 @@
   margin-top: 30px;
 }
 
-/* ========================
-   BUTTONS - MOBILE
-   ======================== */
-.btn-primary, .btn-secondary {
-  padding: 12px 24px;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 25px;
-  border: 2px solid white;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  min-width: 140px;
-}
-
-.btn-primary {
-  background: white;
-  color: #1a1a1a;
-}
-
-.btn-primary:hover {
-  background: transparent;
-  color: white;
-}
-
-.btn-secondary {
-  background: transparent;
-  color: white;
-}
-
-.btn-secondary:hover {
-  background: white;
-  color: #1a1a1a;
-}
-
+/* Button Styles for Other Sections */
 .btn-dark, .btn-dark-outline {
   padding: 12px 24px;
   font-size: 14px;
@@ -388,9 +396,7 @@
   color: white;
 }
 
-/* ========================
-   FOOTER - MOBILE
-   ======================== */
+/* Footer */
 .homepage-footer {
   background: white;
   padding: 30px 20px;
@@ -410,65 +416,83 @@
   color: #1a1a1a;
 }
 
-
 /* ============================================================
    DESKTOP STYLES (768px AND ABOVE)
-   These styles override mobile styles when viewport is 768px+
    ============================================================ */
 
 @media (min-width: 768px) {
   
-  /* ========================
-     HERO SECTION - DESKTOP
-     ======================== */
+  /* Hero Section - Desktop */
   .hero-section {
-    background-image: url('/beverage-background.png') !important;
-  }
-  
-  .hero-title {
-    font-size: 48px;
-    margin-top: 1rem;
+    background-image: url('/beverage-background.png');
+    padding: 60px 40px;
   }
 
-  /* CRITICAL: Reset split title for desktop - make it unified */
-  .hero-title-small {
-    display: inline;
-    font-size: 58px;
-    font-weight: bold;
-    margin-bottom: 0;
+  .hero-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
   }
 
-  .hero-title-main {
-    display: inline;
-    font-size: 58px;
-    font-weight: bold;
+  .hero-content-wrapper {
+    flex: 1;
+    max-width: 500px;
   }
 
-  .hero-subtitle {
-    font-size: 22px;
+  /* Adjust text sizes for desktop */
+  .hero-brand-logo {
+    width: 50px;
+    height: 50px;
   }
 
-  .hero-logo {
-    width: 110px;
-    height: 110px;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
+  .hero-brand-title {
+    font-size: 28px;
   }
 
-  .hero-tagline {
+  .hero-main-title {
+    font-size: 44px;
+    margin-bottom: 25px;
+  }
+
+  .hero-description {
     font-size: 18px;
+    margin-bottom: 40px;
   }
 
-  /* ========================
-     STATS SECTION - DESKTOP
-     ======================== */
+  /* Buttons side by side on desktop */
+  .hero-actions {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  /* Hide mobile video, show desktop video */
+  .hero-video-mobile {
+    display: none;
+  }
+
+  .hero-video-desktop {
+    display: block;
+    flex: 1;
+    max-width: 520px;
+    margin-left: 80px;
+    margin-bottom: 40px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Hide tagline on desktop */
+  .hero-tagline {
+    display: none;
+  }
+
+  /* Stats Section - Desktop */
   .stats-section {
     padding: 80px 40px;
   }
 
   .stats-header {
     margin-bottom: 60px;
-    width: 700px;
   }
 
   .stats-title {
@@ -493,13 +517,12 @@
     flex: 1;
     max-width: 400px;
     padding: 25px 30px;
-    border-radius: 20px 20px 0 0;  /* Larger radius for desktop */
-    align-items: center;  /* Keep centered vertically */
+    border-radius: 20px 20px 0 0;
   }
 
   .stat-icon {
     font-size: 42px;
-    width: 55px;  /* Slightly wider for desktop */
+    width: 55px;
   }
 
   .stat-label {
@@ -510,18 +533,14 @@
   .stat-text {
     font-size: 16px;
     line-height: 1.7;
-    max-width: 85%;
   }
 
   .stats-quote {
     font-size: 17px;
     line-height: 1.8;
-    max-width: 700px;
   }
 
-  /* ========================
-     BOOK SECTION - DESKTOP
-     ======================== */
+  /* Book Section - Desktop */
   .book-content {
     flex-direction: row;
     align-items: center;
@@ -530,7 +549,6 @@
 
   .book-text {
     order: 1;
-    text-align: left;
     flex: 1;
   }
 
@@ -549,16 +567,13 @@
 
   .book-description {
     font-size: 16px;
-    max-width: none;
   }
 
   .book-buttons {
     justify-content: flex-start;
   }
 
-  /* ========================
-     ABOUT SECTION - DESKTOP
-     ======================== */
+  /* About Section - Desktop */
   .about-content {
     flex-direction: row;
     align-items: center;
@@ -568,12 +583,6 @@
   .about-text {
     order: 1;
     flex: 1;
-  }
-
-  .about-text .about-title,
-  .about-text .about-description,
-  .about-text .about-buttons {
-    text-align: left;
   }
 
   .about-image {
@@ -587,17 +596,13 @@
 
   .about-description {
     font-size: 16px;
-    max-width: none;
   }
 
   .about-buttons {
     justify-content: flex-start;
   }
 
-  /* ========================
-     BUTTONS - DESKTOP
-     ======================== */
-  .btn-primary, .btn-secondary,
+  /* Button adjustments for desktop */
   .btn-dark, .btn-dark-outline {
     font-size: 16px;
     padding: 14px 32px;
