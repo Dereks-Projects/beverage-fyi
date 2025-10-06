@@ -7,7 +7,7 @@ export default function HomePage() {
   const navigate = useNavigate();
 
   const scrollToStats = () => {
-    document.getElementById('stats').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('problem').scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -84,7 +84,7 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 2 - The Problem */}
-      <section className="problem-section">
+      <section id="problem" className="problem-section">
         <div className="section-container">
           <div className="problem-content">
             <h2 className="section-title">The beverage world is vast and intimidating</h2>
