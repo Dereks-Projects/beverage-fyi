@@ -30,7 +30,7 @@ export default function HomePage() {
             {/* Description Paragraph - UPDATED */}
             <p className="hero-description">
               Master beverage knowledge through our comprehensive terminology database, 
-              personalized wine recommendations, and curated cocktail suggestions—all in one platform.
+              personalized wine recommendations, and curated cocktail suggestions—<br/>all in one platform.
             </p>
 
             {/* Action Buttons */}
