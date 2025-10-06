@@ -23,7 +23,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 60px 20px;
+  padding: 40px 20px;
 }
 
 .hero-container {
@@ -47,6 +47,7 @@
 .hero-brand-logo {
   width: 40px;
   height: 40px;
+  
 }
 
 .hero-brand-title {
@@ -57,11 +58,11 @@
 
 /* Main Title */
 .hero-main-title {
-  font-size: 34px;
+  font-size: 32px;  /* 10% smaller for mobile */
   font-weight: 600;
   line-height: 1.2;
   color: white;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   text-align: left;
 }
 
@@ -85,7 +86,7 @@
 }
 
 .hero-button {
-  width: 340px;
+  width: 350px;
   padding: 14px 24px;
   font-size: 16px;
   font-weight: 600;
@@ -97,14 +98,14 @@
 }
 
 .hero-button-primary {
-  background: #F4B183;
+  background: #FFB800;
   color: #1a1a1a;
-  border-color: #F4B183;
+  border-color: #FFB800;
 }
 
 .hero-button-primary:hover {
-  background: #E89A6C;
-  border-color: #E89A6C;
+  background: #FFB800;
+  border-color: #FFB800;
 }
 
 .hero-button-secondary {
@@ -114,14 +115,14 @@
 }
 
 .hero-button-secondary:hover {
-  background: rgba(244, 177, 131, 0.1);
+  background: rgba(255, 184, 0, 0.1);
 }
 
 /* Video Player - Mobile */
 .hero-video-mobile {
   width: 100%;
   margin-bottom: 30px;
-  border-radius: 12px;
+  border-radius: 2px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
@@ -134,13 +135,21 @@
   background: #000;
 }
 
+.hero-video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .hero-video-desktop {
   display: none;
 }
 
 /* Tagline */
 .hero-tagline {
-  font-size: 15px;
+  font-size: 14px;
   font-style: italic;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.85);
@@ -149,10 +158,9 @@
 }
 
 /* ========================
-   OTHER SECTIONS - KEEPING EXISTING STYLES
+   OTHER SECTIONS - MOBILE
    ======================== */
 
-/* Stats Section */
 .stats-section {
   background: #f8f8f8;
   padding: 60px 20px;
@@ -243,7 +251,6 @@
   font-style: italic;
 }
 
-/* Book Section */
 .book-section {
   background: #fafafa;
   padding: 60px 20px;
@@ -312,7 +319,6 @@
   margin-top: 30px;
 }
 
-/* About Section */
 .about-section {
   background: white;
   padding: 60px 20px;
@@ -363,7 +369,6 @@
   margin-top: 30px;
 }
 
-/* Button Styles for Other Sections */
 .btn-dark, .btn-dark-outline {
   padding: 12px 24px;
   font-size: 14px;
@@ -396,7 +401,6 @@
   color: white;
 }
 
-/* Footer */
 .homepage-footer {
   background: white;
   padding: 30px 20px;
@@ -422,7 +426,6 @@
 
 @media (min-width: 768px) {
   
-  /* Hero Section - Desktop */
   .hero-section {
     background-image: url('/beverage-background.png');
     padding: 60px 40px;
@@ -439,7 +442,6 @@
     max-width: 500px;
   }
 
-  /* Adjust text sizes for desktop */
   .hero-brand-logo {
     width: 50px;
     height: 50px;
@@ -450,8 +452,9 @@
   }
 
   .hero-main-title {
-    font-size: 44px;
+    font-size: 38px;  /* 20% smaller for desktop */
     margin-bottom: 25px;
+    width: 600px;
   }
 
   .hero-description {
@@ -459,13 +462,11 @@
     margin-bottom: 40px;
   }
 
-  /* Buttons side by side on desktop */
   .hero-actions {
     flex-direction: row;
     gap: 20px;
   }
 
-  /* Hide mobile video, show desktop video */
   .hero-video-mobile {
     display: none;
   }
@@ -473,20 +474,18 @@
   .hero-video-desktop {
     display: block;
     flex: 1;
-    max-width: 520px;
+    max-width: 550px;
+    margin-bottom: 30px;
     margin-left: 80px;
-    margin-bottom: 40px;
-    border-radius: 16px;
+    border-radius: 0px;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   }
 
-  /* Hide tagline on desktop */
   .hero-tagline {
     display: none;
   }
 
-  /* Stats Section - Desktop */
   .stats-section {
     padding: 80px 40px;
   }
@@ -540,7 +539,6 @@
     line-height: 1.8;
   }
 
-  /* Book Section - Desktop */
   .book-content {
     flex-direction: row;
     align-items: center;
@@ -573,7 +571,6 @@
     justify-content: flex-start;
   }
 
-  /* About Section - Desktop */
   .about-content {
     flex-direction: row;
     align-items: center;
@@ -602,7 +599,6 @@
     justify-content: flex-start;
   }
 
-  /* Button adjustments for desktop */
   .btn-dark, .btn-dark-outline {
     font-size: 16px;
     padding: 14px 32px;

@@ -1,34 +1,14 @@
 // 📄 FILE: src/pages/HomePage.jsx
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/HomePage.css";
 
 export default function HomePage() {
   const navigate = useNavigate();
-  const vimeoRef = useRef(null);
 
   const scrollToStats = () => {
     document.getElementById('stats').scrollIntoView({ behavior: 'smooth' });
   };
-
-  useEffect(() => {
-    // Create Vimeo iframe with autoplay
-    if (vimeoRef.current) {
-      const iframe = document.createElement('iframe');
-      iframe.src = "https://player.vimeo.com/video/1124882783?h=c083a41084&autoplay=1&loop=1&muted=1&background=1";
-      iframe.width = "100%";
-      iframe.height = "100%";
-      iframe.frameBorder = "0";
-      iframe.allow = "autoplay; fullscreen; picture-in-picture";
-      iframe.style.position = "absolute";
-      iframe.style.top = "0";
-      iframe.style.left = "0";
-      iframe.style.width = "100%";
-      iframe.style.height = "100%";
-      
-      vimeoRef.current.appendChild(iframe);
-    }
-  }, []);
 
   return (
     <div className="homepage">
@@ -71,7 +51,16 @@ export default function HomePage() {
 
             {/* Video Player - Mobile Position */}
             <div className="hero-video-mobile">
-              <div className="hero-video-wrapper" ref={vimeoRef}></div>
+              <div className="hero-video-wrapper">
+                <iframe 
+                  src="https://player.vimeo.com/video/1124882783?h=c083a41084"
+                  width="100%" 
+                  height="100%" 
+                  frameBorder="0"
+                  allow="fullscreen; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
             </div>
 
             {/* Tagline - Mobile Only */}
@@ -83,12 +72,20 @@ export default function HomePage() {
 
           {/* Video Player - Desktop Position */}
           <div className="hero-video-desktop">
-            <div className="hero-video-wrapper" ref={vimeoRef}></div>
+            <div className="hero-video-wrapper">
+              <iframe 
+                src="https://player.vimeo.com/video/1124882783?h=c083a41084"
+                width="100%" 
+                height="100%" 
+                frameBorder="0"
+                allow="fullscreen; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* REST OF YOUR SECTIONS REMAIN UNCHANGED */}
       {/* Stats Section */}
       <section id="stats" className="stats-section">
         <div className="section-container">
