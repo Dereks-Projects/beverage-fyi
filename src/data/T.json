@@ -24,6 +24,10 @@
     "definition": "This is a naturally occurring acid found in grapes and the corresponding wine. If you have ever seen some fine sediment in a bottle of white wine (especially if you leave it in an ice bucket too long) it’s tartaric crystals."
   },
   {
+    "term": "Tasmania",
+    "definition": "Australia’s cool-climate island state, known for high-quality sparkling wines and Pinot Noir."
+  },
+  {
     "term": "Taurasi",
     "definition": "Italy. A red wine appellation in Campania, Italy, based on the Aglianico grape (DOCG)."
   },
@@ -80,12 +84,20 @@
     "definition": "Castilla y León , Spain. Toro is a Denominación de Origen (DO) in Spain’s Castilla y León region known for producing powerful, full-bodied red wines from the Tempranillo grape (locally called Tinta de Toro), often showing intense dark fruit, firm tannins, and remarkable structure due to the region’s high elevation and extreme climate."
   },
   {
+    "term": "Torrontés",
+    "definition": "Argentina’s signature white grape, especially from Salta and La Rioja provinces, known for its aromatic floral and peachy profile."
+  },
+  {
     "term": "Touriga Nacional",
     "definition": "Touriga Nacional is Portugal’s most prestigious red grape, revered for its role in both Port production and dry red wines, offering deep color, floral aromatics, and dense, age-worthy structure, and thriving in the country’s hot, mountainous vineyards."
   },
   {
     "term": "Trappist beer",
     "definition": "Trappist beer refers to a highly respected category of abbey-style ales brewed by Trappist monks within the walls of a Trappist monastery, with proceeds supporting the monastic community or charitable causes. To carry the “Authentic Trappist Product” seal, the beer must be brewed under the supervision of monks, at a monastery, and not for profit—criteria overseen by the International Trappist Association. These beers are most famously produced in Belgium, though select Trappist breweries also exist in the Netherlands, Austria, Italy, England, France, and the USA, each with limited and highly traditional production. Styles vary but often include Dubbel (dark and malty), Tripel (strong and golden), and Quadrupel (rich, boozy, and complex), typically bottle-conditioned and known for their yeasty esters, dark fruit flavors, and elegant structure. Trappist beers are deeply rooted in history, craftsmanship, and spiritual discipline, making them some of the most revered and sought-after beers in the world."
+  },
+  {
+    "term": "Trebbiano (Ugni Blanc)",
+    "definition": "Widely planted Italian white grape, known for crisp acidity and used in Cognac and Armagnac distillation in France."
   },
   {
     "term": "Triple Sec",

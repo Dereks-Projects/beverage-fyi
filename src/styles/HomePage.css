@@ -276,7 +276,7 @@
 .feature-link {
   background: none;
   border: none;
-  color: #FFB800;
+  color: #ffd736;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -297,7 +297,7 @@
   position: absolute;
   top: 15px;
   right: 15px;
-  background: #FFB800;
+  background: #ffd736;
   color: #1a1a1a;
   padding: 5px 12px;
   border-radius: 20px;
