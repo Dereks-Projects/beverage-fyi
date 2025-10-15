@@ -1,172 +1,197 @@
 # Beverage.fyi
 
-A professional beverage education platform designed for hospitality professionals, enthusiasts, and anyone looking to deepen their understanding of the world of beverages.
+Professional beverage education platform providing comprehensive resources for industry professionals and enthusiasts.
 
-## 🍷 Overview
+## Overview
 
-Beverage.fyi is a comprehensive web application that provides educational resources, tools, and recommendations for the beverage industry. From wine pairings to cocktail recipes to industry terminology, we're building the most accessible beverage knowledge platform on the web.
+Beverage.fyi delivers expert-curated beverage knowledge through an intuitive web platform featuring a terminology database, wine recommendations, cocktail recipes, and educational articles. Built by a 20-year hospitality veteran for the modern beverage professional.
 
-Live at: [https://beverage.fyi](https://beverage.fyi)
+**Live Site**: [https://beverage.fyi](https://beverage.fyi)
 
-## ✨ Features
+## Features
 
-### Core Functionality
-- **📖 A-Z Terminology Database**: Comprehensive definitions for thousands of beverage terms
-- **🍷 Wine Recommendation Engine**: Personalized wine suggestions based on preferences and food pairings
-- **🍸 Cocktail Suggestion System**: Classic and modern cocktail recipes with preparation techniques
-- **📚 Educational Resources**: Industry insights, best practices, and professional guidance
+### Content Systems
+- **Terminology Database**: 1000+ searchable beverage terms (A-Z)
+- **Article Platform**: Dynamic educational articles with category filtering
+- **Wine Recommendations**: Smart pairing suggestions by preference
+- **Cocktail Library**: Curated classic and modern recipes
+- **Article Carousel**: Homepage feature showcasing latest content
+- **Mobile-First Design**: Optimized for on-the-go reference
 
-### Platform Features
-- Mobile-first responsive design
-- Fast page loads with Vite
-- SEO optimized
-- Clean, intuitive navigation
-- Professional typography with Google Fonts (Poppins)
+### Technical Features
+- React 18.3 with React Router 7
+- Vite build system for instant HMR
+- Google Analytics integration (ID: G-87NHCW30CX)
+- SEO-optimized architecture
+- Responsive breakpoints (mobile/tablet/desktop)
+- Custom component library with reusable UI elements
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-- **Frontend Framework**: React 18.3.1
-- **Build Tool**: Vite 6.0.5
-- **Routing**: React Router DOM 7.1.1
-- **Styling**: Custom CSS with mobile-first approach
-- **Icons**: React Icons 5.4.0
-- **Deployment**: Vercel
-- **Development**: ESLint for code quality
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js (v18 or higher recommended)
-- npm or yarn package manager
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/beverage-fyi.git
-cd beverage-fyi
+```
+Frontend:     React 18.3.1
+Build:        Vite 6.0.5  
+Routing:      React Router DOM 7.1.1
+Styling:      Custom CSS (mobile-first)
+Icons:        React Icons 5.4.0
+Analytics:    Google Analytics 4
+Hosting:      Vercel
 ```
 
-2. Install dependencies:
+## Quick Start
+
 ```bash
+# Install dependencies
 npm install
-```
 
-3. Start the development server:
-```bash
+# Development server (localhost:5173)
 npm run dev
-```
 
-The application will be available at `http://localhost:5173`
-
-### Build for Production
-
-```bash
+# Production build
 npm run build
-```
 
-This creates an optimized production build in the `dist` folder.
-
-### Preview Production Build
-
-```bash
+# Preview production
 npm run preview
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 beverage.fyi/
-├── public/               # Static assets
-│   ├── beverage-background.png
-│   ├── beverage-logo-landingpage.svg
-│   └── favicon.png
 ├── src/
-│   ├── components/       # Reusable components
-│   │   ├── Header.jsx
-│   │   ├── Footer.jsx
-│   │   ├── SearchBar.jsx
-│   │   └── ...
-│   ├── pages/           # Page components
+│   ├── pages/              # Page components
 │   │   ├── HomePage.jsx
+│   │   ├── ExploreArticles.jsx
+│   │   ├── ArticlePage.jsx
 │   │   ├── TerminologyPage.jsx
 │   │   ├── WineRecommendationsPage.jsx
 │   │   ├── CocktailPage.jsx
-│   │   └── ...
-│   ├── data/            # JSON data files
-│   │   ├── A.json through Z.json (terminology)
-│   │   ├── cocktails.json
-│   │   └── WineRecommendations.json
-│   ├── styles/          # CSS files
-│   │   ├── global.css
-│   │   ├── desktop.css
-│   │   └── [component].css
-│   ├── App.jsx          # Main application component
-│   └── main.jsx         # Application entry point
-├── index.html           # HTML template
-├── package.json         # Dependencies and scripts
-├── vite.config.js       # Vite configuration
-└── vercel.json         # Vercel deployment config
+│   │   └── AboutPage.jsx
+│   ├── components/         # Reusable components
+│   │   ├── Header.jsx
+│   │   ├── Footer.jsx
+│   │   ├── MobileNav.jsx
+│   │   ├── ArticleCard.jsx
+│   │   ├── FeaturedArticle.jsx
+│   │   └── ArticleCarousel.jsx
+│   ├── data/              # Content data
+│   │   ├── articles/      # Article JSON files
+│   │   ├── articleData.js # Article aggregator
+│   │   ├── A-Z.json       # Terminology database
+│   │   └── cocktails.json # Cocktail recipes
+│   └── styles/            # Component CSS
+├── public/
+│   └── blog-images/       # Article images
+└── index.html
 ```
 
-## 📝 Available Scripts
+## Navigation Structure
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build locally
-- `npm run lint` - Run ESLint for code quality
+### Desktop
+- Header: Home • Articles • Terminology • Wine • Cocktails • About
+- Search: "Search Beverage Terms" (1000+ terms)
 
-## 🎨 Design Principles
+### Mobile  
+- Hamburger Menu: All navigation links
+- Bottom Nav: Quick access to primary sections (Home, Articles, Terminology, Wine, Cocktails)
+- Pure black UI with yellow (#FCD128) accents
 
-- **Mobile-First**: All designs start with mobile and scale up
-- **Accessibility**: Semantic HTML, proper contrast ratios
-- **Performance**: Lazy loading, optimized images, minimal dependencies
-- **User Experience**: Clear navigation, intuitive interactions
-- **Professional**: Clean typography, consistent spacing, thoughtful color palette
+## Homepage Sections
 
-## 📚 The Beverage Compass
+1. **Hero**: Video introduction with CTAs
+2. **Opportunity**: Industry value proposition
+3. **Platform Features**: Core tools overview
+4. **Value Proposition**: Transformation messaging
+5. **Fresh Perspectives**: Article carousel (3 latest)
+6. **Vision**: About the founder
+7. **CTA**: Call to action
+8. **Footer**: Site links and copyright
 
-This platform is designed as a companion to "The Beverage Compass: A Modern Guide to the World of Drinks" by Derek Engles. The book provides deeper insights into beverage culture, history, and professional service.
+## Article System
 
-Available on Amazon: [The Beverage Compass](https://www.amazon.com/dp/B0FQD4X2JT)
+The article platform features:
+- Featured article highlighting
+- Category filtering (Wine/Beer/Spirits/Cannabis)
+- Responsive card grid
+- Rich content formatting
+- SEO-friendly URLs
+- Horizontal scroll carousel on homepage
 
-## 🚢 Deployment
+See `ARTICLES-README.md` for detailed documentation.
 
-The application is deployed on Vercel with automatic deployments from the main branch.
+## Development
 
-### Environment Variables
-No environment variables are currently required for deployment.
+### Code Standards
+- Components: PascalCase naming
+- Styles: Component-specific CSS files
+- Data: JSON-based content management
+- Mobile-first responsive design
+- Accessibility: Semantic HTML, proper ARIA labels
 
-### Deployment Configuration
-See `vercel.json` for deployment settings.
+### Key Files
+- `App.jsx` - Route definitions
+- `articleData.js` - Article aggregation logic
+- `Header.jsx` - Global navigation with hamburger menu
+- `MobileNav.jsx` - Mobile bottom navigation
+- `ArticleCarousel.jsx` - Homepage article showcase
 
-## 🤝 Contributing
+## Current Article Count
+- 7 published articles across 4 categories
+- Articles numbered by publication order
+- Featured article system based on article number
 
-While this is primarily a proprietary platform, we welcome feedback and suggestions. Please reach out to Derek Engles for collaboration opportunities.
+## Deployment
 
-## 📬 Contact
+Automatic deployment via Vercel on main branch push.
+
+```bash
+# Manual deployment
+vercel --prod
+```
+
+## Analytics
+
+Google Analytics 4 integrated (ID: G-87NHCW30CX)
+- Page views and user engagement
+- Search queries tracking
+- Category filtering analytics
+- Article read metrics
+
+## Known Issues & Future Enhancements
+
+### Completed ✅
+- Article system implementation
+- Mobile hamburger menu
+- Article carousel on homepage
+- Category filtering
+- Responsive design optimization
+
+### Planned
+- The Beverage Compass book integration (coming soon)
+- User accounts and saved preferences
+- Advanced search functionality
+- Newsletter integration
+
+## Author
 
 **Derek Engles**  
-Email: derekengles@gmail.com  
-Website: [beverage.fyi](https://beverage.fyi)
+20+ year hospitality professional | Sommelier | Wine Director  
+Email: derekengles@gmail.com
+Available for consulting and speaking engagements
 
-Derek is a 20-year hospitality veteran with experience as a sommelier and wine director at award-winning restaurants and resorts. He has developed training programs for Fortune 500 companies and Michelin-starred establishments.
+## The Beverage Compass
 
-## 📄 License
+Companion to the book "The Beverage Compass: A Modern Guide to the World of Drinks"  
+Available on [Amazon Kindle](https://www.amazon.com/dp/B0FQD4X2JT)
 
-© 2025 Derek Engles. All Rights Reserved.
+## License
 
-This is proprietary software. Unauthorized copying, modification, or distribution is prohibited.
-
-## 🙏 Acknowledgments
-
-- Built with React and Vite
-- Hosted on Vercel
-- Typography by Google Fonts
-- Icons by React Icons
+© 2025 Derek Engles. All Rights Reserved.  
+Proprietary software - no unauthorized use.
 
 ---
 
-**Status**: Active Development  
-**Version**: 1.0.0  
-**Last Updated**: October 2025
+**Version**: 2.1.0  
+**Status**: Production  
+**Last Updated**: October 2025  
+**Session Notes**: Homepage redesign with article carousel integration complete

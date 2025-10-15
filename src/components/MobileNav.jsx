@@ -9,10 +9,10 @@ import { useNavigate, useLocation } from "react-router-dom";
 // Array of nav items - NOW WITH 5 ITEMS INCLUDING COCKTAILS
 const navItems = [
   { label: "Home", path: "/" },
-  { label: "Terminology", path: "/terminology" },                       
+  { label: "Articles", path: "/explore-articles" },
+  { label: "Terminology", path: "/terminology" },
   { label: "Wine", path: "/wine-recommendations" },
-  { label: "Cocktails", path: "/cocktails" },                    // ADDED THIS LINE!
-  { label: "About", path: "/about" },
+  { label: "Cocktails", path: "/cocktails" },
 ];
 
 export default function MobileNav() {
@@ -26,7 +26,7 @@ export default function MobileNav() {
           key={item.label}
           className={`nav-btn${location.pathname === item.path ? " active" : ""}`}
           onClick={() => {
-            if (item.path === "/" || item.path === "/about" || item.path === "/wine-recommendations" || item.path === "/terminology" || item.path === "/cocktails") {
+            if (item.path === "/" || item.path === "/explore-articles" || item.path === "/wine-recommendations" || item.path === "/terminology" || item.path === "/cocktails") {
               navigate(item.path);
             }
           }}
@@ -34,10 +34,10 @@ export default function MobileNav() {
         >
           {/* Temporary text icons. Replace with SVG or icon font if desired. */}
           {item.label === "Home" && <span role="img" aria-label="Home">🏠</span>}
+          {item.label === "Articles" && <span role="img" aria-label="Articles">📝</span>}
           {item.label === "Terminology" && <span role="img" aria-label="Terminology">📚</span>}
           {item.label === "Wine" && <span role="img" aria-label="Wine">🍷</span>}
           {item.label === "Cocktails" && <span role="img" aria-label="Cocktails">🍸</span>}
-          {item.label === "About" && <span role="img" aria-label="About">ℹ️</span>}
           <div className="nav-label">{item.label}</div>
         </button>
       ))}

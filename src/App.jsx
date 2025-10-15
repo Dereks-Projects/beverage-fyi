@@ -15,6 +15,8 @@ import "./styles/global.css";
 import TermsPage from './pages/TermsPage';
 import PrivacyPage from './pages/PrivacyPage';
 import CocktailPage from './pages/CocktailPage';
+import ExploreArticles from './pages/ExploreArticles';
+import ArticlePage from './pages/ArticlePage';
 
 function AppContent() {
   const location = useLocation();
@@ -37,6 +39,8 @@ function AppContent() {
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/cocktails" element={<CocktailPage />} />
+          <Route path="/explore-articles" element={<ExploreArticles />} />
+          <Route path="/article/:slug" element={<ArticlePage />} />
         </Routes>
       </main>
 

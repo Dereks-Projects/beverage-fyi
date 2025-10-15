@@ -1,18 +1,19 @@
-// 📄 FILE: src/pages/HomePage.jsx
+// 📄 FILE: src/pages/HomePageNew.jsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import ArticleCarousel from "../components/ArticleCarousel";
 import "../styles/HomePage.css";
 
-export default function HomePage() {
+export default function HomePageNew() {
   const navigate = useNavigate();
 
-  const scrollToStats = () => {
-    document.getElementById('problem').scrollIntoView({ behavior: 'smooth' });
+  const scrollToOpportunity = () => {
+    document.getElementById('opportunity').scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <div className="homepage">
-      {/* SECTION 1 - Hero Section */}
+    <div className="homepage-new">
+      {/* SECTION 1 - Hero Section (keeping existing) */}
       <section className="hero-section">
         <div className="hero-container">
           <div className="hero-content-wrapper">
@@ -24,34 +25,34 @@ export default function HomePage() {
 
             {/* Main Title */}
             <h1 className="hero-main-title">
-              We take your beverage knowledge to new heights.
+              We take your knowledge to new heights.
             </h1>
 
-            {/* Description Paragraph - UPDATED */}
+            {/* Description Paragraph */}
             <p className="hero-description">
-              Master beverage knowledge through our comprehensive terminology database, 
-              personalized wine recommendations, and curated cocktail suggestions— all in one platform.
+              Master beverage knowledge through our detailed articles, comprehensive terminology database, 
+              personalized wine recommendations, and curated cocktail suggestions.
             </p>
 
             {/* Action Buttons */}
             <div className="hero-actions">
               <button 
                 className="hero-button hero-button-primary"
-                onClick={scrollToStats}
+                onClick={scrollToOpportunity}
               >
                 Learn More
               </button>
               <button 
                 className="hero-button hero-button-secondary"
-                onClick={() => navigate('/terminology')}
+                onClick={() => navigate('/explore-articles')}
               >
                 Explore the Site
               </button>
             </div>
 
-            {/* Tagline - Now for both mobile and desktop */}
+            {/* Tagline */}
             <p className="hero-tagline">
-              This site is best paired with The Beverage Compass, available on Amazon Kindle.
+              Scroll down for more ways to learn about the world of beverages.
             </p>
 
             {/* Video Player - Mobile Position */}
@@ -83,210 +84,186 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SECTION 2 - The Problem */}
-      <section id="problem" className="problem-section">
+      {/* SECTION 2 - The Opportunity (Reframed) */}
+      <section id="opportunity" className="opportunity-section">
         <div className="section-container">
-          <div className="problem-content">
-            <h2 className="section-title">The beverage world is vast and intimidating</h2>
+          <div className="opportunity-content">
+            <h2 className="section-title">Every venue's success hinges on beverage expertise</h2>
             <p className="section-subtitle">
-              From wine varietals to cocktail terminology, the world of beverages can feel overwhelming. 
-              Traditional resources are scattered, outdated, or locked behind expensive certifications.
+              Restaurants, bars, and hospitality businesses thrive when their teams have instant access 
+              to accurate, current beverage knowledge. Traditional training is expensive, inconsistent, 
+              and outdated the moment it's printed.
             </p>
-            <div className="problem-points">
-              <div className="problem-point">
-                <span className="problem-icon">🤔</span>
-                <h3>Confusing Jargon</h3>
-                <p>Industry terms and technical language create barriers to understanding</p>
+            <div className="opportunity-points">
+              <div className="opportunity-point">
+                <span className="opportunity-icon">💰</span>
+                <h3>Revenue Driver</h3>
+                <p>Beverages represent 30-40% of restaurant revenue</p>
               </div>
-              <div className="problem-point">
-                <span className="problem-icon">📚</span>
-                <h3>Scattered Resources</h3>
-                <p>Information lives in countless books, websites, and courses</p>
+              <div className="opportunity-point">
+                <span className="opportunity-icon">📈</span>
+                <h3>Competitive Edge</h3>
+                <p>Knowledgeable staff increase check averages by 23%</p>
               </div>
-              <div className="problem-point">
-                <span className="problem-icon">💰</span>
-                <h3>Expensive Education</h3>
-                <p>Professional beverage education costs thousands of dollars</p>
+              <div className="opportunity-point">
+                <span className="opportunity-icon">⭐</span>
+                <h3>Team Confidence</h3>
+                <p>Instant answers build expertise across all experience levels</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 3 - The Solution */}
-      <section className="solution-section">
+      {/* SECTION 3 - Platform Features (Clean) */}
+      <section className="platform-section">
         <div className="section-container">
-          <div className="solution-content">
-            <h2 className="section-title">Your complete beverage education platform</h2>
+          <div className="platform-content">
+            <h2 className="section-title">Everything you need to master beverage knowledge</h2>
             <p className="section-subtitle">
-              We've built the tools and resources you need to master the world of beverages, 
-              all in one accessible platform.
+              Where industry expertise meets instant accessibility for every level of learning.
             </p>
-            <div className="feature-grid">
-              <div className="feature-card">
-                <div className="feature-icon">📖</div>
-                <h3 className="feature-title">A-Z Terminology Database</h3>
-                <p className="feature-description">
-                  Comprehensive definitions for thousands of beverage terms, from Absinthe to Zinfandel
+            <div className="platform-grid">
+              <div className="platform-card">
+                <div className="platform-icon">📖</div>
+                <h3 className="platform-title">A-Z Terminology</h3>
+                <p className="platform-description">
+                  Comprehensive database of beverage terms and definitions
                 </p>
                 <button 
-                  className="feature-link"
+                  className="platform-link"
                   onClick={() => navigate('/terminology')}
                 >
                   Explore Terms →
                 </button>
               </div>
-              <div className="feature-card">
-                <div className="feature-icon">🍷</div>
-                <h3 className="feature-title">Wine Recommendation Engine</h3>
-                <p className="feature-description">
-                  Get personalized wine suggestions based on your preferences and food pairings
+              <div className="platform-card">
+                <div className="platform-icon">📚</div>
+                <h3 className="platform-title">Expert Articles</h3>
+                <p className="platform-description">
+                  In-depth guides on wine, spirits, beer, and emerging categories
                 </p>
                 <button 
-                  className="feature-link"
+                  className="platform-link"
+                  onClick={() => navigate('/explore-articles')}
+                >
+                  Read Articles →
+                </button>
+              </div>
+              <div className="platform-card">
+                <div className="platform-icon">🍷</div>
+                <h3 className="platform-title">Wine & Cocktails</h3>
+                <p className="platform-description">
+                  Smart recommendations and classic recipes at your fingertips
+                </p>
+                <button 
+                  className="platform-link"
                   onClick={() => navigate('/wine-recommendations')}
                 >
-                  Find Wines →
+                  Get Started →
                 </button>
               </div>
-              <div className="feature-card">
-                <div className="feature-icon">🍸</div>
-                <h3 className="feature-title">Cocktail Suggestion System</h3>
-                <p className="feature-description">
-                  Discover classic and modern cocktails with recipes and preparation techniques
+              <div className="platform-card platform-coming-soon">
+                <div className="platform-icon">📱</div>
+                <h3 className="platform-title">The Beverage Compass</h3>
+                <p className="platform-description">
+                  Complete guide coming soon to the platform
                 </p>
-                <button 
-                  className="feature-link"
-                  onClick={() => navigate('/cocktails')}
-                >
-                  Mix Cocktails →
-                </button>
-              </div>
-              <div className="feature-card coming-soon">
-                <div className="feature-icon">📱</div>
-                <h3 className="feature-title">Coming Soon: Integrated Book</h3>
-                <p className="feature-description">
-                  The Beverage Compass will be available directly within the platform
-                </p>
-                <span className="coming-badge">In Development</span>
+                <span className="coming-badge">Coming Soon</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 4 - Stats/Impact Section */}
-      <section id="stats" className="stats-section">
+      {/* SECTION 4 - Value Proposition */}
+      <section className="value-section">
         <div className="section-container">
-          <div className="stats-header">
-            <h2 className="stats-title">
-              Transform Your Knowledge About the <span className="bold-text">World of Beverages</span>
+          <div className="value-content">
+            <h2 className="value-title">
+              Transform your beverage IQ in real-time
             </h2>
-            <p className="stats-subtitle">
-              The beverage industry isn't just massive—it's a gateway to culture, hospitality, and human connection. 
-              Understanding beverages opens doors to new experiences and opportunities.
+            <p className="value-subtitle">
+              The beverage industry rewards expertise. Make knowledge your competitive advantage.
+            </p>
+            <div className="value-boxes">
+              <div className="value-box">
+                <span className="value-icon">🎯</span>
+                <div className="value-text">
+                  <h3>Profit Center</h3>
+                  <p>Beverage expertise drives 35% of hospitality profits—make it your advantage</p>
+                </div>
+              </div>
+              <div className="value-box">
+                <span className="value-icon">🚀</span>
+                <div className="value-text">
+                  <h3>Accessible Excellence</h3>
+                  <p>From novice to expert—accessible knowledge for every level</p>
+                </div>
+              </div>
+              <div className="value-box">
+                <span className="value-icon">🔓</span>
+                <div className="value-text">
+                  <h3>No Gatekeeping</h3>
+                  <p>The industry's most comprehensive resource, free from barriers</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 5 - Fresh Perspectives (Articles) */}
+      <section className="perspectives-section">
+        <div className="section-container">
+          <div className="perspectives-header">
+            <h2 className="section-title">Fresh Perspectives</h2>
+            <p className="section-subtitle">
+              Clear insights on complex topics. Cutting through complexity with actionable beverage knowledge you can use today.
             </p>
           </div>
-
-          <div className="stats-boxes">
-            <div className="stat-box">
-              <span className="stat-icon">💵</span>
-              <div className="stat-content">
-                <h3 className="stat-label">GLOBAL IMPACT</h3>
-                <p className="stat-text">
-                  The global beverage market reached $2.41 trillion in 2024—knowledge here has real value
-                </p>
-              </div>
-            </div>
-
-            <div className="stat-box">
-              <span className="stat-icon">🍷</span>
-              <div className="stat-content">
-                <h3 className="stat-label">CAREER ADVANTAGE</h3>
-                <p className="stat-text">
-                  Beverage-savvy professionals earn 30% more in hospitality and service industries
-                </p>
-              </div>
-            </div>
-
-            <div className="stat-box">
-              <span className="stat-icon">🌍</span>
-              <div className="stat-content">
-                <h3 className="stat-label">CULTURAL CONNECTION</h3>
-                <p className="stat-text">
-                  62% of travelers say local beverage knowledge enhances their travel experiences
-                </p>
-              </div>
-            </div>
+          <ArticleCarousel />
+          <div className="perspectives-footer">
+            <button 
+              className="btn-outline"
+              onClick={() => navigate('/explore-articles')}
+            >
+              View All Articles
+            </button>
           </div>
         </div>
       </section>
 
-      {/* SECTION 5 - Book Section */}
-      <section className="book-section">
+      {/* SECTION 6 - About/Vision (Humble) */}
+      <section className="vision-section">
         <div className="section-container">
-          <div className="book-content">
-            <div className="book-text">
-              <h2 className="book-title">Don't Wait—Start Reading Today</h2>
-              <h4 className="book-subtitle">The Beverage Compass: A Modern Guide to the World of Drinks</h4>
-              <p className="book-description">
-                While we work on integrating The Beverage Compass directly into our platform, you can start your 
-                journey today. Written by a 20-year veteran of America's finest restaurants, this comprehensive 
-                guide breaks down barriers and transforms intimidating beverage knowledge into accessible, 
-                engaging education.
-              </p>
-              <div className="book-buttons">
-                <button 
-                  className="btn-dark"
-                  onClick={() => window.open('https://www.amazon.com/dp/B0FQD4X2JT', '_blank')}
-                >
-                  Get It on Amazon
-                </button>
-                <button 
-                  className="btn-dark-outline"
-                  onClick={() => navigate('/terminology')}
-                >
-                  Explore the Platform
-                </button>
-              </div>
-            </div>
-            <div className="book-image">
-              <img src="/beverage-book.png" alt="The Beverage Compass Book Cover" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 6 - About Section */}
-      <section className="about-section">
-        <div className="section-container">
-          <div className="about-content">
-            <div className="about-image">
+          <div className="vision-content">
+            <div className="vision-image">
               <img src="/founder.png" alt="Derek Engles" />
             </div>
-            <div className="about-text">
-              <h2 className="about-title">A lifelong sommelier & educator.</h2>
-              <p className="about-description">
-                For over two decades, I've worked in hospitality, serving more than 200,000 guests and leading teams across 
-                award-winning restaurants and resorts. I've spent more than 30,000 hours as a sommelier and wine director, 
-                developing training programs for Fortune 500 companies and Michelin-starred establishments.
+            <div className="vision-text">
+              <h2 className="vision-title">Built with purpose</h2>
+              <p className="vision-description">
+                After two decades in hospitality, I built Beverage.fyi to solve a simple problem: 
+                professionals need instant access to reliable beverage knowledge. This platform 
+                represents everything I've learned, organized the way working professionals actually need it.
               </p>
-              <p className="about-description">
-                The Beverage Compass, alongside Beverage.fyi, creates an ecosystem of learning that brings your understanding 
-                of beverages around the world to new heights. Questions, comments, or collaborations? I'd love to hear from you!
+              <p className="vision-description">
+                The Beverage Compass book and this platform work together as a complete system—one 
+                you can trust because it's built from real experience, not theory.
               </p>
-              <div className="about-buttons">
+              <div className="vision-buttons">
                 <button 
                   className="btn-dark"
-                  onClick={() => window.location.href = 'mailto:derekengles@gmail.com'}
+                  onClick={() => navigate('/terminology')}
                 >
-                  Contact Derek
+                  Enter the Site
                 </button>
                 <button 
                   className="btn-dark-outline"
-                  onClick={() => navigate('/about')}
+                  onClick={() => window.location.href = 'mailto:derekengles@gmail.com'}
                 >
-                  Learn More
+                  Contact Me
                 </button>
               </div>
             </div>
@@ -294,13 +271,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SECTION 7 - Final CTA */}
+      {/* SECTION 7 - CTA */}
       <section className="cta-section">
         <div className="section-container">
           <div className="cta-content">
-            <h2 className="cta-title">Ready to elevate your beverage knowledge?</h2>
+            <h2 className="cta-title">Start exploring</h2>
             <p className="cta-subtitle">
-              Join thousands of professionals and enthusiasts mastering the world of beverages.
+              Explore the site and see how we can positively impact your beverage knowledge today.
             </p>
             <div className="cta-buttons">
               <button 
@@ -311,9 +288,9 @@ export default function HomePage() {
               </button>
               <button 
                 className="btn-secondary-large"
-                onClick={() => window.open('https://www.amazon.com/dp/B0FQD4X2JT', '_blank')}
+                onClick={() => window.location.href = 'mailto:derekengles@gmail.com'}
               >
-                Get the Book
+                Connect with Derek
               </button>
             </div>
           </div>
@@ -321,10 +298,20 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 8 - Footer */}
-      <footer className="homepage-footer">
-        <a href="/about" className="footer-link">
-          Copyright 2025 · All Rights Reserved
-        </a>
+      <footer className="hp-footer">
+        <div className="hp-footer-container">
+          <div className="hp-footer-content">
+            <p className="hp-footer-tagline">A Trusted Resource for Beverage Professionals</p>
+            <div className="hp-footer-links">
+              <a href="/about">About</a>
+              <span className="hp-footer-separator">•</span>
+              <a href="/terms">Terms of Use</a>
+              <span className="hp-footer-separator">•</span>
+              <a href="/privacy">Privacy Policy</a>
+            </div>
+            <p className="hp-footer-copyright">© 2025 Beverage.fyi. All Rights Reserved.</p>
+          </div>
+        </div>
       </footer>
     </div>
   );

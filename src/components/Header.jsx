@@ -8,6 +8,7 @@ export default function Header() {
   const [allTerms, setAllTerms] = useState([]);
   const [filteredTerms, setFilteredTerms] = useState([]);
   const navigate = useNavigate();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Load all terms once from A-Z
   useEffect(() => {
@@ -59,24 +60,27 @@ export default function Header() {
       <h1 className="header-title">Beverage.fyi</h1>
       
       {/* Desktop Navigation - moved between title and search */}
-      <nav className="header-nav">
-        <Link to="/">Home</Link>
-        <span className="nav-separator">|</span>
-        <Link to="/terminology">Terminology</Link>
-        <span className="nav-separator">|</span>
-        <Link to="/wine-recommendations">Wine</Link>
-        <span className="nav-separator">|</span>
-        <Link to="/cocktails">Cocktails</Link>
-        <span className="nav-separator">|</span>
-        <Link to="/about">About</Link>
-      </nav>
+    {/* Desktop Navigation - moved between title and search */}
+        <nav className="header-nav">
+          <Link to="/">Home</Link>
+          <span className="nav-separator">•</span>
+          <Link to="/explore-articles">Articles</Link>
+          <span className="nav-separator">•</span>
+          <Link to="/terminology">Terminology</Link>
+          <span className="nav-separator">•</span>
+          <Link to="/wine-recommendations">Wine</Link>
+          <span className="nav-separator">•</span>
+          <Link to="/cocktails">Cocktails</Link>
+          <span className="nav-separator">•</span>
+          <Link to="/about">About</Link>
+        </nav>
 
       <div className="header-searchbar">
         <div className="search-wrapper">
           <span className="search-icon">🔍</span>
           <input
             type="text"
-            placeholder="Search"
+            placeholder="Search Beverage Terms"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
@@ -92,6 +96,37 @@ export default function Header() {
           </ul>
         )}
       </div>
+      {/* Mobile Hamburger Button */}
+      <button 
+        className="mobile-menu-button"
+        onClick={() => setMobileMenuOpen(true)}
+        aria-label="Open menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="mobile-menu-overlay">
+          <button 
+            className="mobile-menu-close"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-label="Close menu"
+          >
+            ×
+          </button>
+          <nav className="mobile-menu-nav">
+            <Link to="/" onClick={() => setMobileMenuOpen(false)}>Home</Link>
+            <Link to="/explore-articles" onClick={() => setMobileMenuOpen(false)}>Articles</Link>
+            <Link to="/terminology" onClick={() => setMobileMenuOpen(false)}>Terminology</Link>
+            <Link to="/wine-recommendations" onClick={() => setMobileMenuOpen(false)}>Wine</Link>
+            <Link to="/cocktails" onClick={() => setMobileMenuOpen(false)}>Cocktails</Link>
+            <Link to="/about" onClick={() => setMobileMenuOpen(false)}>About</Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

@@ -15,6 +15,8 @@ export default function Footer() {
         <nav className="footer-links" aria-label="Footer">
           <Link to="/">Home</Link>
           <span className="dot">•</span>
+          <Link to="/explore-articles">Articles</Link>
+          <span className="dot">•</span>
           <Link to="/terminology">Terminology</Link>
           <span className="dot">•</span>
           <Link to="/wine-recommendations">Wine</Link>
@@ -26,7 +28,7 @@ export default function Footer() {
 
         <div className="footer-copy">
           <Link to="/about" className="footer-copyright-link">
-            &copy; 2025 Derek Engles – All Rights Reserved
+            &copy; 2025 Beverage.fyi – All Rights Reserved
           </Link>
         </div>
       </div>

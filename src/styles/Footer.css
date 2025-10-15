@@ -21,7 +21,7 @@
   }
 
   .footer-logo img {
-    width: 62px;
+    width: 58px;
     height: auto;
     display: block;
     margin: 0 auto 10px;
@@ -39,8 +39,8 @@
   .footer-links .dot { color: #666; user-select: none; }
 
   .footer-copy {
-    font-size: 0.9rem;
-    color: #333;
+    font-size: 0.8rem;
+    color: #424242;
     margin: 0;               /* no mystery bottom gap from margins */
   }
   
