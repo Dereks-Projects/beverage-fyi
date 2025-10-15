@@ -54,7 +54,7 @@ const AboutPage = () => {
                   className="btn-dark"
                   onClick={() => window.open('https://www.amazon.com/dp/B0FQD4X2JT', '_blank')}
                 >
-                  Get The Book on Amazon
+                 Amazon Kindle
                 </button>
                 <button 
                   className="btn-dark-outline"
