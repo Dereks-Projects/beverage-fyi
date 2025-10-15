@@ -255,7 +255,7 @@ export default function HomePageNew() {
               <div className="vision-buttons">
                 <button 
                   className="btn-dark"
-                  onClick={() => navigate('/terminology')}
+                  onClick={() => navigate('/explore-articles')}
                 >
                   Enter the Site
                 </button>
@@ -282,7 +282,7 @@ export default function HomePageNew() {
             <div className="cta-buttons">
               <button 
                 className="btn-primary-large"
-                onClick={() => navigate('/terminology')}
+                onClick={() => navigate('/explore-articles')}
               >
                 Explore the Platform
               </button>

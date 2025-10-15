@@ -17,7 +17,7 @@ export default function TerminologyPage() {
           <div className="terminology-mobile-header">
             <h2 className="terminology-mobile-title">Terminology</h2>
             <p className="terminology-mobile-subtitle">
-              Enjoy this collection of key terms that compliment our book, The Beverage Compass.
+              Enjoy this collection of encyclopedia style entries covering the world of beverages.
             </p>
           </div>
           <LetterGrid />
