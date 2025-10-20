@@ -1,4 +1,4 @@
-// 📄 FILE: src/pages/HomePageNew.jsx
+// 📄 FILE: src/pages/HomePage.jsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import ArticleCarousel from "../components/ArticleCarousel";
@@ -7,13 +7,9 @@ import "../styles/HomePage.css";
 export default function HomePageNew() {
   const navigate = useNavigate();
 
-  const scrollToOpportunity = () => {
-    document.getElementById('opportunity').scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <div className="homepage-new">
-      {/* SECTION 1 - Hero Section (keeping existing) */}
+      {/* SECTION 1 - Hero Section */}
       <section className="hero-section">
         <div className="hero-container">
           <div className="hero-content-wrapper">
@@ -25,20 +21,19 @@ export default function HomePageNew() {
 
             {/* Main Title */}
             <h1 className="hero-main-title">
-              We take your knowledge to new heights.
+              The beverage resource you've been looking for.
             </h1>
 
             {/* Description Paragraph */}
             <p className="hero-description">
-              Master beverage knowledge through our detailed articles, comprehensive terminology database, 
-              personalized wine recommendations, and curated cocktail suggestions.
+              Dive into expert articles, search thousands of beverage terms, get personalized wine pairings, and discover classic cocktails. All in one place, always accessible.
             </p>
 
             {/* Action Buttons */}
             <div className="hero-actions">
               <button 
                 className="hero-button hero-button-primary"
-                onClick={scrollToOpportunity}
+                onClick={() => document.getElementById('fresh-perspectives').scrollIntoView({ behavior: 'smooth' })}
               >
                 Learn More
               </button>
@@ -52,7 +47,7 @@ export default function HomePageNew() {
 
             {/* Tagline */}
             <p className="hero-tagline">
-              Scroll down for more ways to learn about the world of beverages.
+              Trusted by sommeliers, bartenders, and beverage enthusiasts.
             </p>
 
             {/* Video Player - Mobile Position */}
@@ -84,38 +79,28 @@ export default function HomePageNew() {
         </div>
       </section>
 
-      {/* SECTION 2 - The Opportunity (Reframed) */}
-      <section id="opportunity" className="opportunity-section">
+      {/* SECTION 2 - Fresh Perspectives (Articles) */}
+      <section id="fresh-perspectives" className="perspectives-section">
         <div className="section-container">
-          <div className="opportunity-content">
-            <h2 className="section-title">Every venue's success hinges on beverage expertise</h2>
+          <div className="perspectives-header">
+            <h2 className="section-title">Fresh Perspectives</h2>
             <p className="section-subtitle">
-              Restaurants, bars, and hospitality businesses thrive when their teams have instant access 
-              to accurate, current beverage knowledge. Traditional training is expensive, inconsistent, 
-              and outdated the moment it's printed.
+              Clear insights on complex topics. Cutting through complexity with actionable beverage knowledge you can use today.
             </p>
-            <div className="opportunity-points">
-              <div className="opportunity-point">
-                <span className="opportunity-icon">💰</span>
-                <h3>Revenue Driver</h3>
-                <p>Beverages represent 30-40% of restaurant revenue</p>
-              </div>
-              <div className="opportunity-point">
-                <span className="opportunity-icon">📈</span>
-                <h3>Competitive Edge</h3>
-                <p>Knowledgeable staff increase check averages by 23%</p>
-              </div>
-              <div className="opportunity-point">
-                <span className="opportunity-icon">⭐</span>
-                <h3>Team Confidence</h3>
-                <p>Instant answers build expertise across all experience levels</p>
-              </div>
-            </div>
+          </div>
+          <ArticleCarousel />
+          <div className="perspectives-footer">
+            <button 
+              className="btn-outline"
+              onClick={() => navigate('/explore-articles')}
+            >
+              View All Articles
+            </button>
           </div>
         </div>
       </section>
 
-      {/* SECTION 3 - Platform Features (Clean) */}
+      {/* SECTION 3 - Platform Features */}
       <section className="platform-section">
         <div className="section-container">
           <div className="platform-content">
@@ -176,36 +161,36 @@ export default function HomePageNew() {
         </div>
       </section>
 
-      {/* SECTION 4 - Value Proposition */}
+      {/* SECTION 4 - Value Proposition (UPDATED) */}
       <section className="value-section">
         <div className="section-container">
           <div className="value-content">
             <h2 className="value-title">
-              Transform your beverage IQ in real-time
+              Built for how you actually learn
             </h2>
             <p className="value-subtitle">
-              The beverage industry rewards expertise. Make knowledge your competitive advantage.
+              Whether you need a quick answer or want to go deep, we built this resource to adapt to you—not the other way around.
             </p>
             <div className="value-boxes">
               <div className="value-box">
+                <span className="value-icon">⚡</span>
+                <div className="value-text">
+                  <h3>Fast When You Need It</h3>
+                  <p>Quick definitions, instant wine pairings, classic cocktail specs—answers in seconds, not searches.</p>
+                </div>
+              </div>
+              <div className="value-box">
                 <span className="value-icon">🎯</span>
                 <div className="value-text">
-                  <h3>Profit Center</h3>
-                  <p>Beverage expertise drives 35% of hospitality profits—make it your advantage</p>
+                  <h3>Deep When You Want It</h3>
+                  <p>Ready to geek out? Our articles and database go way beyond the basics—no gatekeeping, no paywalls.</p>
                 </div>
               </div>
               <div className="value-box">
-                <span className="value-icon">🚀</span>
+                <span className="value-icon">🌍</span>
                 <div className="value-text">
-                  <h3>Accessible Excellence</h3>
-                  <p>From novice to expert—accessible knowledge for every level</p>
-                </div>
-              </div>
-              <div className="value-box">
-                <span className="value-icon">🔓</span>
-                <div className="value-text">
-                  <h3>No Gatekeeping</h3>
-                  <p>The industry's most comprehensive resource, free from barriers</p>
+                  <h3>For Everyone, Actually</h3>
+                  <p>First time trying sake? Prepping for Advanced Somm? Hosting a dinner party? You're all welcome here.</p>
                 </div>
               </div>
             </div>
@@ -213,28 +198,7 @@ export default function HomePageNew() {
         </div>
       </section>
 
-      {/* SECTION 5 - Fresh Perspectives (Articles) */}
-      <section className="perspectives-section">
-        <div className="section-container">
-          <div className="perspectives-header">
-            <h2 className="section-title">Fresh Perspectives</h2>
-            <p className="section-subtitle">
-              Clear insights on complex topics. Cutting through complexity with actionable beverage knowledge you can use today.
-            </p>
-          </div>
-          <ArticleCarousel />
-          <div className="perspectives-footer">
-            <button 
-              className="btn-outline"
-              onClick={() => navigate('/explore-articles')}
-            >
-              View All Articles
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 6 - About/Vision (Humble) */}
+      {/* SECTION 5 - About/Vision */}
       <section className="vision-section">
         <div className="section-container">
           <div className="vision-content">
@@ -271,7 +235,7 @@ export default function HomePageNew() {
         </div>
       </section>
 
-      {/* SECTION 7 - CTA */}
+      {/* SECTION 6 - CTA */}
       <section className="cta-section">
         <div className="section-container">
           <div className="cta-content">
@@ -297,7 +261,7 @@ export default function HomePageNew() {
         </div>
       </section>
 
-      {/* SECTION 8 - Footer */}
+      {/* SECTION 7 - Footer */}
       <footer className="hp-footer">
         <div className="hp-footer-container">
           <div className="hp-footer-content">

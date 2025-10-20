@@ -1,5 +1,10 @@
 /* 📄 FILE: src/styles/HomePageNew.css */
 
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
 /* ============================================================
    MOBILE STYLES (DEFAULT - MOBILE FIRST APPROACH)
    ============================================================ */
@@ -15,6 +20,7 @@
    ======================== */
 .hero-section {
   min-height: 100vh;
+  background-color: #1a1a1a;
   background-image: url('/beverage-background-mobile.png');
   background-size: cover;
   background-position: center;
@@ -62,7 +68,7 @@
   color: white;
   margin-bottom: 10px;
   text-align: left;
-  width: 70%;
+  width: 80%;
 }
 
 .hero-description {
@@ -71,7 +77,7 @@
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 30px;
   text-align: left;
-  max-width: 300px;
+  max-width: 340px;
 }
 
 .hero-actions {
