@@ -54,11 +54,12 @@ export default function HomePageNew() {
             <div className="hero-video-mobile">
               <div className="hero-video-wrapper">
                 <iframe 
-                  src="https://player.vimeo.com/video/1124882783?h=c083a41084"
+                  src="https://player.vimeo.com/video/1129255326?h=9f6233ddae&background=1"
                   width="100%" 
                   height="100%" 
                   frameBorder="0"
-                  allow="fullscreen; picture-in-picture"
+                  allow="autoplay; fullscreen"
+                  title="Beverage.fyi Demo"
                 ></iframe>
               </div>
             </div>
@@ -68,11 +69,12 @@ export default function HomePageNew() {
           <div className="hero-video-desktop">
             <div className="hero-video-wrapper">
               <iframe 
-                src="https://player.vimeo.com/video/1124882783?h=c083a41084"
+                src="https://player.vimeo.com/video/1129255326?h=9f6233ddae&background=1"
                 width="100%" 
                 height="100%" 
                 frameBorder="0"
-                allow="fullscreen; picture-in-picture"
+                allow="autoplay; fullscreen"
+                title="Beverage.fyi Demo"
               ></iframe>
             </div>
           </div>
