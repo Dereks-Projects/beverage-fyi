@@ -45,10 +45,10 @@ html {
 /* Brand (Logo + Title) */
 /* Site Title with Yellow Dot */
 .hero-brand-title-large {
-  font-size: 2.3rem;
+  font-size: 2.9rem;
   font-weight: 700;
   color: white;
-  margin: -20px 0 10px 0;
+  margin: -60px 0 10px 0;
   text-align: left;
 }
 
@@ -58,11 +58,11 @@ html {
 
 /* Main Title */
 .hero-main-title {
-  font-size: 32px;
+  font-size: 31px;
   font-weight: 500;
   line-height: 1.1;
   color: white;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   text-align: left;
   width: 80%;
 }
