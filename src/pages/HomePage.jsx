@@ -13,7 +13,7 @@ export default function HomePageNew() {
       <section className="hero-section">
         <div className="hero-container">
           <div className="hero-content-wrapper">
-            {/* Logo and Site Title */}
+            
             {/* Site Title */}
             <h2 className="hero-brand-title-large">
               Beverage<span className="hero-yellow-dot">.</span>fyi

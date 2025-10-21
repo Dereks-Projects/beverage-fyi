@@ -24,7 +24,7 @@ html {
    ======================== */
 .hero-section {
   min-height: 100vh;
-  background: #000000;
+  background: linear-gradient(135deg, #3a3a3a 0%, #000000 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,7 +45,7 @@ html {
 /* Brand (Logo + Title) */
 /* Site Title with Yellow Dot */
 .hero-brand-title-large {
-  font-size: 2.7rem;
+  font-size: 2.6rem;
   font-weight: 700;
   color: white;
   margin: -40px 0 10px 0;
@@ -58,7 +58,7 @@ html {
 
 /* Main Title */
 .hero-main-title {
-  font-size: 30px;
+  font-size: 29px;
   font-weight: 400;
   line-height: 1.1;
   color: white;
@@ -72,7 +72,7 @@ html {
   font-size: 16px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   text-align: left;
   max-width: 340px;
 }
@@ -608,7 +608,7 @@ html {
      HERO SECTION - DESKTOP
      ======================== */
   .hero-section {
-    background: linear-gradient(135deg, #2c2c2c 0%, #111111 100%);
+    background: linear-gradient(135deg, #3a3a3a 0%, #000000 100%);
     padding: 60px 40px;
   }
 
