@@ -51,7 +51,7 @@ export default function HomePageNew() {
             <div className="hero-video-mobile">
               <div className="hero-video-wrapper">
                 <iframe 
-                  src="https://player.vimeo.com/video/1129255326?h=9f6233ddae&background=1"
+                  src="https://player.vimeo.com/video/1129279208?h=d096e76f36&background=1"
                   width="100%" 
                   height="100%" 
                   frameBorder="0"
@@ -66,7 +66,7 @@ export default function HomePageNew() {
           <div className="hero-video-desktop">
             <div className="hero-video-wrapper">
               <iframe 
-                src="https://player.vimeo.com/video/1129255326?h=9f6233ddae&background=1"
+                src="https://player.vimeo.com/video/1129279208?h=d096e76f36&background=1"
                 width="100%" 
                 height="100%" 
                 frameBorder="0"
