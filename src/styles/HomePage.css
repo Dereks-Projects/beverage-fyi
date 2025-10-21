@@ -47,25 +47,25 @@ html {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-top: 10px;
+  margin-top: 0px;
   margin-bottom: 20px;
 }
 
 .hero-brand-logo {
-  width: 37px;
-  height: 37px;
+  width: 35px;
+  height: 35px;
 }
 
 .hero-brand-title {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 500;
   color: white;
 }
 
 /* Main Title */
 .hero-main-title {
-  font-size: 33px;
-  font-weight: 600;
+  font-size: 32px;
+  font-weight: 500;
   line-height: 1.2;
   color: white;
   margin-bottom: 10px;
