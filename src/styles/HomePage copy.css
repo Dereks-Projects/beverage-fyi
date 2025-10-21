@@ -43,17 +43,23 @@ html {
 }
 
 /* Brand (Logo + Title) */
-/* Site Title with Yellow Dot */
-.hero-brand-title-large {
-  font-size: 2.3rem;
-  font-weight: 700;
-  color: white;
-  margin: 0 0 10px 0;
-  text-align: left;
+.hero-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: -10px;
+  margin-bottom: 20px;
 }
 
-.hero-yellow-dot {
-  color: #FFE476;
+.hero-brand-logo {
+  width: 35px;
+  height: 35px;
+}
+
+.hero-brand-title {
+  font-size: 24px;
+  font-weight: 500;
+  color: white;
 }
 
 /* Main Title */
@@ -608,7 +614,7 @@ html {
      HERO SECTION - DESKTOP
      ======================== */
   .hero-section {
-    background: linear-gradient(135deg, #3a3a3a 0%, #1a1a1a 100%);
+    
     padding: 60px 40px;
   }
 
@@ -623,15 +629,19 @@ html {
     max-width: 500px;
   }
 
-.hero-brand-title-large {
-  font-size: 3.7rem;
-  margin-bottom: -.1rem;
-}
+  .hero-brand-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .hero-brand-title {
+    font-size: 33px;
+  }
 
   .hero-main-title {
-    font-size: 34px;
+    font-size: 40px;
     margin-bottom: 20px;
-    width: 500px;
+    width: 550px;
   }
 
   .hero-description {

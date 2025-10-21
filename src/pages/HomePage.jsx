@@ -14,10 +14,10 @@ export default function HomePageNew() {
         <div className="hero-container">
           <div className="hero-content-wrapper">
             {/* Logo and Site Title */}
-            <div className="hero-brand">
-              <img src="/beverage-logo-landingpage.svg" alt="Beverage.fyi" className="hero-brand-logo" />
-              <span className="hero-brand-title">Beverage.fyi</span>
-            </div>
+            {/* Site Title */}
+            <h2 className="hero-brand-title-large">
+              Beverage<span className="hero-yellow-dot">.</span>fyi
+            </h2>
 
             {/* Main Title */}
             <h1 className="hero-main-title">
