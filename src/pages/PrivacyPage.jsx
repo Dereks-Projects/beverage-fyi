@@ -23,7 +23,7 @@ const PrivacyPage = () => {
           </button>
 
           <h1 className="legal-title">Privacy Policy</h1>
-          <p className="legal-updated">Last Updated: January 2025</p>
+          <p className="legal-updated">Last Updated: October 2025</p>
 
           <section className="legal-section">
             <h2>1. Introduction</h2>

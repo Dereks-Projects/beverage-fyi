@@ -30,7 +30,7 @@ export default function TerminologyPage() {
             <div className="terminology-desktop-header">
               <h1 className="terminology-desktop-title">Terminology</h1>
               <p className="terminology-desktop-subtitle">
-                Enjoy this collection of key terms that compliment our book, <br/>The Beverage Compass.
+                Enjoy this collection of encyclopedia style entries covering the world of beverages.
               </p>
             </div>
             <LetterGridDesktop />

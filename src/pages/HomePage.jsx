@@ -208,13 +208,17 @@ export default function HomePageNew() {
             <div className="vision-text">
               <h2 className="vision-title">Built with purpose</h2>
               <p className="vision-description">
-                After two decades in hospitality, I built Beverage.fyi to solve a simple problem: 
-                professionals need instant access to reliable beverage knowledge. This platform 
-                represents everything I've learned, organized the way working professionals actually need it.
+                After 20 years in hospitality, I wanted to create something I wish 
+                existed when I was starting out: a comprehensive beverage resource 
+                that's free, reliable, and accessible to everyone—whether you're 
+                studying for a certification, exploring a new spirit, or just 
+                curious about what you're drinking.
               </p>
               <p className="vision-description">
-                The Beverage Compass book and this platform work together as a complete system—one 
-                you can trust because it's built from real experience, not theory.
+                I built Beverage.fyi from the ground up, combining industry 
+                experience with modern technology. No paywalls. No gatekeeping. 
+                Just beverage knowledge, organized the way people actually search 
+                for it.
               </p>
               <div className="vision-buttons">
                 <button 

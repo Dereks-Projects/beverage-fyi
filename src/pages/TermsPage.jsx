@@ -23,7 +23,7 @@ const TermsPage = () => {
           </button>
 
           <h1 className="legal-title">Terms of Use</h1>
-          <p className="legal-updated">Last Updated: January 2025</p>
+          <p className="legal-updated">Last Updated: October 2025</p>
 
           <section className="legal-section">
             <h2>1. Acceptance of Terms</h2>

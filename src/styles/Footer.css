@@ -1,56 +1,133 @@
 /* 📄 FILE: src/styles/Footer.css */
 /* Desktop-only footer styles; no effect on mobile. */
 
-.site-footer { display: none; } /* mobile-first: hidden */
+.site-footer { 
+  display: none; /* mobile-first: hidden */
+} 
 
 @media (min-width: 1024px) {
   .site-footer {
-    display: block;          /* visible on desktop */
-    background: #d9d9d9;
-    margin: 0;               /* no extra outer space */
-    padding: 28px 16px 34px; /* normal inner spacing */
+    display: block;
+    background: #000000;
+    padding: 60px 40px;
     box-sizing: border-box;
   }
 
-  .footer-inner {
-    max-width: 1100px;
+  .footer-container {
+    max-width: 1200px;
     margin: 0 auto;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     font-family: 'Poppins', sans-serif;
-    color: #111;
+    padding: 0 60px;
   }
 
-  .footer-logo img {
-    width: 58px;
-    height: auto;
-    display: block;
-    margin: 0 auto 10px;
+  /* === LEFT SECTION === */
+  .footer-left {
+    text-align: left;
+    max-width: 50%;
+    
   }
 
-  .footer-links {
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-    margin: 6px 0 10px;
-    font-size: 0.98rem;
+  .footer-title {
+    font-size: 3.3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 6px 0;
   }
-  .footer-links a { color: #111; text-decoration: none; }
-  .footer-links a:hover { text-decoration: underline; }
-  .footer-links .dot { color: #666; user-select: none; }
 
-  .footer-copy {
-    font-size: 0.8rem;
-    color: #424242;
-    margin: 0;               /* no mystery bottom gap from margins */
+  .yellow-period {
+    color: #FFE476;
   }
-  
-  /* Copyright as link to About page */
-  .footer-copyright-link { 
-    color: inherit;          /* maintains #333 from parent */
-    text-decoration: none;   /* no underline by default */
+
+.footer-tagline {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0 0 24px 0;
+  line-height: 1;
+}
+
+/* === CTA BUTTONS === */
+.footer-cta {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  max-width: 600px;
+}
+
+.cta-button {
+  padding: 8px 20px;
+  font-size: .7rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  border-radius: 22px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  flex: 0 1 auto;
+  display: inline-block;
+}
+
+/* Outline button (Let's Collaborate) */
+.cta-outline {
+  background: transparent;
+  border: 2px solid #FFE476;
+  color: #FFE476;
+}
+
+.cta-outline:hover {
+  background: #FFE476;
+  color: #000000;
+}
+
+/* Filled button (Explore Library) */
+.cta-filled {
+  background: #FFE476;
+  border: 2px solid #FFE476;
+  color: #000000;
+}
+
+.cta-filled:hover {
+  background: #FFF8CC;
+  border-color: #FFF8CC;
+  box-shadow: 0 2px 8px rgba(255, 228, 118, 0.4);
+}
+
+  .footer-legal {
+    display: flex;
+    gap: 16px;
   }
-  .footer-copyright-link:hover,
-  .footer-copyright-link:active { 
-    text-decoration: underline; /* underline on hover/click only */
+
+  .footer-legal a {
+    font-size: 0.7rem;
+    color: #999999;
+    text-decoration: none;
+  }
+
+  .footer-legal a:hover {
+    text-decoration: underline;
+  }
+
+  /* === RIGHT SECTION === */
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 6.6px;
+    text-align: right;
+    margin-top: 10px;
+  }
+
+  .footer-right a {
+    font-size: .8rem;
+    color: #ffffff;
+    text-decoration: none;
+    
+  }
+
+  .footer-right a:hover {
+    text-decoration: underline;
   }
 }

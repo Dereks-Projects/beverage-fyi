@@ -17,6 +17,10 @@
   margin-bottom: 1rem; /* Space before search on mobile */
 }
 
+.yellow-dot {
+  color: #FFE476;
+}
+
 /* Search bar container */
 .header-searchbar {
   margin: 0 auto;
@@ -38,7 +42,7 @@
 /* Magnify icon */
 .search-icon {
   margin-right: 0.5rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 /* Input field */
@@ -48,6 +52,12 @@
   font-size: 1rem;
   flex: 1;
   background: transparent;
+}
+
+/* Placeholder text */
+.search-wrapper input::placeholder {
+  font-size: 0.85rem;
+  color: #999;
 }
 
 /* Dropdown result list */

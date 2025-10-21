@@ -57,7 +57,7 @@ export default function Header() {
 
   return (
     <header className="header">
-      <h1 className="header-title">Beverage.fyi</h1>
+      <h1 className="header-title">Beverage<span className="yellow-dot">.</span>fyi</h1>
       
       {/* Desktop Navigation - moved between title and search */}
     {/* Desktop Navigation - moved between title and search */}
