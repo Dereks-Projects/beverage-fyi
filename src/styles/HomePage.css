@@ -24,11 +24,7 @@ html {
    ======================== */
 .hero-section {
   min-height: 100vh;
-  background-color: #1a1a1a;
-  background-image: url('/beverage-background-mobile.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: #000000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -144,7 +140,8 @@ html {
 /* Video Player - Mobile */
 .hero-video-mobile {
   width: 100%;
-  margin-bottom: 0;
+  margin-top: 50px;
+  margin-bottom: 10px;
   border-radius: 0px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -617,7 +614,7 @@ html {
      HERO SECTION - DESKTOP
      ======================== */
   .hero-section {
-    background-image: url('/beverage-background.png');
+    
     padding: 60px 40px;
   }
 
@@ -638,7 +635,7 @@ html {
   }
 
   .hero-brand-title {
-    font-size: 30px;
+    font-size: 33px;
   }
 
   .hero-main-title {
@@ -672,7 +669,7 @@ html {
   .hero-video-desktop {
     display: block;
     flex: 1;
-    max-width: 550px;
+    max-width: 600px;
     margin-left: 60px;
     margin-bottom: 20px;
     border-radius: 0px;

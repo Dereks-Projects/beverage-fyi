@@ -45,10 +45,7 @@ export default function HomePageNew() {
               </button>
             </div>
 
-            {/* Tagline */}
-            <p className="hero-tagline">
-              Trusted by sommeliers, bartenders, and beverage enthusiasts.
-            </p>
+            
 
             {/* Video Player - Mobile Position */}
             <div className="hero-video-mobile">
