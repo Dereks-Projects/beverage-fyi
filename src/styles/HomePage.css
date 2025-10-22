@@ -608,7 +608,8 @@ html {
      HERO SECTION - DESKTOP
      ======================== */
   .hero-section {
-    background: linear-gradient(135deg, #3a3a3a 0%, #000000 100%);
+    background-image: url('/beverage-background.png');
+    
     padding: 60px 40px;
   }
 
