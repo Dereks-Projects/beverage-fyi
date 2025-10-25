@@ -1,7 +1,7 @@
 // 📄 FILE: src/pages/PrivacyPage.jsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { Helmet } from 'react-helmet-async';
 import Footer from '../components/Footer';
 import '../styles/LegalPages.css';
 
@@ -9,7 +9,13 @@ const PrivacyPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="legal-page">
+    <>
+      <Helmet>
+        <title>Privacy Policy | Beverage.fyi</title>
+        <link rel="canonical" href="https://beverage.fyi/privacy" />
+      </Helmet>
+      
+      <div className="legal-page">
 
 
       <main className="legal-content">
@@ -211,6 +217,7 @@ const PrivacyPage = () => {
         <Footer />
       </div>
     </div>
+    </>
   );
 };
 

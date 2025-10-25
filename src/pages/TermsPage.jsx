@@ -1,7 +1,7 @@
 // 📄 FILE: src/pages/TermsPage.jsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { Helmet } from 'react-helmet-async';
 import Footer from '../components/Footer';
 import '../styles/LegalPages.css';
 
@@ -9,7 +9,13 @@ const TermsPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="legal-page">
+    <>
+      <Helmet>
+        <title>Terms of Use | Beverage.fyi</title>
+        <link rel="canonical" href="https://beverage.fyi/terms" />
+      </Helmet>
+      
+      <div className="legal-page">
 
 
       <main className="legal-content">
@@ -168,6 +174,7 @@ const TermsPage = () => {
         <Footer />
       </div>
     </div>
+    </>
   );
 };
 

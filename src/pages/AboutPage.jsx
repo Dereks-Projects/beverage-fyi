@@ -1,6 +1,7 @@
 // 📄 FILE: src/pages/AboutPage.jsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import Footer from '../components/Footer';
 import '../styles/AboutPage.css';
 
@@ -8,7 +9,13 @@ const AboutPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="aboutpage">
+    <>
+      <Helmet>
+        <title>About Beverage.fyi - Professional Beverage Education Platform</title>
+        <link rel="canonical" href="https://beverage.fyi/about" />
+      </Helmet>
+      
+      <div className="aboutpage">
 
       {/* Hero Statement */}
       <section className="about-hero-statement">
@@ -247,6 +254,7 @@ const AboutPage = () => {
         <Footer />
       </div>
     </div>
+    </>
   );
 };
 

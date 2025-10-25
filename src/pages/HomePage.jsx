@@ -1,5 +1,6 @@
 // 📄 FILE: src/pages/HomePage.jsx
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 import ArticleCarousel from "../components/ArticleCarousel";
 import "../styles/HomePage.css";
@@ -8,7 +9,13 @@ export default function HomePageNew() {
   const navigate = useNavigate();
 
   return (
-    <div className="homepage-new">
+    <>
+      <Helmet>
+        <title>Beverage.fyi - Professional Beverage Education & Wine Resources</title>
+        <link rel="canonical" href="https://beverage.fyi/" />
+      </Helmet>
+
+      <div className="homepage-new">
       {/* SECTION 1 - Hero Section */}
       <section className="hero-section">
         <div className="hero-container">
@@ -281,5 +288,6 @@ export default function HomePageNew() {
         </div>
       </footer>
     </div>
+    </>
   );
 }

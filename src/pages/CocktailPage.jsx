@@ -3,6 +3,7 @@
 // but adapted for cocktails with single filter (baseSpirit)
 
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Footer from '../components/Footer';
 import CocktailFilterGrid from '../components/CocktailFilterGrid';
 import CocktailResultsList from '../components/CocktailResultsList';
@@ -43,64 +44,71 @@ export default function CocktailPage() {
   };
 
   return (
-    <div className="cocktail-page">
-      <main className="cocktail-content">
-        {/* Mobile Layout - Using proper CSS classes */}
-        <div className="hide-on-desktop">
-          {/* Mobile Header Section */}
-          <div className="cocktail-mobile-header">
-            <h2 className="cocktail-mobile-title">Cocktail Recipes</h2>
-            <p className="cocktail-mobile-subtitle">
-              Discover classic cocktails by base spirit. Select a spirit below to explore recipes.
-            </p>
-          </div>
-
-          {/* Filter Grid Component */}
-          <CocktailFilterGrid 
-            filter={filter}
-            updateFilter={updateFilter}
-            resetFilter={resetFilter}
-          />
-
-          {/* Results Section */}
-          <div className="cocktail-results-section">
-            <CocktailResultsList cocktails={filteredCocktails} />
-          </div>
-        </div>
-
-        {/* Desktop Layout - Using proper CSS classes */}
-        <div className="desktop-only">
-          <div className="desktop-container">
-            {/* Desktop Header Section */}
-            <div className="cocktail-desktop-header">
-              <h1 className="cocktail-desktop-title">Cocktail Recipes</h1>
-              <p className="cocktail-desktop-subtitle">
+    <>
+      <Helmet>
+        <title>Classic Cocktail Recipes | Beverage.fyi</title>
+        <link rel="canonical" href="https://beverage.fyi/cocktails" />
+      </Helmet>
+      
+      <div className="cocktail-page">
+        <main className="cocktail-content">
+          {/* Mobile Layout - Using proper CSS classes */}
+          <div className="hide-on-desktop">
+            {/* Mobile Header Section */}
+            <div className="cocktail-mobile-header">
+              <h2 className="cocktail-mobile-title">Cocktail Recipes</h2>
+              <p className="cocktail-mobile-subtitle">
                 Discover classic cocktails by base spirit. Select a spirit below to explore recipes.
               </p>
             </div>
 
-            {/* Desktop Two-Column Layout */}
-            <div className="cocktail-desktop-layout">
-              {/* Left Column: Filters */}
-              <div className="cocktail-desktop-filters">
-                <CocktailFilterGrid 
-                  filter={filter}
-                  updateFilter={updateFilter}
-                  resetFilter={resetFilter}
-                />
-              </div>
-              
-              {/* Right Column: Results */}
-              <div className="cocktail-desktop-results">
-                <CocktailResultsList cocktails={filteredCocktails} />
-              </div>
+            {/* Filter Grid Component */}
+            <CocktailFilterGrid 
+              filter={filter}
+              updateFilter={updateFilter}
+              resetFilter={resetFilter}
+            />
+
+            {/* Results Section */}
+            <div className="cocktail-results-section">
+              <CocktailResultsList cocktails={filteredCocktails} />
             </div>
           </div>
-          
-          {/* Footer only on desktop */}
-          <Footer />
-        </div>
-      </main>
-    </div>
+
+          {/* Desktop Layout - Using proper CSS classes */}
+          <div className="desktop-only">
+            <div className="desktop-container">
+              {/* Desktop Header Section */}
+              <div className="cocktail-desktop-header">
+                <h1 className="cocktail-desktop-title">Cocktail Recipes</h1>
+                <p className="cocktail-desktop-subtitle">
+                  Discover classic cocktails by base spirit. Select a spirit below to explore recipes.
+                </p>
+              </div>
+
+              {/* Desktop Two-Column Layout */}
+              <div className="cocktail-desktop-layout">
+                {/* Left Column: Filters */}
+                <div className="cocktail-desktop-filters">
+                  <CocktailFilterGrid 
+                    filter={filter}
+                    updateFilter={updateFilter}
+                    resetFilter={resetFilter}
+                  />
+                </div>
+                
+                {/* Right Column: Results */}
+                <div className="cocktail-desktop-results">
+                  <CocktailResultsList cocktails={filteredCocktails} />
+                </div>
+              </div>
+            </div>
+            
+            {/* Footer only on desktop */}
+            <Footer />
+          </div>
+        </main>
+      </div>
+    </>
   );
 }

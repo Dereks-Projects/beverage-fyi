@@ -4,6 +4,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import MobileNav from '../components/MobileNav';
@@ -46,7 +47,13 @@ const ArticlePage = () => {
   }
   
   return (
-    <div className="article-page">
+    <>
+      <Helmet>
+        <title>{article.title} | Beverage.fyi</title>
+        <link rel="canonical" href={`https://beverage.fyi/article/${slug}`} />
+      </Helmet>
+      
+      <div className="article-page">
       
       
       <article className="article-container">
@@ -150,6 +157,7 @@ const ArticlePage = () => {
       <Footer />
       <MobileNav />
     </div>
+    </>
   );
 };
 

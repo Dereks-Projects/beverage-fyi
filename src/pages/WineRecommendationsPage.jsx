@@ -2,6 +2,7 @@
 // PROFESSIONAL VERSION - No inline styles
 
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Footer from '../components/Footer';
 import WineFilterGrid from '../components/WineFilterGrid';
 import WineResultsList from '../components/WineResultsList';
@@ -64,54 +65,61 @@ export default function WineRecommendationsPage() {
   };
 
   return (
-    <div className="wine-page">
-      <main className="wine-content">
-        {/* Mobile - Using proper CSS classes */}
-        <div className="hide-on-desktop">
-          <div className="wine-mobile-header">
-            <h2 className="wine-mobile-title">Wine Recommendations</h2>
-            <p className="wine-mobile-subtitle">
-              Explore the world of wine with confidence. Use the filters below to find your next great bottle.
-            </p>
-          </div>
-
-          <WineFilterGrid 
-            filters={filters}
-            updateFilter={updateFilter}
-            resetFilters={resetFilters}
-          />
-
-          <div className="wine-results-section">
-            <WineResultsList wines={filteredWines} />
-          </div>
-        </div>
-
-        {/* Desktop - Using proper CSS classes */}
-        <div className="desktop-only">
-          <div className="desktop-container">
-            <div className="wine-desktop-header">
-              <h1 className="wine-desktop-title">Wine Recommendations</h1>
-              <p className="wine-desktop-subtitle">
+    <>
+      <Helmet>
+        <title>Wine Recommendations & Food Pairing Guide | Beverage.fyi</title>
+        <link rel="canonical" href="https://beverage.fyi/wine-recommendations" />
+      </Helmet>
+      
+      <div className="wine-page">
+        <main className="wine-content">
+          {/* Mobile - Using proper CSS classes */}
+          <div className="hide-on-desktop">
+            <div className="wine-mobile-header">
+              <h2 className="wine-mobile-title">Wine Recommendations</h2>
+              <p className="wine-mobile-subtitle">
                 Explore the world of wine with confidence. Use the filters below to find your next great bottle.
               </p>
             </div>
 
-            <div className="wine-desktop-layout">
-              <div className="wine-desktop-filters">
-                <WineFilterGrid 
-                  filters={filters}
-                  updateFilter={updateFilter}
-                  resetFilters={resetFilters}
-                />
-              </div>
-              <div className="wine-desktop-results">
-                <WineResultsList wines={filteredWines} />
-              </div>
+            <WineFilterGrid 
+              filters={filters}
+              updateFilter={updateFilter}
+              resetFilters={resetFilters}
+            />
+
+            <div className="wine-results-section">
+              <WineResultsList wines={filteredWines} />
             </div>
           </div>
-          <Footer />
-        </div>
-      </main>
-    </div>
+
+          {/* Desktop - Using proper CSS classes */}
+          <div className="desktop-only">
+            <div className="desktop-container">
+              <div className="wine-desktop-header">
+                <h1 className="wine-desktop-title">Wine Recommendations</h1>
+                <p className="wine-desktop-subtitle">
+                  Explore the world of wine with confidence. Use the filters below to find your next great bottle.
+                </p>
+              </div>
+
+              <div className="wine-desktop-layout">
+                <div className="wine-desktop-filters">
+                  <WineFilterGrid 
+                    filters={filters}
+                    updateFilter={updateFilter}
+                    resetFilters={resetFilters}
+                  />
+                </div>
+                <div className="wine-desktop-results">
+                  <WineResultsList wines={filteredWines} />
+                </div>
+              </div>
+            </div>
+            <Footer />
+          </div>
+        </main>
+      </div>
+    </>
   );
 }
