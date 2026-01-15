@@ -1,42 +1,22 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
 import { client } from '@/sanity/lib/client'
 import { Article } from '@/types/article'
 import ArticleCard from '@/components/homepage/ArticleCard'
 import styles from './articles.module.css'
 
-interface PageProps {
-  params: Promise<{ tag: string }>
+export const metadata: Metadata = {
+  title: 'Articles | Beverage.fyi',
+  description: 'Explore our collection of beverage articles covering wine, spirits, beer, sake, and industry insights.',
+  alternates: {
+    canonical: 'https://beverage.fyi/articles',
+  },
 }
 
-function slugToTitle(slug: string): string {
-  return slug
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ')
-}
-
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { tag } = await params
-  const title = slugToTitle(tag)
-  return {
-    title: `${title} Articles | Beverage.fyi`,
-    description: `Explore our collection of articles tagged with ${title.toLowerCase()}.`,
-    alternates: {
-      canonical: `https://beverage.fyi/articles/tag/${tag}`,
-    },
-  }
-}
-
-export default async function TagPage({ params }: PageProps) {
-  const { tag } = await params
-  const queryTag = tag.replace(/-/g, ' ')
-  const tagTitle = slugToTitle(tag)
-
-  // Query defined inline with value interpolated directly (no parameters)
+export default async function ArticlesPage() {
+  // Query for all articles (no tag filter)
   const articlesQuery = `
-    *[_type == "article" && "beverage" in sites && "${queryTag}" in tags] | order(publishedAt desc)[0...12] {
+    *[_type == "article" && "beverage" in sites] | order(publishedAt desc)[0...12] {
       _id,
       title,
       subtitle,
@@ -56,27 +36,17 @@ export default async function TagPage({ params }: PageProps) {
   `
 
   const countQuery = `
-    count(*[_type == "article" && "beverage" in sites && "${queryTag}" in tags])
+    count(*[_type == "article" && "beverage" in sites])
   `
 
   const articles: Article[] = await client.fetch(articlesQuery)
   const totalCount: number = await client.fetch(countQuery)
-
-  if (!articles || articles.length === 0) {
-    notFound()
-  }
-
   const totalPages = Math.ceil(totalCount / 12)
 
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1 className={styles.title}>{tagTitle}</h1>
-        <nav className={styles.filterNav}>
-          <Link href="/articles" className={styles.filterButton}>
-            ← All Articles
-          </Link>
-        </nav>
+        <h1 className={styles.title}>All Articles</h1>
       </header>
 
       <div className={styles.grid}>
@@ -86,11 +56,11 @@ export default async function TagPage({ params }: PageProps) {
       </div>
 
       <footer className={styles.pageFooter}>
-        <Link href="/articles" className={styles.backButton}>
-          ← Back
+        <Link href="/" className={styles.backButton}>
+          ← Home
         </Link>
         {totalPages > 1 && (
-          <Link href={`/articles/tag/${tag}/page/2`} className={styles.nextButton}>
+          <Link href="/articles/page/2" className={styles.nextButton}>
             More Articles →
           </Link>
         )}
