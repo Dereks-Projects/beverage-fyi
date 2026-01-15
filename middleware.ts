@@ -1,25 +1,62 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
+const BLOCKED_COUNTRIES = ['CN', 'RU']
+
 export function middleware(request: NextRequest) {
-  // Geo data is only available on Vercel deployment
-  // @ts-expect-error - geo is available at runtime on Vercel
-  const country = request.geo?.country || ''
+  const country = request.headers.get('x-vercel-ip-country') || ''
 
-  const blockedCountries = ['CN', 'RU']
-
-  if (blockedCountries.includes(country)) {
-    return new NextResponse('Access Restricted', {
-      status: 403,
-      headers: { 'Content-Type': 'text/plain' },
-    })
+  if (BLOCKED_COUNTRIES.includes(country)) {
+    return new NextResponse(
+      `<!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Access Restricted | Beverage.fyi</title>
+          <style>
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            body {
+              font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+              background-color: #1a1a1a;
+              color: #ffffff;
+              min-height: 100vh;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              text-align: center;
+              padding: 20px;
+            }
+            .container { max-width: 500px; }
+            h1 {
+              font-size: 32px;
+              margin-bottom: 16px;
+              color: #c9a227;
+            }
+            p {
+              font-size: 16px;
+              opacity: 0.9;
+              line-height: 1.6;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <h1>Access Restricted</h1>
+            <p>Beverage.fyi is not available in your region.</p>
+          </div>
+        </body>
+      </html>`,
+      {
+        status: 403,
+        headers: { 'Content-Type': 'text/html' },
+      }
+    )
   }
 
   return NextResponse.next()
 }
 
 export const config = {
-  matcher: [
-    '/((?!_next/static|_next/image|favicon.ico).*)',
-  ],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|.*\\.png$|.*\\.jpg$|.*\\.svg$).*)'],
 }
