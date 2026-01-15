@@ -1,0 +1,159 @@
+.pageContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
+  padding: 100px var(--spacing-md) var(--spacing-3xl) var(--spacing-md);
+  text-align: center;
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heroTitle {
+  font-family: var(--font-primary);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-text-light);
+  margin: 0 0 var(--spacing-lg) 0;
+  letter-spacing: 0.5px;
+}
+
+.heroSubtitle {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text-light);
+  opacity: 0.9;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.sectionContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-lg) 0;
+}
+
+.sectionText {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin: 0 0 var(--spacing-lg) 0;
+}
+
+.sectionText:last-child {
+  margin-bottom: 0;
+}
+
+.missionSection {
+  padding: var(--spacing-3xl) var(--spacing-md);
+  background-color: var(--color-text-light);
+}
+
+.missionText {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 1.9;
+  margin: 0 0 var(--spacing-lg) 0;
+}
+
+.missionText:last-child {
+  margin-bottom: 0;
+}
+
+.highlight {
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+.creatorSection {
+  padding: var(--spacing-3xl) var(--spacing-md);
+  background-color: var(--color-background);
+}
+
+.collaborateSection {
+  padding: var(--spacing-3xl) var(--spacing-md);
+  background-color: var(--color-border);
+}
+
+.collaborateContent {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.collaborateTitle {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-lg) 0;
+}
+
+.collaborateText {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin: 0 0 var(--spacing-xl) 0;
+}
+
+.contactLink {
+  display: inline-block;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  background-color: var(--color-accent);
+  padding: var(--spacing-sm) var(--spacing-xl);
+  text-decoration: none;
+  border-radius: 4px;
+  transition: opacity var(--transition-fast);
+}
+
+.contactLink:hover {
+  opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 120px var(--spacing-md) var(--spacing-3xl) var(--spacing-md);
+  }
+
+  .heroTitle {
+    font-size: 3rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.125rem;
+  }
+
+  .sectionTitle,
+  .collaborateTitle {
+    font-size: 1.75rem;
+  }
+
+  .missionText,
+  .sectionText,
+  .collaborateText {
+    font-size: 1.0625rem;
+  }
+}

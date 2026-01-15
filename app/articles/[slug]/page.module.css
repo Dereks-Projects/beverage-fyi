@@ -1,0 +1,212 @@
+.article {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.header {
+  margin-bottom: var(--spacing-xl);
+}
+
+.breadcrumb {
+  font-family: var(--font-primary);
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.breadcrumb a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.breadcrumb a:hover {
+  color: var(--color-text-primary);
+  text-decoration: underline;
+}
+
+.breadcrumbSeparator {
+  margin: 0 var(--spacing-sm);
+  color: var(--color-text-secondary);
+}
+
+.title {
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.subtitle {
+  font-family: var(--font-primary);
+  font-size: 1.125rem;
+  font-style: italic;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.author {
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.metaSeparator {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+}
+
+.publishedDate {
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.imageWrapper {
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+}
+
+.mainImage {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.body {
+  font-family: var(--font-primary);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--color-text-primary);
+}
+
+.body p {
+  margin-bottom: var(--spacing-lg);
+}
+
+.body h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-top: var(--spacing-2xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.body blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+  font-style: italic;
+  color: var(--color-text-secondary);
+}
+
+.body img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: var(--spacing-xl) 0 0 0;
+}
+
+.bodyImage {
+  margin: var(--spacing-xl) 0;
+}
+
+.bodyImage img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.bodyImage figcaption {
+  font-family: var(--font-primary);
+  font-size: 0.8125rem;
+  font-style: italic;
+  color: var(--color-text-secondary);
+  margin-top: var(--spacing-xs);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-2xl);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.tagsLabel {
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.tagLink {
+  font-family: var(--font-primary);
+  font-size: 0.8125rem;
+  color: var(--color-text-primary);
+  background-color: var(--color-border);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.tagLink:hover {
+  background-color: var(--color-text-primary);
+  color: var(--color-text-light);
+}
+
+.articleFooter {
+  margin-top: var(--spacing-3xl);
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--color-border);
+}
+
+.backLink {
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.backLink:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .article {
+    padding: var(--spacing-3xl) var(--spacing-xl);
+  }
+
+  .title {
+    font-size: 2.625rem;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+  }
+
+  .body {
+    font-size: 1.125rem;
+  }
+
+  .body h2 {
+    font-size: 1.75rem;
+  }
+}
