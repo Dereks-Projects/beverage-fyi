@@ -2,10 +2,8 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { client } from '@/sanity/lib/client'
-import { collectionByTagQuery, collectionByTagCountQuery, collectionSubcategoriesQuery } from '@/sanity/queries'
 import { Article } from '@/types/article'
 import ArticleCard from '@/components/homepage/ArticleCard'
-import SubcategoryDropdown from '@/components/article/SubcategoryDropdown'
 import styles from '../../articles.module.css'
 
 interface PageProps {
@@ -33,19 +31,38 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function TagPage({ params }: PageProps) {
   const { tag } = await params
+  const queryTag = tag.replace(/-/g, ' ')
   const tagTitle = slugToTitle(tag)
 
-const articles: Article[] = await client.fetch(collectionByTagQuery, {
-    tag: tag,
-    start: 0,
-    end: 12,
-  })
-  const totalCount: number = await client.fetch(collectionByTagCountQuery, {
-    tag: tag,
-  })
-  const subcategories: string[] = await client.fetch(collectionSubcategoriesQuery)
+  // Query defined inline with value interpolated directly (no parameters)
+  const articlesQuery = `
+    *[_type == "article" && "beverage" in sites && "${queryTag}" in tags] | order(publishedAt desc)[0...12] {
+      _id,
+      title,
+      subtitle,
+      slug,
+      mainImage {
+        asset -> {
+          _id,
+          url
+        },
+        alt
+      },
+      subcategory,
+      category,
+      publishedAt,
+      author
+    }
+  `
 
-  if (articles.length === 0) {
+  const countQuery = `
+    count(*[_type == "article" && "beverage" in sites && "${queryTag}" in tags])
+  `
+
+  const articles: Article[] = await client.fetch(articlesQuery)
+  const totalCount: number = await client.fetch(countQuery)
+
+  if (!articles || articles.length === 0) {
     notFound()
   }
 
@@ -55,7 +72,11 @@ const articles: Article[] = await client.fetch(collectionByTagQuery, {
     <div className={styles.container}>
       <header className={styles.header}>
         <h1 className={styles.title}>{tagTitle}</h1>
-        <SubcategoryDropdown subcategories={subcategories.filter(Boolean).sort()} />
+        <nav className={styles.filterNav}>
+          <Link href="/articles" className={styles.filterButton}>
+            ← All Articles
+          </Link>
+        </nav>
       </header>
 
       <div className={styles.grid}>

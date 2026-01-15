@@ -2,10 +2,8 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { client } from '@/sanity/lib/client'
-import { collectionByTagQuery, collectionByTagCountQuery, collectionSubcategoriesQuery } from '@/sanity/queries'
 import { Article } from '@/types/article'
 import ArticleCard from '@/components/homepage/ArticleCard'
-import SubcategoryDropdown from '@/components/article/SubcategoryDropdown'
 import styles from '../../../../articles.module.css'
 
 interface PageProps {
@@ -34,6 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function TagPagePaginated({ params }: PageProps) {
   const { tag, page } = await params
   const currentPage = parseInt(page, 10)
+  const queryTag = tag.replace(/-/g, ' ')
   const tagTitle = slugToTitle(tag)
 
   if (isNaN(currentPage) || currentPage < 1) {
@@ -43,19 +42,37 @@ export default async function TagPagePaginated({ params }: PageProps) {
   const start = (currentPage - 1) * 12
   const end = start + 12
 
-const articles: Article[] = await client.fetch<Article[]>(
-    collectionByTagQuery,
-    { tag, start, end }
-  )
-  const totalCount = await client.fetch<number>(
-    collectionByTagCountQuery,
-    { tag }
-  )
-  const subcategories: string[] = await client.fetch(collectionSubcategoriesQuery)
+  // Query defined inline with values interpolated directly (no parameters)
+  const articlesQuery = `
+    *[_type == "article" && "beverage" in sites && "${queryTag}" in tags] | order(publishedAt desc)[${start}...${end}] {
+      _id,
+      title,
+      subtitle,
+      slug,
+      mainImage {
+        asset -> {
+          _id,
+          url
+        },
+        alt
+      },
+      subcategory,
+      category,
+      publishedAt,
+      author
+    }
+  `
+
+  const countQuery = `
+    count(*[_type == "article" && "beverage" in sites && "${queryTag}" in tags])
+  `
+
+  const articles: Article[] = await client.fetch(articlesQuery)
+  const totalCount: number = await client.fetch(countQuery)
 
   const totalPages = Math.ceil(totalCount / 12)
 
-  if (currentPage > totalPages) {
+  if (currentPage > totalPages || articles.length === 0) {
     notFound()
   }
 
@@ -66,7 +83,11 @@ const articles: Article[] = await client.fetch<Article[]>(
     <div className={styles.container}>
       <header className={styles.header}>
         <h1 className={styles.title}>{tagTitle}</h1>
-        <SubcategoryDropdown subcategories={subcategories.filter(Boolean).sort()} />
+        <nav className={styles.filterNav}>
+          <Link href="/articles" className={styles.filterButton}>
+            ← All Articles
+          </Link>
+        </nav>
       </header>
 
       <div className={styles.grid}>
