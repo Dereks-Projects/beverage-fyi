@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import { client } from '@/sanity/lib/client'
 import { Article } from '@/types/article'
 import ArticleCard from '@/components/homepage/ArticleCard'
-import styles from '../../articles.module.css'
+import styles from './articles.module.css'
 
 interface PageProps {
   params: Promise<{ tag: string }>
