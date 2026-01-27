@@ -18,7 +18,10 @@ export const metadata: Metadata = {
   },
   description:
     'Explore the world of wine, spirits, beer, and sake. In-depth articles, tasting guides, and professional insights for beverage enthusiasts and industry professionals.',
-  keywords: [
+  verification: {
+  google: 'XtzDajMfGelxcGh6xsY1NKglVwHODsMZ4mXipOC-nTA',
+    },
+    keywords: [
     'wine education',
     'spirits guide',
     'beer knowledge',
