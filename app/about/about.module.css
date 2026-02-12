@@ -5,8 +5,8 @@
 }
 
 .hero {
-  background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
-  padding: 100px var(--spacing-md) var(--spacing-3xl) var(--spacing-md);
+  background: linear-gradient(to bottom, #001015, #2a2a2a);
+  padding: 140px var(--spacing-md) var(--spacing-3xl) var(--spacing-md);
   text-align: center;
 }
 
@@ -83,9 +83,24 @@
   font-weight: 500;
 }
 
-.creatorSection {
+.companySection {
   padding: var(--spacing-3xl) var(--spacing-md);
   background-color: var(--color-background);
+}
+
+.companyLink {
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-text-primary);
+  padding-bottom: 1px;
+  transition: opacity var(--transition-fast);
+}
+
+.companyLink:hover {
+  opacity: 0.7;
 }
 
 .collaborateSection {
@@ -135,7 +150,7 @@
 
 @media (min-width: 768px) {
   .hero {
-    padding: 120px var(--spacing-md) var(--spacing-3xl) var(--spacing-md);
+    padding: 170px var(--spacing-md) var(--spacing-3xl) var(--spacing-md);
   }
 
   .heroTitle {

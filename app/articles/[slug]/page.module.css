@@ -95,6 +95,21 @@
   margin-bottom: var(--spacing-lg);
 }
 
+/* ===========================================
+   DROP CAP - First letter of first paragraph
+   =========================================== */
+
+.body p:first-child::first-letter {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  float: left;
+  font-size: 4.2em;
+  line-height: 0.8;
+  padding-right: 10px;
+  padding-top: 4px;
+  color: var(--color-text-primary);
+}
+
 .body h2 {
   font-size: 1.5rem;
   font-weight: 700;
