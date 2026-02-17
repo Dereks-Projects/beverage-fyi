@@ -65,53 +65,9 @@ export const subFeaturedArticlesQuery = `
   }
 `
 
-// More articles for homepage grid (Beverage-owned categories only)
+// More articles for homepage grid (wine, spirits, beer, sake only)
 export const homepageGridArticlesQuery = `
-  *[_type == "article" && "beverage" in sites && category in ["beer", "sake", "coffee-tea", "education"]] | order(publishedAt desc)[0...9] {
-    _id,
-    title,
-    subtitle,
-    slug,
-    mainImage {
-      asset -> {
-        _id,
-        url
-      },
-      alt
-    },
-    subcategory,
-    category,
-    publishedAt,
-    author
-  }
-`
-
-// ============ HOMEPAGE TEASER QUERIES ============
-
-// Spirits teaser cards (3 most recent from Backbar.fyi)
-export const spiritsTeaserQuery = `
-  *[_type == "article" && "backbar" in sites && category == "spirits"] | order(publishedAt desc)[0...3] {
-    _id,
-    title,
-    subtitle,
-    slug,
-    mainImage {
-      asset -> {
-        _id,
-        url
-      },
-      alt
-    },
-    subcategory,
-    category,
-    publishedAt,
-    author
-  }
-`
-
-// Wine teaser cards (3 most recent from Somm.Site)
-export const wineTeaserQuery = `
-  *[_type == "article" && "somm" in sites && category == "wine"] | order(publishedAt desc)[0...3] {
+  *[_type == "article" && "beverage" in sites && category in ["wine", "spirits", "beer", "sake"]] | order(publishedAt desc)[0...9] {
     _id,
     title,
     subtitle,
@@ -291,11 +247,11 @@ export const sitemapTagsQuery = `
 `
 
 // ============ ARTICLE COLLECTION PAGE QUERIES ============
-// Beverage.fyi owned content only (no wine/spirits — those live on Somm.Site and Backbar.fyi)
+// These include ALL categories (wine, spirits, beer, sake, AND industry)
 
-// Paginated articles for collection page — ALL tab (12 per page)
+// Paginated articles for collection page (12 per page)
 export const collectionArticlesQuery = `
-  *[_type == "article" && "beverage" in sites && category in ["industry", "beer", "sake", "coffee-tea", "education"]] | order(publishedAt desc)[$start...$end] {
+  *[_type == "article" && "beverage" in sites] | order(publishedAt desc)[$start...$end] {
     _id,
     title,
     subtitle,
@@ -314,9 +270,9 @@ export const collectionArticlesQuery = `
   }
 `
 
-// Total count for ALL tab pagination
+// Total count for pagination
 export const collectionArticlesCountQuery = `
-  count(*[_type == "article" && "beverage" in sites && category in ["industry", "beer", "sake", "coffee-tea", "education"]])
+  count(*[_type == "article" && "beverage" in sites])
 `
 
 // Paginated articles by subcategory
@@ -374,60 +330,4 @@ export const collectionByTagCountQuery = `
 // All subcategories (from ALL categories, for dropdown)
 export const collectionSubcategoriesQuery = `
   array::unique(*[_type == "article" && "beverage" in sites].subcategory)
-`
-
-// ============ INDUSTRY INSIGHTS COLLECTION QUERIES ============
-
-// Paginated industry articles (12 per page)
-export const industryCollectionQuery = `
-  *[_type == "article" && "beverage" in sites && category == "industry"] | order(publishedAt desc)[$start...$end] {
-    _id,
-    title,
-    subtitle,
-    slug,
-    mainImage {
-      asset -> {
-        _id,
-        url
-      },
-      alt
-    },
-    subcategory,
-    category,
-    publishedAt,
-    author
-  }
-`
-
-// Total count for Industry Insights pagination
-export const industryCollectionCountQuery = `
-  count(*[_type == "article" && "beverage" in sites && category == "industry"])
-`
-
-// ============ BEVERAGE KNOWLEDGE COLLECTION QUERIES ============
-
-// Paginated beverage articles (12 per page)
-export const beveragesCollectionQuery = `
-  *[_type == "article" && "beverage" in sites && category in ["beer", "sake", "coffee-tea", "education"]] | order(publishedAt desc)[$start...$end] {
-    _id,
-    title,
-    subtitle,
-    slug,
-    mainImage {
-      asset -> {
-        _id,
-        url
-      },
-      alt
-    },
-    subcategory,
-    category,
-    publishedAt,
-    author
-  }
-`
-
-// Total count for Beverage Knowledge pagination
-export const beveragesCollectionCountQuery = `
-  count(*[_type == "article" && "beverage" in sites && category in ["beer", "sake", "coffee-tea", "education"]])
 `

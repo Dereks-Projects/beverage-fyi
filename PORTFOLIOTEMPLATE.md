@@ -4,15 +4,81 @@
 
 This template describes how to build a mobile-first magazine-style site using Next.js and Sanity.io. These sites are built for acquisition — clean code, enterprise-grade SEO, and professional architecture that appeals to major hospitality companies.
 
-**Reference implementation:** BACKBAR (backbar.fyi)
+**Reference implementation:** Beverage.fyi (beverage.fyi) — most mature architecture, uses design tokens and CSS custom properties throughout.
 
 **All sites use the same Sanity content lake, filtered by different categories.**
 
 ---
 
+## Brand Identity Standards
+
+All portfolio sites share a unified brand identity through Informative Media. These elements must remain congruent across every site:
+
+### Typography
+- **Font:** Inter (loaded via `next/font/google`)
+- **Weights:** 400, 500, 700
+- **CSS Variable:** `--font-inter` (or `--font-primary` in token-based sites)
+- **`display: 'swap'`** for performance
+
+### Header Structure (All Sites)
+Three-column grid layout:
+```
+[▼ Portfolio Button] — [Centered Site Logo] — [☰ Hamburger Menu]
+```
+
+- **Logo:** `letter-spacing: normal` across all sites
+- **Left panel:** Slides from left — portfolio links to all sibling sites (excluding self) + divider + "Presented By: Informative Media"
+- **Right panel:** Slides from right — site navigation, legal links, social icon
+- **Logic:** Only one panel open at a time. Click overlay to close.
+
+### Portfolio Panel Links (Per Site)
+Each site lists the OTHER portfolio sites. Never link to yourself.
+
+| If you're on... | Portfolio lists... |
+|---|---|
+| Backbar.fyi | Somm.Site, Somm.Tips, Beverage.fyi, Hospitality.fyi |
+| Beverage.fyi | Somm.Site, Somm.Tips, Backbar.fyi, Hospitality.fyi |
+| Hospitality.fyi | Somm.Site, Somm.Tips, Beverage.fyi, Backbar.fyi |
+
+### Portfolio Site Descriptions
+| Site | Description |
+|---|---|
+| Somm.Site | Explore Wine Culture |
+| Somm.Tips | Wine Pairings & Shopping Insights |
+| Beverage.fyi | Online Magazine |
+| Backbar.fyi | Spirits Education |
+| Hospitality.fyi | Hospitality Industry Insights |
+
+### Article Drop Cap
+All article pages feature a 3-line drop cap on the first paragraph:
+```css
+.body p:first-child::first-letter {   /* or .body .paragraph:first-child::first-letter */
+  font-weight: 700;
+  float: left;
+  font-size: 4.2em;
+  line-height: 0.8;
+  padding-right: 10px;
+  padding-top: 4px;
+}
+```
+**Important:** The selector depends on how PortableText renders paragraphs. If the site uses custom block renderers with class names (e.g., `.paragraph`), target that class. If it uses default rendering (bare `<p>` tags), target `p`.
+
+### About Page Template
+All sites share an identical structure with section-specific content:
+
+1. **Hero** — Gradient background (site's header color → `#2a2a2a`), "About Us" title, site-specific subtitle
+2. **Our Mission** — Single paragraph (not three), site-specific but follows the same pattern: "Great [topic] education shouldn't be locked behind... [Site] exists to democratize [topic]..."
+3. **About Informative Media** — **Identical copy across all sites.** Three sentences about the parent company + subtle link to informativemedia.com
+4. **Let's Collaborate** — Tightened CTA with site-specific industry language
+
+### Hero Gradient Rule
+The top color of every hero gradient must match that site's header background color. This creates a seamless visual flow from the fixed header into the page content.
+
+---
+
 ## The SEO Philosophy
 
-SEO is not an afterthought — it is the foundation. When you have 12 interconnected sites with perfect technical SEO, you create a network effect that individual competitors cannot match. Every decision in this template prioritizes:
+SEO is not an afterthought — it is the foundation. When you have interconnected sites with perfect technical SEO, you create a network effect that individual competitors cannot match. Every decision in this template prioritizes:
 
 1. **Crawlability** — Search engines find and understand every page
 2. **Indexability** — Every page has unique, optimized metadata
@@ -50,6 +116,55 @@ This architecture means:
 - Consistent data structure across properties
 - Single source of truth
 
+### CSS Architecture Standard: Design Tokens
+
+**All new sites must use CSS custom properties (design tokens).** This is the single most important architectural decision. Define all brand values once in `:root` within `globals.css`:
+
+```css
+:root {
+  /* Colors — CHANGE THESE PER SITE */
+  --color-background: #fafafa;
+  --color-header-footer: #000000;      /* Site's dark brand color */
+  --color-accent: #c9a227;             /* Site's accent color */
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #666666;
+  --color-text-light: #ffffff;
+  --color-border: #e0e0e0;
+
+  /* Typography — SAME ACROSS ALL SITES */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Spacing — SAME ACROSS ALL SITES */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+
+  /* Layout */
+  --max-width: 1200px;
+  --header-height: 60px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+}
+```
+
+Then reference these variables in every CSS module file instead of hardcoding values. This means changing a brand color is a one-line edit, not a 30-file find-and-replace.
+
+### Site Brand Colors
+
+| Site | Header/Footer | Accent | Notes |
+|---|---|---|---|
+| Beverage.fyi | `#000000` | `#c9a227` (gold) | Reference implementation |
+| Backbar.fyi | `#001015` | `#a8d5ba` (green) | Needs token migration |
+| Hospitality.fyi | `#00171f` | `#ffde59` (gold) | Needs token migration |
+
+**Critical:** Never change a site's header/footer color without verifying it matches the footer. If the site uses a CSS variable for this, changing it once changes both. If it's hardcoded, you must update every instance.
+
 ---
 
 ## Folder Structure
@@ -60,7 +175,7 @@ project-root/
 ├── app/
 │   ├── page.tsx                    # Homepage
 │   ├── layout.tsx                  # Root layout (Header, Footer, fonts, metadata)
-│   ├── globals.css                 # Global styles
+│   ├── globals.css                 # Global styles + design tokens (:root)
 │   ├── page.module.css             # Homepage styles
 │   ├── icon.png                    # Favicon (MUST be here, not just public/)
 │   ├── sitemap.ts                  # Dynamic sitemap generation
@@ -69,7 +184,7 @@ project-root/
 │   ├── not-found.module.css        # 404 styles
 │   ├── legal-pages.module.css      # Shared legal page styles
 │   ├── about/
-│   │   ├── page.tsx                # About page
+│   │   ├── page.tsx                # About page (congruent template)
 │   │   └── about.module.css
 │   ├── privacy/
 │   │   └── page.tsx                # Privacy policy
@@ -84,7 +199,7 @@ project-root/
 │       ├── articles.module.css     # Archive styles (shared by all article routes)
 │       ├── [slug]/
 │       │   ├── page.tsx            # Individual article (JSON-LD, full SEO)
-│       │   └── page.module.css
+│       │   └── page.module.css     # Article styles (includes drop cap)
 │       ├── page/
 │       │   └── [page]/
 │       │       └── page.tsx        # Pagination (page 2, 3, etc.)
@@ -102,7 +217,7 @@ project-root/
 │                       └── page.tsx # Tag pagination (page 2, 3, etc.)
 ├── components/
 │   ├── layout/
-│   │   ├── Header.tsx              # Client Component (hamburger menu)
+│   │   ├── Header.tsx              # Client Component (dual-panel menu)
 │   │   ├── Header.module.css
 │   │   ├── Footer.tsx
 │   │   └── Footer.module.css
@@ -194,6 +309,62 @@ export interface PortableTextBlock {
   caption?: string
 }
 ```
+
+---
+
+## Root Layout Standard
+
+Every site's `app/layout.tsx` must follow this pattern:
+
+```typescript
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import Script from 'next/script'
+import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
+import './globals.css'
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500', '700'],
+  variable: '--font-inter',
+})
+
+export const metadata: Metadata = {
+  title: {
+    default: 'Site.name | Tagline',
+    template: '%s | Site.name',
+  },
+  description: '...',
+  keywords: ['...'],
+  authors: [{ name: 'Derek Engles' }],
+  creator: 'Derek Engles',
+  publisher: 'Site.name',
+  metadataBase: new URL('https://yourdomain.com'),
+  alternates: { canonical: '/' },
+  openGraph: { /* ... */ },
+  twitter: { /* ... */ },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  icons: { icon: '/favicon.png' },
+}
+```
+
+**Key points:**
+- `display: 'swap'` on font for loading performance
+- Title template system (`%s | Site.name`) so article pages auto-format
+- Full robots config for maximum crawlability
+- Keywords array for supplemental SEO signals
 
 ---
 
@@ -328,6 +499,68 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
 
 ---
 
+## PortableText Rendering Standard
+
+Use explicit custom block renderers for maximum control. This is the preferred pattern (used by Hospitality.fyi):
+
+```typescript
+const portableTextComponents: PortableTextComponents = {
+  types: {
+    image: ({ value }) => (
+      <figure className={styles.bodyImage}>
+        <img src={value.asset?.url} alt={value.alt || ''} className={styles.bodyImageImg} />
+        {value.caption && <figcaption className={styles.caption}>{value.caption}</figcaption>}
+      </figure>
+    ),
+  },
+  block: {
+    h2: ({ children }) => <h2 className={styles.h2}>{children}</h2>,
+    blockquote: ({ children }) => <blockquote className={styles.blockquote}>{children}</blockquote>,
+    normal: ({ children }) => <p className={styles.paragraph}>{children}</p>,
+  },
+  marks: {
+    link: ({ children, value }) => (
+      <a href={value?.href} className={styles.link} target="_blank" rel="noopener noreferrer">
+        {children}
+      </a>
+    ),
+  },
+}
+```
+
+**Why explicit renderers over CSS selectors:**
+- Direct control over every block type
+- Class names are explicit, not dependent on DOM structure
+- Drop cap selector is predictable (`.body .paragraph:first-child::first-letter`)
+- Easier to maintain and debug
+
+**Drop cap note:** If using explicit `.paragraph` class, the selector is `.body .paragraph:first-child::first-letter`. If using bare `<p>` tags, the selector is `.body p:first-child::first-letter`.
+
+---
+
+## Image Handling Standard
+
+Use the Next.js `Image` component for article main images:
+
+```tsx
+import Image from 'next/image'
+
+<Image
+  src={article.mainImage.asset.url}
+  alt={article.mainImage.alt || article.title}
+  width={800}
+  height={450}
+  className={styles.mainImage}
+  priority
+/>
+```
+
+**Why:** Automatic optimization, lazy loading, WebP conversion, and better Core Web Vitals scores (directly impacts SEO ranking).
+
+**Caveat:** `next/image` with `fill` prop requires parent elements to have `position: relative` and defined dimensions. Use `width`/`height` props for simpler implementation.
+
+---
+
 ## Sanity Queries
 
 ### Query Pattern
@@ -358,10 +591,7 @@ The `articleBySlugQuery` should filter ONLY by sites array, NOT by category. Thi
 
 ### TypeScript Type Casting
 
-When passing parameters to `client.fetch()`, use generic type parameters:
-
 ```typescript
-// Pattern for typed fetches
 const articles = await client.fetch<Article[]>(query, { tag, start, end })
 const count = await client.fetch<number>(countQuery, { subcategory })
 ```
@@ -387,6 +617,7 @@ Define these in `sanity/queries.ts`:
 3. **Single Article Queries:**
    - `articleBySlugQuery` — Full article (filter by sites only, NOT category)
    - `relatedArticlesQuery` — Same subcategory, excludes current, limit 3
+   - `relatedArticlesByCategoryQuery` — Fallback if <3 subcategory matches
 
 ---
 
@@ -451,7 +682,7 @@ export const config = {
 }
 ```
 
-**Important:** 
+**Important:**
 - Do NOT use `request.geo` — TypeScript doesn't recognize it
 - Use `request.headers.get('x-vercel-ip-country')` instead
 - Only works on Vercel production, not localhost
@@ -470,52 +701,6 @@ Create `app/not-found.tsx` with:
 - Branded styling matching site colors
 
 Next.js automatically uses this for all 404 errors.
-
----
-
-## Homepage "More" Button
-
-Add a "More" button at the bottom of the homepage that links to the articles collection page:
-
-```tsx
-<div className={styles.moreButtonWrapper}>
-  <Link href="/articles" className={styles.moreButton}>
-    More
-  </Link>
-</div>
-```
-
-```css
-.moreButtonWrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: var(--spacing-2xl);
-}
-
-.moreButton {
-  font-family: var(--font-primary);
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--color-text-primary);
-  background-color: transparent;
-  border: 1px solid var(--color-text-primary);
-  padding: var(--spacing-sm) var(--spacing-2xl);
-  text-decoration: none;
-  border-radius: 3px;
-  transition: background-color var(--transition-fast), color var(--transition-fast);
-}
-
-.moreButton:hover {
-  background-color: var(--color-text-primary);
-  color: var(--color-text-light);
-}
-```
-
-**Why not dynamic "Load More"?**
-- Same SEO value — articles indexed via /articles and sitemap
-- Less code, fewer bugs
-- Cleaner architecture
-- All content is crawlable
 
 ---
 
@@ -565,7 +750,7 @@ Next.js App Router defaults to Server Components. Use Client Components (`'use c
 - Static sections
 
 **Client Components (add 'use client'):**
-- Header (hamburger menu state)
+- Header (dual-panel menu state)
 - SubcategoryDropdown (onChange handler)
 - Any component with useState, useEffect, onClick, onChange
 
@@ -573,61 +758,69 @@ Next.js App Router defaults to Server Components. Use Client Components (`'use c
 
 ## Critical Pitfalls — Do NOT Do These
 
-### 1. Do NOT use `next/image` without full CSS preparation
-**Problem:** `next/image` with `fill` prop requires parent elements to have `position: relative` and defined dimensions. Without this, images break across entire site.
-**Solution:** Stick with `<img>` tags unless you're prepared to update all related CSS.
+### 1. Do NOT hardcode colors — use design tokens
+**Problem:** Changing a brand color requires editing 30+ declarations across multiple files. One miss and the site is inconsistent.
+**Solution:** Define all colors in `:root` as CSS custom properties. Reference `var(--color-accent)` everywhere.
 
-### 2. Do NOT use `scroll-behavior: smooth` in globals.css
+### 2. Do NOT use `next/image` without full CSS preparation
+**Problem:** `next/image` with `fill` prop requires parent elements to have `position: relative` and defined dimensions. Without this, images break across entire site.
+**Solution:** Use `width`/`height` props for simpler implementation, or prepare all parent CSS first.
+
+### 3. Do NOT use `scroll-behavior: smooth` in globals.css
 **Problem:** Conflicts with Next.js App Router navigation. Pages load at wrong scroll position.
 **Solution:** Remove from CSS entirely. Next.js handles scroll reset automatically.
 
-### 3. Do NOT upgrade Next.js blindly
+### 4. Do NOT upgrade Next.js blindly
 **Problem:** Running `pnpm add next@latest` can break every TSX file.
 **Solution:** Use specific patch versions (e.g., `pnpm add next@16.0.7`). Test locally before pushing.
 
-### 4. Do NOT dump multiple files at once
+### 5. Do NOT dump multiple files at once
 **Problem:** Files get saved to wrong locations, causing cascading errors.
 **Solution:** One file at a time, with exact folder path, wait for confirmation.
 
-### 5. Do NOT put favicon only in public/
+### 6. Do NOT put favicon only in public/
 **Problem:** May not be picked up by Next.js consistently.
 **Solution:** Copy favicon to `app/icon.png` for guaranteed detection.
 
-### 6. Do NOT hardcode subcategory or tag lists
+### 7. Do NOT hardcode subcategory or tag lists
 **Problem:** Breaks when articles have values not in the list.
 **Solution:** Query Sanity dynamically. Extract unique values from actual data.
 
-### 7. Do NOT use event handlers in Server Components
+### 8. Do NOT use event handlers in Server Components
 **Problem:** `onChange`, `onClick` fail silently in Server Components.
 **Solution:** Extract interactive elements into separate Client Components with `'use client'`.
 
-### 8. Do NOT pass query params to client.fetch without proper typing
+### 9. Do NOT pass query params to client.fetch without proper typing
 **Problem:** TypeScript strict mode may reject query parameters.
 **Solution:** Use generic type parameters: `client.fetch<Article[]>(query, params)`
 
-### 9. Do NOT assume Vercel auto-deploys immediately
+### 10. Do NOT assume Vercel auto-deploys immediately
 **Problem:** Git integration may not trigger automatically on first push.
 **Solution:** After first push, check Deployments tab. Click Redeploy if needed.
 
-### 10. Do NOT hardcode DNS values
+### 11. Do NOT hardcode DNS values
 **Problem:** Vercel provides project-specific DNS values, not generic ones.
 **Solution:** After adding domain in Vercel, use the EXACT values Vercel displays.
 
-### 11. Do NOT use request.geo in middleware
+### 12. Do NOT use request.geo in middleware
 **Problem:** TypeScript doesn't recognize the geo property on NextRequest.
 **Solution:** Use `request.headers.get('x-vercel-ip-country')` instead.
 
-### 12. Do NOT skip local build verification
+### 13. Do NOT skip local build verification
 **Problem:** TypeScript errors that pass in dev mode fail on Vercel.
 **Solution:** Always run `pnpm build` before pushing. Fix all errors first.
 
-### 13. Do NOT filter articleBySlugQuery by category
+### 14. Do NOT filter articleBySlugQuery by category
 **Problem:** Featured articles from Industry category return 404 when clicked.
 **Solution:** Filter only by sites array, not category, for single article queries.
 
-### 14. Do NOT convert tag slugs to title case
+### 15. Do NOT convert tag slugs to title case
 **Problem:** Tags are stored lowercase in Sanity. Converting to title case breaks the query.
 **Solution:** Pass the URL slug directly to the tag query without transformation.
+
+### 16. Do NOT change shared CSS variables without checking all consumers
+**Problem:** A CSS variable like `--color-header-footer` controls the header AND footer. Changing it updates both — which may not be your intent.
+**Solution:** Before changing any CSS variable, search the entire codebase for every place it's referenced. Understand all downstream effects.
 
 ---
 
@@ -635,20 +828,22 @@ Next.js App Router defaults to Server Components. Use Client Components (`'use c
 
 When creating a new site, change these values:
 
-| Item | Example Change |
+| Item | What to Change |
 |------|----------------|
-| Header/Footer color | `#002228` → `#1a1a1a` |
-| Accent color | `#c9a227` → `#ffde59` |
+| Design tokens | `--color-header-footer`, `--color-accent` in `:root` |
 | Page background | Usually keep `#fafafa` |
-| Font family | Roboto → Inter |
-| Site name | "BACKBAR" → "Beverage.fyi" |
-| Category filter | `category == "spirits"` → `category in ["wine", "spirits", "beer", "sake"]` |
-| Sites filter | `"backbar" in sites` → `"beverage" in sites` |
-| Domain | backbar.fyi → beverage.fyi |
+| Site name | Logo text in Header.tsx |
+| Portfolio panel | List sibling sites (exclude self) |
+| Category filter | `category == "spirits"` → `category == "hospitality"` |
+| Sites filter | `"backbar" in sites` → `"hospitality" in sites` |
+| Domain | backbar.fyi → hospitality.fyi |
 | All metadata | Titles, descriptions, canonical URLs |
 | Public assets | socialcard.png, favicon.png |
 | Legal page content | Site name, focus area, contact info |
-| About page content | Mission, creator bio |
+| About page | Hero subtitle, mission paragraph, collaborate text |
+| About page (keep same) | Informative Media section — identical copy |
+| GA tracking ID | Unique per site |
+| Instagram link | Site-specific handle |
 
 ---
 
@@ -661,13 +856,16 @@ When creating a new site, change these values:
 - `middleware.ts` structure
 - `app/sitemap.ts` structure
 - `app/robots.ts` structure
+- `types/article.ts`
 
 ### Customize for each site:
-- `sanity/queries.ts` — Change category and sites filters
-- `app/layout.tsx` — Site name, colors, metadata, fonts
-- All `.module.css` files — Brand colors
+- `app/globals.css` — Design token values (colors only)
+- `sanity/queries.ts` — Category and sites filters
+- `app/layout.tsx` — Site name, metadata, GA tracking ID
+- `components/layout/Header.tsx` — Logo text, portfolio links, Instagram
+- `components/layout/Header.module.css` — Only if accent color differs
 - Legal pages — Site name, content focus
-- About page — Mission statement, collaboration section
+- About page — Hero subtitle, mission, collaborate text (keep Informative Media section identical)
 - `.env.local` — Verify credentials
 
 ---
@@ -794,6 +992,9 @@ Run through this for every new site:
 - [ ] `pnpm build` completes with zero errors
 - [ ] Favicon displays in browser tab
 - [ ] All links work (navigation, articles, tags, subcategories)
+- [ ] Portfolio panel links correct (excludes self, includes siblings)
+- [ ] Drop cap renders on article first paragraph
+- [ ] About page uses congruent template
 
 ### Files Verified
 - [ ] middleware.ts in root folder (geo-blocking)
@@ -802,6 +1003,7 @@ Run through this for every new site:
 - [ ] app/sitemap.ts exists
 - [ ] app/robots.ts exists
 - [ ] public/[site]-socialcard.png exists (1200x630)
+- [ ] globals.css has `:root` design tokens defined
 
 ### Deployment
 - [ ] Git initialized and pushed to GitHub
@@ -874,4 +1076,5 @@ After launch, regularly check:
 4. **Manual Testing**
    - Publish new article in Sanity
    - Verify auto-deploy triggers
-   - Check article appears on
+   - Check article appears on correct sites
+   - Test portfolio panel links across all sites

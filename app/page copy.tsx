@@ -5,14 +5,11 @@ import {
   latestArticleQuery,
   subFeaturedArticlesQuery,
   homepageGridArticlesQuery,
-  spiritsTeaserQuery,
-  wineTeaserQuery,
 } from '@/sanity/queries'
 import { Article } from '@/types/article'
 import FeaturedArticle from '@/components/homepage/FeaturedArticle'
 import SubFeaturedArticles from '@/components/homepage/SubFeaturedArticles'
 import ArticleGrid from '@/components/homepage/ArticleGrid'
-import TeaserSection from '@/components/homepage/TeaserSection'
 import styles from './page.module.css'
 
 export const revalidate = 60
@@ -26,19 +23,16 @@ async function getHomepageData() {
 
   const subFeatured: Article[] = await client.fetch(subFeaturedArticlesQuery)
   const gridArticles: Article[] = await client.fetch(homepageGridArticlesQuery)
-  const spiritsTeaser: Article[] = await client.fetch(spiritsTeaserQuery)
-  const wineTeaser: Article[] = await client.fetch(wineTeaserQuery)
 
-  return { featured, subFeatured, gridArticles, spiritsTeaser, wineTeaser }
+  return { featured, subFeatured, gridArticles }
 }
 
 export default async function HomePage() {
-  const { featured, subFeatured, gridArticles, spiritsTeaser, wineTeaser } = await getHomepageData()
+  const { featured, subFeatured, gridArticles } = await getHomepageData()
 
   return (
     <div className={styles.page}>
       <div className={styles.container}>
-        {/* Section 1: Hero — Industry content (owned by Beverage.fyi) */}
         <section className={styles.hero}>
           <div className={styles.featuredColumn}>
             {featured && <FeaturedArticle article={featured} />}
@@ -48,18 +42,11 @@ export default async function HomePage() {
           </div>
         </section>
 
-        {/* Section 2: Owned content grid — Beer, Sake, Coffee & Tea, Education */}
-        <ArticleGrid articles={gridArticles} title="Explore More" />
-
-        {/* Section 3: Teaser band — Spirits from Backbar + Wine from Somm */}
-        <TeaserSection
-          spiritsArticles={spiritsTeaser}
-          wineArticles={wineTeaser}
-        />
+        <ArticleGrid articles={gridArticles} />
 
         <div className={styles.moreButtonWrapper}>
           <Link href="/articles" className={styles.moreButton}>
-            More Articles
+            More
           </Link>
         </div>
       </div>

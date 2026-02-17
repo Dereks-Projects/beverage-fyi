@@ -14,23 +14,25 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Beverage.fyi | Wine, Spirits, Beer & Sake Education',
+    default: 'Beverage.fyi | Industry Insights, Beer, Sake & Beverage Education',
     template: '%s | Beverage.fyi',
   },
   description:
-    'Explore the world of wine, spirits, beer, and sake. In-depth articles, tasting guides, and professional insights for beverage enthusiasts and industry professionals.',
+    'The beverage industry newsroom and education hub. Industry analysis, beer and sake deep dives, coffee and tea guides, and professional insights for enthusiasts and industry professionals.',
   verification: {
-  google: 'XtzDajMfGelxcGh6xsY1NKglVwHODsMZ4mXipOC-nTA',
-    },
-    keywords: [
-    'wine education',
-    'spirits guide',
-    'beer knowledge',
-    'sake information',
-    'beverage industry',
-    'sommelier resources',
-    'cocktail culture',
-    'drink articles',
+    google: 'XtzDajMfGelxcGh6xsY1NKglVwHODsMZ4mXipOC-nTA',
+  },
+  keywords: [
+    'beverage industry news',
+    'beverage industry insights',
+    'beer education',
+    'sake guide',
+    'coffee and tea',
+    'beverage knowledge',
+    'drink industry analysis',
+    'beer styles',
+    'sake education',
+    'beverage professional resources',
   ],
   authors: [{ name: 'Derek Engles' }],
   creator: 'Derek Engles',
@@ -44,23 +46,23 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://beverage.fyi',
     siteName: 'Beverage.fyi',
-    title: 'Beverage.fyi | Wine, Spirits, Beer & Sake Education',
+    title: 'Beverage.fyi | Industry Insights, Beer, Sake & Beverage Education',
     description:
-      'Explore the world of wine, spirits, beer, and sake. In-depth articles and professional insights.',
+      'The beverage industry newsroom and education hub. Industry analysis, beer and sake deep dives, and professional insights.',
     images: [
       {
         url: '/beverage-socialcard.png',
         width: 1200,
         height: 630,
-        alt: 'Beverage.fyi',
+        alt: 'Beverage.fyi — Industry Insights & Beverage Education',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Beverage.fyi | Wine, Spirits, Beer & Sake Education',
+    title: 'Beverage.fyi | Industry Insights, Beer, Sake & Beverage Education',
     description:
-      'Explore the world of wine, spirits, beer, and sake. In-depth articles and professional insights.',
+      'The beverage industry newsroom and education hub. Industry analysis, beer and sake deep dives, and professional insights.',
     images: ['/beverage-socialcard.png'],
   },
   robots: {

@@ -1,0 +1,57 @@
+/* The gray band — visually groups all outbound teaser content */
+.band {
+  background-color: #d9d9d9;
+  border-radius: 8px;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+/* Each teaser row (Spirits, Wine) */
+.row {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.row:last-child {
+  margin-bottom: 0;
+}
+
+/* Row heading */
+.rowTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  color: var(--color-text-primary);
+}
+
+/* The sister site name link in the heading */
+.siteLink {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.siteLink:hover {
+  opacity: 0.75;
+}
+
+/* 3-column grid for teaser cards */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 3 columns */
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
