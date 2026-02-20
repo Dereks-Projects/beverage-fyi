@@ -7,6 +7,8 @@ import ArticleCard from '@/components/homepage/ArticleCard'
 import FilterTabs from '@/components/article/FilterTabs'
 import styles from '../articles.module.css'
 
+export const revalidate = 60
+
 export const metadata: Metadata = {
   title: 'Industry Insights | Beverage.fyi',
   description: 'Industry analysis, trends, and editorial insights for beverage professionals. Current events and expert commentary on the drinks business.',

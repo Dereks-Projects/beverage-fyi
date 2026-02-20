@@ -8,6 +8,8 @@ import ArticleCard from '@/components/homepage/ArticleCard'
 import FilterTabs from '@/components/article/FilterTabs'
 import styles from '../../articles.module.css'
 
+export const revalidate = 60
+
 interface PageProps {
   params: Promise<{ page: string }>
 }

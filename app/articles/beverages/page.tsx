@@ -7,6 +7,8 @@ import ArticleCard from '@/components/homepage/ArticleCard'
 import FilterTabs from '@/components/article/FilterTabs'
 import styles from '../articles.module.css'
 
+export const revalidate = 60
+
 export const metadata: Metadata = {
   title: 'Beverage Knowledge | Beverage.fyi',
   description: 'In-depth articles on beer, sake, coffee, tea, and beverage education. Guides, history, and professional insights for enthusiasts and industry professionals.',
