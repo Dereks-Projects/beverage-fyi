@@ -1,117 +1,9 @@
-// ============ HOMEPAGE QUERIES ============
+// ============ HOMEPAGE QUERY ============
 
-// Featured article (most recent industry article)
-export const featuredArticleQuery = `
-  *[_type == "article" && "beverage" in sites && category == "industry"] | order(publishedAt desc)[0] {
-    _id,
-    title,
-    subtitle,
-    slug,
-    mainImage {
-      asset -> {
-        _id,
-        url
-      },
-      alt
-    },
-    subcategory,
-    category,
-    publishedAt,
-    author,
-    body
-  }
-`
-
-// Fallback if no industry article exists
-export const latestArticleQuery = `
-  *[_type == "article" && "beverage" in sites && category in ["wine", "spirits", "beer", "sake"]] | order(publishedAt desc)[0] {
-    _id,
-    title,
-    subtitle,
-    slug,
-    mainImage {
-      asset -> {
-        _id,
-        url
-      },
-      alt
-    },
-    subcategory,
-    category,
-    publishedAt,
-    author,
-    body
-  }
-`
-
-// Sub-featured articles (next 2 industry articles)
-export const subFeaturedArticlesQuery = `
-  *[_type == "article" && "beverage" in sites && category == "industry"] | order(publishedAt desc)[1...3] {
-    _id,
-    title,
-    subtitle,
-    slug,
-    mainImage {
-      asset -> {
-        _id,
-        url
-      },
-      alt
-    },
-    subcategory,
-    category,
-    publishedAt,
-    author
-  }
-`
-
-// More articles for homepage grid (Beverage-owned categories only)
-export const homepageGridArticlesQuery = `
-  *[_type == "article" && "beverage" in sites && category in ["beer", "sake", "coffee-tea", "education"]] | order(publishedAt desc)[0...9] {
-    _id,
-    title,
-    subtitle,
-    slug,
-    mainImage {
-      asset -> {
-        _id,
-        url
-      },
-      alt
-    },
-    subcategory,
-    category,
-    publishedAt,
-    author
-  }
-`
-
-// ============ HOMEPAGE TEASER QUERIES ============
-
-// Spirits teaser cards (3 most recent from Backbar.fyi)
-export const spiritsTeaserQuery = `
-  *[_type == "article" && "backbar" in sites && category == "spirits"] | order(publishedAt desc)[0...3] {
-    _id,
-    title,
-    subtitle,
-    slug,
-    mainImage {
-      asset -> {
-        _id,
-        url
-      },
-      alt
-    },
-    subcategory,
-    category,
-    publishedAt,
-    author
-  }
-`
-
-// Wine teaser cards (3 most recent from Somm.Site)
-export const wineTeaserQuery = `
-  *[_type == "article" && "somm" in sites && category == "wine"] | order(publishedAt desc)[0...3] {
+// 12 most recent articles across all Beverage.fyi categories
+// Position 0: featured | Positions 1-2: subfeatured | Positions 3-11: grid
+export const homepageArticlesQuery = `
+  *[_type == "article" && "beverage" in sites && category in ["industry", "beer", "spirits", "sake", "coffee-tea", "education"]] | order(publishedAt desc)[0...12] {
     _id,
     title,
     subtitle,
@@ -291,11 +183,11 @@ export const sitemapTagsQuery = `
 `
 
 // ============ ARTICLE COLLECTION PAGE QUERIES ============
-// Beverage.fyi owned content only (no wine/spirits — those live on Somm.Site and Backbar.fyi)
+// Beverage.fyi owned content — all categories
 
 // Paginated articles for collection page — ALL tab (12 per page)
 export const collectionArticlesQuery = `
-  *[_type == "article" && "beverage" in sites && category in ["industry", "beer", "sake", "coffee-tea", "education"]] | order(publishedAt desc)[$start...$end] {
+  *[_type == "article" && "beverage" in sites && category in ["industry", "spirits", "beer", "sake", "coffee-tea", "education"]] | order(publishedAt desc)[$start...$end] {
     _id,
     title,
     subtitle,
@@ -316,7 +208,7 @@ export const collectionArticlesQuery = `
 
 // Total count for ALL tab pagination
 export const collectionArticlesCountQuery = `
-  count(*[_type == "article" && "beverage" in sites && category in ["industry", "beer", "sake", "coffee-tea", "education"]])
+  count(*[_type == "article" && "beverage" in sites && category in ["industry", "spirits", "beer", "sake", "coffee-tea", "education"]])
 `
 
 // Paginated articles by subcategory
@@ -404,11 +296,11 @@ export const industryCollectionCountQuery = `
   count(*[_type == "article" && "beverage" in sites && category == "industry"])
 `
 
-// ============ BEVERAGE KNOWLEDGE COLLECTION QUERIES ============
+// ============ SPIRITS COLLECTION QUERIES ============
 
-// Paginated beverage articles (12 per page)
-export const beveragesCollectionQuery = `
-  *[_type == "article" && "beverage" in sites && category in ["beer", "sake", "coffee-tea", "education"]] | order(publishedAt desc)[$start...$end] {
+// Paginated spirits articles (12 per page)
+export const spiritsCollectionQuery = `
+  *[_type == "article" && "beverage" in sites && category == "spirits"] | order(publishedAt desc)[$start...$end] {
     _id,
     title,
     subtitle,
@@ -427,7 +319,91 @@ export const beveragesCollectionQuery = `
   }
 `
 
-// Total count for Beverage Knowledge pagination
-export const beveragesCollectionCountQuery = `
-  count(*[_type == "article" && "beverage" in sites && category in ["beer", "sake", "coffee-tea", "education"]])
+// Total count for Spirits pagination
+export const spiritsCollectionCountQuery = `
+  count(*[_type == "article" && "beverage" in sites && category == "spirits"])
+`
+
+// ============ BEER COLLECTION QUERIES ============
+
+// Paginated beer articles (12 per page)
+export const beerCollectionQuery = `
+  *[_type == "article" && "beverage" in sites && category == "beer"] | order(publishedAt desc)[$start...$end] {
+    _id,
+    title,
+    subtitle,
+    slug,
+    mainImage {
+      asset -> {
+        _id,
+        url
+      },
+      alt
+    },
+    subcategory,
+    category,
+    publishedAt,
+    author
+  }
+`
+
+// Total count for Beer pagination
+export const beerCollectionCountQuery = `
+  count(*[_type == "article" && "beverage" in sites && category == "beer"])
+`
+
+// ============ SAKE COLLECTION QUERIES ============
+
+// Paginated sake articles (12 per page)
+export const sakeCollectionQuery = `
+  *[_type == "article" && "beverage" in sites && category == "sake"] | order(publishedAt desc)[$start...$end] {
+    _id,
+    title,
+    subtitle,
+    slug,
+    mainImage {
+      asset -> {
+        _id,
+        url
+      },
+      alt
+    },
+    subcategory,
+    category,
+    publishedAt,
+    author
+  }
+`
+
+// Total count for Sake pagination
+export const sakeCollectionCountQuery = `
+  count(*[_type == "article" && "beverage" in sites && category == "sake"])
+`
+
+// ============ COFFEE & TEA COLLECTION QUERIES ============
+
+// Paginated coffee-tea articles (12 per page)
+export const coffeeTeaCollectionQuery = `
+  *[_type == "article" && "beverage" in sites && category == "coffee-tea"] | order(publishedAt desc)[$start...$end] {
+    _id,
+    title,
+    subtitle,
+    slug,
+    mainImage {
+      asset -> {
+        _id,
+        url
+      },
+      alt
+    },
+    subcategory,
+    category,
+    publishedAt,
+    author
+  }
+`
+
+// Total count for Coffee & Tea pagination
+export const coffeeTeaCollectionCountQuery = `
+  count(*[_type == "article" && "beverage" in sites && category == "coffee-tea"])
 `

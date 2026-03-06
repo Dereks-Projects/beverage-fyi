@@ -1,13 +1,14 @@
 import Link from 'next/link'
 import { client } from '@/sanity/lib/client'
-import { featuredArticleQuery } from '@/sanity/queries'
 import styles from './Footer.module.css'
 
 export default async function Footer() {
   const currentYear = new Date().getFullYear()
   
-  const featuredArticle = await client.fetch(featuredArticleQuery)
-  const featuredSlug = featuredArticle?.slug?.current || ''
+  const featuredArticle = await client.fetch(
+    `*[_type == "article" && "beverage" in sites] | order(publishedAt desc)[0] { "slug": slug.current }`
+  )
+  const featuredSlug = featuredArticle?.slug || ''
 
   return (
     <footer className={styles.footer}>

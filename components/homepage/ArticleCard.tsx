@@ -25,19 +25,19 @@ export default function ArticleCard({ article }: ArticleCardProps) {
           ) : (
             <div className={styles.placeholder} />
           )}
-          {subcategory && (
-            <span className={styles.subcategory}>{subcategory}</span>
-          )}
         </div>
       </Link>
 
       <div className={styles.content}>
+        {subcategory && (
+          <span className={styles.subcategory}>{subcategory}</span>
+        )}
         <h3 className={styles.title}>
           <Link href={`/articles/${slug.current}`}>{title}</Link>
         </h3>
         {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
         <Link href={`/articles/${slug.current}`} className={styles.readMore}>
-          Read More
+          Read More<span className="visually-hidden">: {title}</span>
         </Link>
       </div>
     </article>

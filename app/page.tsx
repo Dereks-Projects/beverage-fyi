@@ -1,44 +1,31 @@
 import Link from 'next/link'
 import { client } from '@/sanity/lib/client'
-import {
-  featuredArticleQuery,
-  latestArticleQuery,
-  subFeaturedArticlesQuery,
-  homepageGridArticlesQuery,
-  spiritsTeaserQuery,
-  wineTeaserQuery,
-} from '@/sanity/queries'
+import { homepageArticlesQuery } from '@/sanity/queries'
 import { Article } from '@/types/article'
 import FeaturedArticle from '@/components/homepage/FeaturedArticle'
 import SubFeaturedArticles from '@/components/homepage/SubFeaturedArticles'
 import ArticleGrid from '@/components/homepage/ArticleGrid'
-import TeaserSection from '@/components/homepage/TeaserSection'
 import styles from './page.module.css'
 
 export const revalidate = 60
 
 async function getHomepageData() {
-  let featured: Article | null = await client.fetch(featuredArticleQuery)
+  const articles: Article[] = await client.fetch(homepageArticlesQuery)
 
-  if (!featured) {
-    featured = await client.fetch(latestArticleQuery)
-  }
+  const featured = articles[0] || null
+  const subFeatured = articles.slice(1, 3)
+  const gridArticles = articles.slice(3, 12)
 
-  const subFeatured: Article[] = await client.fetch(subFeaturedArticlesQuery)
-  const gridArticles: Article[] = await client.fetch(homepageGridArticlesQuery)
-  const spiritsTeaser: Article[] = await client.fetch(spiritsTeaserQuery)
-  const wineTeaser: Article[] = await client.fetch(wineTeaserQuery)
-
-  return { featured, subFeatured, gridArticles, spiritsTeaser, wineTeaser }
+  return { featured, subFeatured, gridArticles }
 }
 
 export default async function HomePage() {
-  const { featured, subFeatured, gridArticles, spiritsTeaser, wineTeaser } = await getHomepageData()
+  const { featured, subFeatured, gridArticles } = await getHomepageData()
 
   return (
     <div className={styles.page}>
       <div className={styles.container}>
-        {/* Section 1: Hero — Industry content (owned by Beverage.fyi) */}
+        {/* Hero — Most recent article featured, next 2 subfeatured */}
         <section className={styles.hero}>
           <div className={styles.featuredColumn}>
             {featured && <FeaturedArticle article={featured} />}
@@ -48,14 +35,8 @@ export default async function HomePage() {
           </div>
         </section>
 
-        {/* Section 2: Owned content grid — Beer, Sake, Coffee & Tea, Education */}
+        {/* Grid — Next 9 most recent articles */}
         <ArticleGrid articles={gridArticles} title="Explore More" />
-
-        {/* Section 3: Teaser band — Spirits from Backbar + Wine from Somm */}
-        <TeaserSection
-          spiritsArticles={spiritsTeaser}
-          wineArticles={wineTeaser}
-        />
 
         <div className={styles.moreButtonWrapper}>
           <Link href="/articles" className={styles.moreButton}>

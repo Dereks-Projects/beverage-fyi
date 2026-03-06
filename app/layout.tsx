@@ -89,6 +89,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
+        {/* Preconnect to Sanity CDN for faster image loading */}
+        <link rel="preconnect" href="https://cdn.sanity.io" />
         {/* Google Analytics 4 */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-87NHCW30CX"

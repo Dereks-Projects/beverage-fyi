@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { client } from '@/sanity/lib/client'
-import { beveragesCollectionQuery, beveragesCollectionCountQuery } from '@/sanity/queries'
+import { coffeeTeaCollectionQuery, coffeeTeaCollectionCountQuery } from '@/sanity/queries'
 import { Article } from '@/types/article'
 import ArticleCard from '@/components/homepage/ArticleCard'
 import FilterTabs from '@/components/article/FilterTabs'
@@ -17,15 +17,15 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { page } = await params
   return {
-    title: `Beverage Knowledge - Page ${page} | Beverage.fyi`,
-    description: 'In-depth articles on beer, sake, coffee, tea, and beverage education.',
+    title: `Coffee & Tea Articles - Page ${page} | Beverage.fyi`,
+    description: 'In-depth articles on coffee and tea. Origins, brewing methods, and tasting guides.',
     alternates: {
-      canonical: `https://beverage.fyi/articles/beverages/page/${page}`,
+      canonical: `https://beverage.fyi/articles/coffee-tea/page/${page}`,
     },
   }
 }
 
-export default async function BeveragesPagePaginated({ params }: PageProps) {
+export default async function CoffeeTeaPagePaginated({ params }: PageProps) {
   const { page } = await params
   const currentPage = parseInt(page, 10)
 
@@ -36,8 +36,8 @@ export default async function BeveragesPagePaginated({ params }: PageProps) {
   const start = (currentPage - 1) * 12
   const end = start + 12
 
-  const articles: Article[] = await client.fetch(beveragesCollectionQuery, { start, end })
-  const totalCount: number = await client.fetch(beveragesCollectionCountQuery)
+  const articles: Article[] = await client.fetch(coffeeTeaCollectionQuery, { start, end })
+  const totalCount: number = await client.fetch(coffeeTeaCollectionCountQuery)
 
   const totalPages = Math.ceil(totalCount / 12)
 
@@ -51,8 +51,8 @@ export default async function BeveragesPagePaginated({ params }: PageProps) {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1 className={styles.title}>Beverage Knowledge</h1>
-        <FilterTabs activeTab="beverages" />
+        <h1 className={styles.title}>Coffee &amp; Tea</h1>
+        <FilterTabs activeTab="coffee-tea" />
       </header>
 
       <div className={styles.grid}>
@@ -64,18 +64,18 @@ export default async function BeveragesPagePaginated({ params }: PageProps) {
       <footer className={styles.pageFooter}>
         {hasPrevPage ? (
           <Link
-            href={currentPage === 2 ? '/articles/beverages' : `/articles/beverages/page/${currentPage - 1}`}
+            href={currentPage === 2 ? '/articles/coffee-tea' : `/articles/coffee-tea/page/${currentPage - 1}`}
             className={styles.backButton}
           >
             ← Back
           </Link>
         ) : (
-          <Link href="/articles/beverages" className={styles.backButton}>
+          <Link href="/articles/coffee-tea" className={styles.backButton}>
             ← Back
           </Link>
         )}
         {hasNextPage && (
-          <Link href={`/articles/beverages/page/${currentPage + 1}`} className={styles.nextButton}>
+          <Link href={`/articles/coffee-tea/page/${currentPage + 1}`} className={styles.nextButton}>
             More Articles →
           </Link>
         )}
