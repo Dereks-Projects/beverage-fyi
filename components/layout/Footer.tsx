@@ -20,6 +20,7 @@ export default async function Footer() {
               <Link href={`/articles/${featuredSlug}`} className={styles.link}>Featured Article</Link>
             )}
             <Link href="/articles" className={styles.link}>Article Collection</Link>
+            <Link href="/wine" className={styles.link}>Wine Education</Link>
             <Link href="/about" className={styles.link}>About Us</Link>
           </nav>
           <nav className={styles.linkColumn}>

@@ -407,3 +407,26 @@ export const coffeeTeaCollectionQuery = `
 export const coffeeTeaCollectionCountQuery = `
   count(*[_type == "article" && "beverage" in sites && category == "coffee-tea"])
 `
+
+// ============ WINE SHOWCASE QUERY ============
+
+// 9 most recent wine articles from Somm.Site (for /wine showcase page)
+export const wineShowcaseQuery = `
+  *[_type == "article" && "somm" in sites && category == "wine"] | order(publishedAt desc)[0...9] {
+    _id,
+    title,
+    subtitle,
+    slug,
+    mainImage {
+      asset -> {
+        _id,
+        url
+      },
+      alt
+    },
+    subcategory,
+    category,
+    publishedAt,
+    author
+  }
+`

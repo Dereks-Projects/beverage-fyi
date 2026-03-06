@@ -153,7 +153,10 @@ export default function Header() {
               Home
             </Link>
             <Link href="/articles" className={styles.navLink} onClick={closeAll}>
-              Articles
+              Article Collection
+            </Link>
+            <Link href="/wine" className={styles.navLink} onClick={closeAll}>
+              Wine Education
             </Link>
             <Link href="/about" className={styles.navLink} onClick={closeAll}>
               About Us
