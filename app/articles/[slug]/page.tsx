@@ -83,7 +83,7 @@ const portableTextComponents: PortableTextComponents = {
       value,
       children,
     }: {
-      value: { slug?: string; docType?: string }
+      value?: { slug?: string; docType?: string }
       children: React.ReactNode
     }) => {
       if (!value?.slug) return <>{children}</>
