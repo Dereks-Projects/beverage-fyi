@@ -46,6 +46,7 @@ export default function FeaturedArticle({ article }: FeaturedArticleProps) {
               sizes="(max-width: 768px) 100vw, 60vw"
               className={styles.image}
               priority
+              fetchPriority="high"
             />
           ) : (
             <div className={styles.placeholder} />
