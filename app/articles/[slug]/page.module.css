@@ -204,6 +204,65 @@
   text-decoration: underline;
 }
 
+/* ===========================================
+   INTERNAL ARTICLE LINKS — Inline body links
+   =========================================== */
+
+.internalLink {
+  color: var(--color-text-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: 2px;
+  transition: color var(--transition-fast);
+}
+
+.internalLink:hover {
+  color: var(--color-accent);
+}
+
+/* ===========================================
+   RELATED READING BOX — Hand-picked links
+   =========================================== */
+
+.relatedReading {
+  background-color: var(--color-border);
+  border-radius: 4px;
+  padding: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.relatedReadingTitle {
+  font-family: var(--font-primary);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-sm) 0;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.relatedReadingList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.relatedReadingLink {
+  font-family: var(--font-primary);
+  font-size: 0.9375rem;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.relatedReadingLink:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
 @media (min-width: 768px) {
   .article {
     padding: var(--spacing-3xl) var(--spacing-xl);

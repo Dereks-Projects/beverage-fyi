@@ -78,6 +78,23 @@ const portableTextComponents: PortableTextComponents = {
       </figure>
     ),
   },
+  marks: {
+    internalLink: ({
+      value,
+      children,
+    }: {
+      value: { slug?: string; docType?: string }
+      children: React.ReactNode
+    }) => {
+      if (!value?.slug) return <>{children}</>
+      const href = value.docType === 'studyGuide' ? `/study-guides/${value.slug}` : `/articles/${value.slug}`
+      return (
+        <Link href={href} className={styles.internalLink}>
+          {children}
+        </Link>
+      )
+    },
+  },
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
@@ -96,6 +113,11 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       currentSlug: slug,
     })
   }
+
+  const firstImageIndex = article.body?.findIndex((block: any) => block._type === 'image') ?? -1
+  const bodyBeforeRelated = firstImageIndex >= 0 ? article.body?.slice(0, firstImageIndex + 1) : article.body
+  const bodyAfterRelated = firstImageIndex >= 0 ? article.body?.slice(firstImageIndex + 1) : []
+  const hasRelatedReading = article.relatedArticles && article.relatedArticles.length > 0
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
@@ -222,7 +244,28 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         )}
 
         <div className={styles.body}>
-          {article.body && <PortableText value={article.body} components={portableTextComponents} />}
+          {bodyBeforeRelated && (
+            <PortableText value={bodyBeforeRelated} components={portableTextComponents} />
+          )}
+
+          {hasRelatedReading && (
+            <aside className={styles.relatedReading}>
+              <h3 className={styles.relatedReadingTitle}>Related Reading</h3>
+              <ul className={styles.relatedReadingList}>
+                {article.relatedArticles.map((item: { _id: string; title: string; slug: string }) => (
+                  <li key={item._id}>
+                    <Link href={`/articles/${item.slug}`} className={styles.relatedReadingLink}>
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          )}
+
+          {bodyAfterRelated && bodyAfterRelated.length > 0 && (
+            <PortableText value={bodyAfterRelated} components={portableTextComponents} />
+          )}
         </div>
 
         {article.tags && article.tags.length > 0 && (

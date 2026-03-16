@@ -1,0 +1,82 @@
+# Beverage.fyi — Cursor Rules
+
+## Project Overview
+Beverage.fyi is the editorial hub of the Informative Media ecosystem. It is a content-driven site built in Next.js 16 (App Router) with Sanity CMS, styled with CSS Modules, and deployed via Vercel. It covers Industry, Spirits, Beer, Sake, Coffee and Tea, and Education. Wine content lives on the sister site SOMM.SITE. Beverage.fyi links to wine articles externally but never hosts full wine content.
+
+## Tech Stack (strict)
+- **Framework:** Next.js 16 (App Router, server components)
+- **CMS:** Sanity.io (shared dataset across all portfolio sites)
+- **Styling:** CSS Modules only. Mobile-first. No Tailwind. No inline styles.
+- **Font:** Inter (loaded via next/font/google, applied through CSS variable --font-inter)
+- **Design Tokens:** CSS custom properties defined in globals.css
+- **Deployment:** Vercel via GitHub
+- **Data Fetching:** GROQ queries via next-sanity client.fetch(). All queries centralized in sanity/queries.ts
+- **ISR:** All pages that fetch data must include export const revalidate = 60
+- **Package Manager:** pnpm
+
+## CSS Architecture
+- All styling through CSS Modules (ComponentName.module.css)
+- Design tokens in globals.css as CSS custom properties
+- Mobile-first breakpoints: 640px (tablet), 768px (desktop typography), 1024px (desktop layout)
+- No global class pollution. Every style is scoped to its module.
+
+## Key Design Tokens
+- --color-background: #fafafa
+- --color-header-footer: #000000
+- --color-accent: #c9a227 (gold)
+- --color-text-primary: #1a1a1a
+- --color-text-secondary: #666666
+- --color-border: #e0e0e0
+- --max-width: 1200px
+
+## Content Ownership
+- Beverage.fyi owns: Industry, Spirits, Beer, Sake, Coffee-Tea, Education
+- SOMM.SITE owns: Wine
+- Backbar.fyi is retired. Do not reference it as a live property.
+
+## Component Architecture
+- ArticleCard: internal Next.js Links, used for Beverage.fyi owned content
+- TeaserCard: external links (target="_blank"), used for sister site content
+- FilterTabs: pill-style Link navigation for collection pages (not JS toggles)
+
+## How to Work
+- Be surgical. Only edit what needs editing. Never refactor working code unless asked.
+- Never give more than 2-3 files at once.
+- Always state what file, where it goes, and why before producing code.
+- Ask for files before guessing. Never hallucinate file contents.
+- Never deploy speculative fixes. Confirm diagnosis before writing code.
+- SEO outranks all other preferences.
+- Mobile-first CSS. Write the mobile layout first, then add media queries.
+- All code must be production-ready and well-commented.
+
+## Things to NEVER Do
+- Never use Tailwind classes
+- Never use inline styles
+- Never change desktop layout when asked to fix a mobile issue (and vice versa) without confirming
+- Never remove export const revalidate = 60 from any page that fetches data
+- Never reference Backbar.fyi as a live property
+- Never display full wine articles on Beverage.fyi
+- Never use client-side JavaScript filtering where server-rendered routes would serve SEO better
+- Never use em dashes in written content
+- Never use British English; American English only
+
+## Current Task: Internal Linking Project
+Two changes to the article page (app/articles/[slug]/page.tsx):
+
+### 1. Internal Article Links in Body Text
+- The Sanity schema already has the internalLink annotation on the body field
+- Update the GROQ query (articleBySlugQuery in sanity/queries.ts) to resolve internalLink references: get slug and docType from the referenced document
+- Add a marks.internalLink renderer in the PortableText components that outputs a Next.js <Link> using the resolved slug
+- Style as subtle underlined text links
+
+### 2. Related Reading Box
+- Fetch relatedArticles[]->{ title, slug } from the article via GROQ
+- Display as a light gray box with linked article titles, positioned below the first in-body image
+- If no hand-picked relatedArticles exist on the article, show nothing
+- The existing auto-pulled RelatedArticles component at the bottom of the page stays untouched
+
+### Files Affected
+- sanity/queries.ts (update articleBySlugQuery)
+- app/articles/[slug]/page.tsx (PortableText renderer + Related Reading box)
+- app/articles/[slug]/page.module.css (styles for internal links and Related Reading box)
+- types/article.ts (extend interface if needed)

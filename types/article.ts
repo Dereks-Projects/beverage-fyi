@@ -18,6 +18,11 @@ export interface Article {
   publishedAt?: string
   author?: string
   body?: PortableTextBlock[]
+  relatedArticles?: {
+    _id: string
+    title: string
+    slug: string
+  }[]
 }
 
 export interface PortableTextBlock {

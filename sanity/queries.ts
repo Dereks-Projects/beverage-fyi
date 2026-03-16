@@ -22,86 +22,6 @@ export const homepageArticlesQuery = `
   }
 `
 
-// ============ ARTICLE COLLECTION QUERIES ============
-
-// All articles paginated
-export const allArticlesQuery = `
-  *[_type == "article" && "beverage" in sites && category in ["wine", "spirits", "beer", "sake"]] | order(publishedAt desc) {
-    _id,
-    title,
-    subtitle,
-    slug,
-    mainImage {
-      asset -> {
-        _id,
-        url
-      },
-      alt
-    },
-    subcategory,
-    category,
-    publishedAt,
-    author
-  }
-`
-
-// Articles count for pagination
-export const articlesCountQuery = `
-  count(*[_type == "article" && "beverage" in sites && category in ["wine", "spirits", "beer", "sake"]])
-`
-
-// Articles by subcategory
-export const articlesBySubcategoryQuery = `
-  *[_type == "article" && "beverage" in sites && category in ["wine", "spirits", "beer", "sake"] && subcategory == $subcategory] | order(publishedAt desc) {
-    _id,
-    title,
-    subtitle,
-    slug,
-    mainImage {
-      asset -> {
-        _id,
-        url
-      },
-      alt
-    },
-    subcategory,
-    category,
-    publishedAt,
-    author
-  }
-`
-
-// Articles by tag
-export const articlesByTagQuery = `
-  *[_type == "article" && "beverage" in sites && category in ["wine", "spirits", "beer", "sake"] && $tag in tags] | order(publishedAt desc) {
-    _id,
-    title,
-    subtitle,
-    slug,
-    mainImage {
-      asset -> {
-        _id,
-        url
-      },
-      alt
-    },
-    subcategory,
-    category,
-    publishedAt,
-    author
-  }
-`
-
-// Get all unique subcategories
-export const allSubcategoriesQuery = `
-  *[_type == "article" && "beverage" in sites && category in ["wine", "spirits", "beer", "sake"]].subcategory
-`
-
-// Get all unique tags
-export const allTagsQuery = `
-  array::unique(*[_type == "article" && "beverage" in sites && category in ["wine", "spirits", "beer", "sake"]].tags[])
-`
-
 // ============ SINGLE ARTICLE QUERIES ============
 
 // Single article by slug
@@ -131,14 +51,27 @@ export const articleBySlugQuery = `
           _id,
           url
         }
+      },
+      markDefs[]{
+        ...,
+        _type == "internalLink" => {
+          ...,
+          "slug": reference->slug.current,
+          "docType": reference->_type
+        }
       }
+    },
+    relatedArticles[]->{
+      _id,
+      title,
+      "slug": slug.current
     }
   }
 `
 
 // Related articles (same subcategory, excluding current)
 export const relatedArticlesQuery = `
-  *[_type == "article" && "beverage" in sites && category in ["wine", "spirits", "beer", "sake"] && subcategory == $subcategory && slug.current != $currentSlug] | order(publishedAt desc)[0...3] {
+  *[_type == "article" && "beverage" in sites && category in ["industry", "spirits", "beer", "sake", "coffee-tea", "education"] && subcategory == $subcategory && slug.current != $currentSlug] | order(publishedAt desc)[0...3] {
     _id,
     title,
     subtitle,
@@ -155,31 +88,6 @@ export const relatedArticlesQuery = `
     publishedAt,
     author
   }
-`
-
-// All slugs for static generation
-export const allArticleSlugsQuery = `
-  *[_type == "article" && "beverage" in sites && category in ["wine", "spirits", "beer", "sake"]].slug.current
-`
-
-// ============ SITEMAP QUERIES ============
-
-// All articles for sitemap
-export const sitemapArticlesQuery = `
-  *[_type == "article" && "beverage" in sites && category in ["wine", "spirits", "beer", "sake"]] {
-    "slug": slug.current,
-    publishedAt
-  }
-`
-
-// All subcategories for sitemap
-export const sitemapSubcategoriesQuery = `
-  array::unique(*[_type == "article" && "beverage" in sites && category in ["wine", "spirits", "beer", "sake"]].subcategory)
-`
-
-// All tags for sitemap
-export const sitemapTagsQuery = `
-  array::unique(*[_type == "article" && "beverage" in sites && category in ["wine", "spirits", "beer", "sake"]].tags[])
 `
 
 // ============ ARTICLE COLLECTION PAGE QUERIES ============
