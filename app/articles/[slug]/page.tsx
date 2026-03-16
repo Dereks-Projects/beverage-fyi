@@ -252,7 +252,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <aside className={styles.relatedReading}>
               <h3 className={styles.relatedReadingTitle}>Related Reading</h3>
               <ul className={styles.relatedReadingList}>
-                {article.relatedArticles.map((item: { _id: string; title: string; slug: string }) => (
+                {article.relatedArticles?.map((item: { _id: string; title: string; slug: string }) => (
                   <li key={item._id}>
                     <Link href={`/articles/${item.slug}`} className={styles.relatedReadingLink}>
                       {item.title}
