@@ -38,7 +38,7 @@ export default async function Footer() {
               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
             </svg>
           </a>
-          <a href="mailto:hello@beverage.fyi" className={styles.socialLink} aria-label="Email">
+          <a href="mailto:derek@informativemedia.com" className={styles.socialLink} aria-label="Email">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <rect x="2" y="4" width="20" height="16" rx="2"></rect>
               <path d="M22 6l-10 7L2 6"></path>

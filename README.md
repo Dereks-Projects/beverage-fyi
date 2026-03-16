@@ -2,7 +2,7 @@
 
 **The hub of the Informative Media ecosystem.**
 
-Beverage.fyi is one of five sites in the Informative Media portfolio, all powered by a shared Sanity CMS dataset. It serves three distinct functions: the newsroom for industry content, the hub that drives traffic to specialist sister sites, and the home for beverage categories that don't have their own dedicated property.
+Beverage.fyi is one of five sites in the Informative Media portfolio, all powered by a shared Sanity CMS dataset. It serves as the newsroom for industry content, the home for spirits, beer, sake, coffee and tea, and education articles, and a showcase for wine content hosted on SOMM.SITE.
 
 ---
 
@@ -11,31 +11,32 @@ Beverage.fyi is one of five sites in the Informative Media portfolio, all powere
 | Site | Domain | Content Ownership |
 |------|--------|-------------------|
 | **SOMM.SITE** | somm.site | Wine (full articles) |
-| **Backbar.fyi** | backbar.fyi | Spirits (full articles) |
-| **Beverage.fyi** | beverage.fyi | Industry, Beer, Sake, Coffee & Tea, Education (full articles) + Wine/Spirits teasers |
+| **Beverage.fyi** | beverage.fyi | Industry, Spirits, Beer, Sake, Coffee and Tea, Education (full articles) + Wine showcase |
 | **Hospitality.fyi** | hospitality.fyi | Hospitality and service content |
 | **Restaurant Standards** | restaurantstandards.com | Training and standards content |
+| **Somm.Tips** | somm.tips | Wine pairings and shopping insights |
 
-All sites pull from the same Sanity dataset. Articles have a `sites` field (array of strings) that determines which sites they're published to, and a `category` field that determines content type.
+All sites pull from the same Sanity dataset. Articles have a `sites` field (array of strings) that determines which sites they are published to, and a `category` field that determines content type.
 
 ### Content Routing Rules
 
-- **Wine articles** live on Somm.Site. Beverage.fyi displays teaser cards that link externally to `somm.site/articles/[slug]`.
-- **Spirits articles** live on Backbar.fyi. Beverage.fyi displays teaser cards that link externally to `backbar.fyi/articles/[slug]`.
-- **Industry, Beer, Sake, Coffee & Tea, and Education articles** are owned by Beverage.fyi and display as full articles.
-- No full wine or spirits articles exist on Beverage.fyi. This eliminates duplicate content across domains, which is critical for SEO.
+- **Wine articles** live on Somm.Site. Beverage.fyi has a `/wine` showcase page that displays teaser cards linking externally to `somm.site/articles/[slug]`.
+- **Spirits, Beer, Sake, Coffee and Tea, Industry, and Education articles** are owned by Beverage.fyi and display as full articles.
+- No full wine articles exist on Beverage.fyi. This eliminates duplicate content across domains, which is critical for SEO.
+- Backbar.fyi has been retired. All spirits content now lives on Beverage.fyi.
 
 ---
 
 ## Tech Stack
 
-- **Framework:** Next.js (App Router)
+- **Framework:** Next.js 16 (App Router)
 - **CMS:** Sanity.io (shared dataset across all portfolio sites)
-- **Styling:** CSS Modules (mobile-first)
+- **Styling:** CSS Modules (mobile-first, no Tailwind)
 - **Font:** Inter (loaded via `next/font/google`)
 - **Deployment:** Vercel
 - **Data Fetching:** `client.fetch()` using GROQ queries via `next-sanity`
 - **Analytics:** Google Analytics 4 (G-87NHCW30CX)
+- **Package Manager:** pnpm
 
 ---
 
@@ -52,22 +53,39 @@ app/
 │   │   └── [page]/
 │   │       └── page.tsx            # Article Collection — All tab (paginated)
 │   ├── industry/
-│   │   ├── page.tsx                # Industry Insights tab (page 1)
+│   │   ├── page.tsx                # Industry tab (page 1)
 │   │   └── page/
 │   │       └── [page]/
-│   │           └── page.tsx        # Industry Insights tab (paginated)
-│   ├── beverages/
-│   │   ├── page.tsx                # Beverage Knowledge tab (page 1)
+│   │           └── page.tsx        # Industry tab (paginated)
+│   ├── spirits/
+│   │   ├── page.tsx                # Spirits tab (page 1)
 │   │   └── page/
 │   │       └── [page]/
-│   │           └── page.tsx        # Beverage Knowledge tab (paginated)
-│   ├── tag/
-│   │   └── [tag]/
-│   │       ├── page.tsx            # Dynamic tag collection (page 1)
-│   │       └── page/
-│   │           └── [page]/
-│   │               └── page.tsx    # Dynamic tag collection (paginated)
-│   └── subcategory/                # Legacy — can be removed
+│   │           └── page.tsx        # Spirits tab (paginated)
+│   ├── beer/
+│   │   ├── page.tsx                # Beer tab (page 1)
+│   │   └── page/
+│   │       └── [page]/
+│   │           └── page.tsx        # Beer tab (paginated)
+│   ├── sake/
+│   │   ├── page.tsx                # Sake tab (page 1)
+│   │   └── page/
+│   │       └── [page]/
+│   │           └── page.tsx        # Sake tab (paginated)
+│   ├── coffee-tea/
+│   │   ├── page.tsx                # Coffee and Tea tab (page 1)
+│   │   └── page/
+│   │       └── [page]/
+│   │           └── page.tsx        # Coffee and Tea tab (paginated)
+│   └── tag/
+│       └── [tag]/
+│           ├── page.tsx            # Dynamic tag collection (page 1)
+│           └── page/
+│               └── [page]/
+│                   └── page.tsx    # Dynamic tag collection (paginated)
+├── wine/
+│   ├── page.tsx                    # Wine showcase page (links to Somm.Site)
+│   └── wine.module.css
 ├── cookies/
 ├── disclaimer/
 ├── privacy/
@@ -90,16 +108,18 @@ components/
 │   ├── ArticleCard.module.css
 │   ├── ArticleGrid.tsx             # Grid wrapper for ArticleCards
 │   ├── ArticleGrid.module.css
-│   ├── TeaserCard.tsx              # External-linking card (wine/spirits)
-│   ├── TeaserCard.module.css
-│   ├── TeaserSection.tsx           # Gray band container for teaser rows
-│   └── TeaserSection.module.css
+│   ├── TeaserCard.tsx              # External-linking card (wine showcase)
+│   └── TeaserCard.module.css
 ├── article/
-│   ├── FilterTabs.tsx              # Collection page tab navigation
-│   └── FilterTabs.module.css
+│   ├── FilterTabs.tsx              # Collection page pill navigation
+│   ├── FilterTabs.module.css
+│   ├── RelatedArticles.tsx         # Related articles on single article pages
+│   └── RelatedArticles.module.css
 └── layout/
-    ├── Header.tsx
-    └── Footer.tsx
+    ├── Header.tsx                  # Fixed header with portfolio and nav panels
+    ├── Header.module.css
+    ├── Footer.tsx                  # Footer with nav links
+    └── Footer.module.css
 
 sanity/
 ├── lib/
@@ -112,51 +132,57 @@ sanity/
 
 ## Homepage Layout
 
-The homepage is divided into four visual zones:
+The homepage is a clean reverse-chronological feed. One unified query pulls 12 articles across all Beverage.fyi categories (industry, spirits, beer, sake, coffee-tea, education). The array is sliced by position:
 
-1. **Hero (white background)** — 1 featured + 2 sub-featured Industry articles. Full articles owned by Beverage.fyi.
+1. **Hero** — Position [0] as featured article (large image, title, subtitle, first sentence on desktop). Positions [1-2] as sub-featured articles (two smaller cards beside the hero on desktop, stacked on mobile).
 
-2. **"Explore More" Grid (white background)** — Up to 9 articles from Beer, Sake, Coffee & Tea, and Education categories. Full articles owned by Beverage.fyi.
+2. **"Explore More" Grid** — Positions [3-11] displayed as ArticleCards in a 3-column grid on desktop. On mobile, cards display as horizontal layout (image left, text right).
 
-3. **Teaser Band (gray background, `#d9d9d9`)** — Two rows of 3 teaser cards each. Row 1: Spirits articles linking to Backbar.fyi. Row 2: Wine articles linking to Somm.Site. Cards have `#fafafa` background with border-radius to create contrast against the gray band. "Read on" links in accent gold indicate external destination.
-
-4. **"More Articles" Button (white background)** — Routes to `/articles` collection page.
+3. **"More Articles" Button** — Routes to `/articles` collection page.
 
 ---
 
 ## Article Collection Pages
 
-Three tab-filtered views, each with its own URL route for SEO:
+Six filter tabs, each with its own URL route for SEO:
 
 | Tab | URL | Categories |
 |-----|-----|------------|
-| **All** | `/articles` | industry, beer, sake, coffee-tea, education |
-| **Industry Insights** | `/articles/industry` | industry |
-| **Beverage Knowledge** | `/articles/beverages` | beer, sake, coffee-tea, education |
+| **All** | `/articles` | industry, spirits, beer, sake, coffee-tea, education |
+| **Industry** | `/articles/industry` | industry |
+| **Spirits** | `/articles/spirits` | spirits |
+| **Beer** | `/articles/beer` | beer |
+| **Sake** | `/articles/sake` | sake |
+| **Coffee and Tea** | `/articles/coffee-tea` | coffee-tea |
 
-Each tab has full pagination support (`/articles/page/2`, `/articles/industry/page/2`, etc.). The `FilterTabs` component renders `<Link>` elements (not JavaScript toggles) so every filtered view is a real, crawlable URL with its own metadata.
+Each tab has full pagination support (12 articles per page). The `FilterTabs` component renders pill-shaped `<Link>` elements (not JavaScript toggles) so every filtered view is a real, crawlable URL with its own metadata. On mobile, the pill row scrolls horizontally.
 
-Dynamic tag pages (`/articles/tag/[tag]`) remain functional — clicking a tag badge on any article card routes to a paginated collection of articles with that tag.
+Dynamic tag pages (`/articles/tag/[tag]`) remain functional. Clicking a tag on any article card routes to a paginated collection of articles with that tag.
+
+---
+
+## Wine Showcase Page
+
+The `/wine` route is a top-level editorial showcase page. It pulls 9 wine articles from Somm.Site (`"somm" in sites && category == "wine"`) and displays them using `TeaserCard` components that link externally. The page has an editorial header, a 3x3 grid of teaser cards, and a CTA button linking to somm.site.
 
 ---
 
 ## Key Components
 
-### TeaserCard vs ArticleCard
-
-Both share near-identical visual DNA but serve different purposes:
+### ArticleCard vs TeaserCard
 
 | | ArticleCard | TeaserCard |
 |---|---|---|
 | **Purpose** | Display owned content | Preview sister site content |
 | **Link type** | Next.js `<Link>` (internal) | `<a target="_blank">` (external) |
 | **Props** | `article` | `article`, `baseUrl`, `siteName` |
-| **CTA** | "Read More" (gray) | "Read on SITE →" (accent gold) |
-| **Background** | Transparent | `#fafafa` (pops off gray band) |
+| **CTA** | "Read More" (gray, with visually-hidden title for SEO) | "Read on SITE" (accent gold) |
+| **Mobile layout** | Horizontal (image left, text right) | Vertical (standard card) |
+| **Subcategory** | Text label above title | Badge overlay on image |
 
 ### FilterTabs
 
-Server-rendered `<Link>` navigation between collection views. Takes an `activeTab` prop (`'all'` | `'industry'` | `'beverages'`) to highlight the current tab with an accent gold underline. No client-side JavaScript state.
+Server-rendered `<Link>` navigation between collection views. Takes an `activeTab` prop (`'all'` | `'industry'` | `'spirits'` | `'beer'` | `'sake'` | `'coffee-tea'`). Styled as pills with dark fill for active state. Horizontal scroll on mobile.
 
 ---
 
@@ -177,8 +203,6 @@ Articles use these key fields:
 - `relatedArticles` (array of references)
 - `parentGuide` (reference to a studyGuide document)
 
-There is also a `studyGuide` document type with `childArticles`, `keyFacts`, and `geography` fields.
-
 ---
 
 ## GROQ Query Architecture
@@ -186,14 +210,21 @@ There is also a `studyGuide` document type with `childArticles`, `keyFacts`, and
 All queries are centralized in `sanity/queries.ts`. Key filtering patterns:
 
 ```groq
-// Beverage-owned content
-"beverage" in sites && category in ["industry", "beer", "sake", "coffee-tea", "education"]
+// Homepage — all Beverage.fyi content, chronological
+"beverage" in sites && category in ["industry", "beer", "spirits", "sake", "coffee-tea", "education"]
 
-// Wine teasers (from Somm.Site)
+// Collection page — All tab (same as homepage)
+"beverage" in sites && category in ["industry", "spirits", "beer", "sake", "coffee-tea", "education"]
+
+// Individual category tabs
+"beverage" in sites && category == "spirits"
+"beverage" in sites && category == "beer"
+"beverage" in sites && category == "sake"
+"beverage" in sites && category == "coffee-tea"
+"beverage" in sites && category == "industry"
+
+// Wine showcase (from Somm.Site)
 "somm" in sites && category == "wine"
-
-// Spirits teasers (from Backbar.fyi)
-"backbar" in sites && category == "spirits"
 ```
 
 Pagination uses GROQ slice syntax: `[$start...$end]` with 12 articles per page.
@@ -214,19 +245,29 @@ Defined in `globals.css`:
 | `--color-border` | `#e0e0e0` | Dividers, placeholders |
 | `--max-width` | `1200px` | Content container |
 
-Teaser band background: `#d9d9d9`
-Teaser card background: `#fafafa`
-
 ---
 
 ## SEO Strategy
 
-- **No duplicate content.** Wine and spirits articles are never rendered as full content on Beverage.fyi. Teaser cards link externally to the owning site.
-- **Paginated routes.** Every collection page is a real URL (`/articles/page/2`) — no JavaScript-hidden content. Google crawls the full pagination chain.
-- **Tab routes over client-side filters.** Each filter tab (`/articles`, `/articles/industry`, `/articles/beverages`) is a distinct, indexable URL with unique `<title>`, `<meta description>`, and canonical.
-- **Dynamic tag pages.** Clicking a tag badge routes to `/articles/tag/[tag]` with paginated results and unique metadata per tag.
+- **No duplicate content.** Wine articles are never rendered as full content on Beverage.fyi. Teaser cards link externally to Somm.Site.
+- **Paginated routes.** Every collection page is a real URL — no JavaScript-hidden content. Google crawls the full pagination chain.
+- **Tab routes over client-side filters.** Each of the six filter tabs is a distinct, indexable URL with unique title, meta description, and canonical.
+- **Dynamic tag pages.** Clicking a tag routes to `/articles/tag/[tag]` with paginated results and unique metadata.
+- **Descriptive link text.** ArticleCard "Read More" links include visually-hidden article titles for accessibility and SEO.
+- **Preconnect.** `<link rel="preconnect" href="https://cdn.sanity.io" />` in the root layout for faster image loading.
 - **Canonical URLs** set on every page via `alternates.canonical` in metadata.
 - **Structured metadata** includes OpenGraph, Twitter cards, and robots directives.
+- **ISR.** All data-fetching pages use `revalidate = 60` for near-real-time content updates without full rebuilds.
+
+---
+
+## Performance
+
+- **Preconnect** to Sanity CDN reduces LCP by starting the connection early
+- **next/font/google** loads Inter with font-display swap, eliminating layout shift
+- **Image optimization** via Next.js Image component with responsive sizes attributes
+- **CSS Modules** ensure zero unused styles per page
+- **ISR** avoids cold builds while keeping content fresh
 
 ---
 
@@ -244,23 +285,23 @@ Teaser card background: `#fafafa`
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Run development server
-npm run dev
+pnpm dev
 
 # Build for production
-npm run build
+pnpm build
 
 # Start production server
-npm start
+pnpm start
 ```
 
 ---
 
 ## Deployment
 
-Deployed via Vercel. The site uses ISR (Incremental Static Regeneration) with `revalidate = 60` on the homepage, meaning content updates from Sanity appear within 60 seconds of publishing.
+Deployed via Vercel from GitHub. The site uses ISR (Incremental Static Regeneration) with `revalidate = 60`, meaning content updates from Sanity appear within 60 seconds of publishing.
 
 ---
 

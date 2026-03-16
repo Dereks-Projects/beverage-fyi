@@ -162,7 +162,7 @@ export default function Header() {
               About Us
             </Link>
             <a
-              href="mailto:derekengles@gmail.com"
+              href="mailto:derek@informativemedia.com"
               className={styles.navLink}
               onClick={closeAll}
             >
