@@ -46,12 +46,12 @@ All sites pull from the same Sanity dataset. Articles have a `sites` field (arra
 app/
 ├── about/
 ├── articles/
-│   ├── page.tsx                    # Article Collection — All tab (page 1)
+│   ├── page.tsx                    # Article Collection -- All tab (page 1)
 │   ├── articles.module.css         # Shared styles for all collection pages
 │   ├── [slug]/                     # Individual article pages
 │   ├── page/
 │   │   └── [page]/
-│   │       └── page.tsx            # Article Collection — All tab (paginated)
+│   │       └── page.tsx            # Article Collection -- All tab (paginated)
 │   ├── industry/
 │   │   ├── page.tsx                # Industry tab (page 1)
 │   │   └── page/
@@ -113,7 +113,7 @@ components/
 ├── article/
 │   ├── FilterTabs.tsx              # Collection page pill navigation
 │   ├── FilterTabs.module.css
-│   ├── RelatedArticles.tsx         # Related articles on single article pages
+│   ├── RelatedArticles.tsx         # Auto-pulled related articles (bottom of article page)
 │   └── RelatedArticles.module.css
 └── layout/
     ├── Header.tsx                  # Fixed header with portfolio and nav panels
@@ -126,6 +126,9 @@ sanity/
 │   ├── client.ts                   # Sanity client configuration
 │   └── env.ts                      # Environment variable validation
 └── queries.ts                      # All GROQ queries (centralized)
+
+types/
+└── article.ts                      # Article TypeScript interface
 ```
 
 ---
@@ -134,11 +137,11 @@ sanity/
 
 The homepage is a clean reverse-chronological feed. One unified query pulls 12 articles across all Beverage.fyi categories (industry, spirits, beer, sake, coffee-tea, education). The array is sliced by position:
 
-1. **Hero** — Position [0] as featured article (large image, title, subtitle, first sentence on desktop). Positions [1-2] as sub-featured articles (two smaller cards beside the hero on desktop, stacked on mobile).
+1. **Hero** -- Position [0] as featured article (large image, title, subtitle, first sentence on desktop). Positions [1-2] as sub-featured articles (two smaller cards beside the hero on desktop, stacked on mobile).
 
-2. **"Explore More" Grid** — Positions [3-11] displayed as ArticleCards in a 3-column grid on desktop. On mobile, cards display as horizontal layout (image left, text right).
+2. **"Explore More" Grid** -- Positions [3-11] displayed as ArticleCards in a 3-column grid on desktop. On mobile, cards display as horizontal layout (image left, text right).
 
-3. **"More Articles" Button** — Routes to `/articles` collection page.
+3. **"More Articles" Button** -- Routes to `/articles` collection page.
 
 ---
 
@@ -158,6 +161,21 @@ Six filter tabs, each with its own URL route for SEO:
 Each tab has full pagination support (12 articles per page). The `FilterTabs` component renders pill-shaped `<Link>` elements (not JavaScript toggles) so every filtered view is a real, crawlable URL with its own metadata. On mobile, the pill row scrolls horizontally.
 
 Dynamic tag pages (`/articles/tag/[tag]`) remain functional. Clicking a tag on any article card routes to a paginated collection of articles with that tag.
+
+---
+
+## Single Article Page
+
+The article page (`app/articles/[slug]/page.tsx`) renders full article content and includes three distinct linking systems:
+
+### Internal Article Links
+The Sanity rich text editor supports an `internalLink` annotation that lets editors highlight text and link it to another article or study guide. The GROQ query resolves the referenced document's slug and type. PortableText renders these as Next.js `<Link>` components with a gold underline accent.
+
+### Related Reading Box
+Hand-picked articles selected in Sanity's `relatedArticles` field. Displayed as a light gray box with linked titles, positioned below the first in-body image. If no articles are selected, nothing renders. This is an editorial curation tool.
+
+### Related Articles Cards
+Auto-pulled 3 most recent articles from the same subcategory (excluding the current article). Rendered by the `RelatedArticles` component at the bottom of the page, before the footer.
 
 ---
 
@@ -200,20 +218,30 @@ Articles use these key fields:
 - `publishedAt` (datetime)
 - `author` (string, defaults to "Derek Engles")
 - `tags` (array of strings)
-- `relatedArticles` (array of references)
+- `relatedArticles` (array of references to articles, hand-picked by the editor)
 - `parentGuide` (reference to a studyGuide document)
+- `body` (rich text with external link and internal article link annotations)
+- `faq` (array of question/answer objects for Google rich results)
 
 ---
 
 ## GROQ Query Architecture
 
-All queries are centralized in `sanity/queries.ts`. Key filtering patterns:
+All queries are centralized in `sanity/queries.ts`. The correct Beverage.fyi category filter is:
 
 ```groq
-// Homepage — all Beverage.fyi content, chronological
+category in ["industry", "spirits", "beer", "sake", "coffee-tea", "education"]
+```
+
+Wine should never appear in Beverage.fyi queries except in `wineShowcaseQuery`.
+
+### Key query patterns:
+
+```groq
+// Homepage -- all Beverage.fyi content, chronological
 "beverage" in sites && category in ["industry", "beer", "spirits", "sake", "coffee-tea", "education"]
 
-// Collection page — All tab (same as homepage)
+// Collection page -- All tab
 "beverage" in sites && category in ["industry", "spirits", "beer", "sake", "coffee-tea", "education"]
 
 // Individual category tabs
@@ -222,6 +250,13 @@ All queries are centralized in `sanity/queries.ts`. Key filtering patterns:
 "beverage" in sites && category == "sake"
 "beverage" in sites && category == "coffee-tea"
 "beverage" in sites && category == "industry"
+
+// Single article -- includes internal link resolution and related articles
+articleBySlugQuery resolves markDefs for internalLink (slug, docType)
+articleBySlugQuery fetches relatedArticles[]->{ _id, title, slug }
+
+// Related articles -- same subcategory, auto-pulled
+"beverage" in sites && category in ["industry", "spirits", "beer", "sake", "coffee-tea", "education"] && subcategory == $subcategory
 
 // Wine showcase (from Somm.Site)
 "somm" in sites && category == "wine"
@@ -239,10 +274,10 @@ Defined in `globals.css`:
 |-------|-------|-------|
 | `--color-background` | `#fafafa` | Page background |
 | `--color-header-footer` | `#000000` | Header and footer |
-| `--color-accent` | `#c9a227` | Gold accent (badges, active states, teaser links) |
+| `--color-accent` | `#c9a227` | Gold accent (badges, active states, teaser links, internal links) |
 | `--color-text-primary` | `#1a1a1a` | Headings, body text |
 | `--color-text-secondary` | `#666666` | Subtitles, meta text |
-| `--color-border` | `#e0e0e0` | Dividers, placeholders |
+| `--color-border` | `#e0e0e0` | Dividers, placeholders, Related Reading box background |
 | `--max-width` | `1200px` | Content container |
 
 ---
@@ -250,7 +285,8 @@ Defined in `globals.css`:
 ## SEO Strategy
 
 - **No duplicate content.** Wine articles are never rendered as full content on Beverage.fyi. Teaser cards link externally to Somm.Site.
-- **Paginated routes.** Every collection page is a real URL — no JavaScript-hidden content. Google crawls the full pagination chain.
+- **Internal linking.** Articles support inline links to other articles and study guides via the `internalLink` annotation in the rich text editor.
+- **Paginated routes.** Every collection page is a real URL. Google crawls the full pagination chain.
 - **Tab routes over client-side filters.** Each of the six filter tabs is a distinct, indexable URL with unique title, meta description, and canonical.
 - **Dynamic tag pages.** Clicking a tag routes to `/articles/tag/[tag]` with paginated results and unique metadata.
 - **Descriptive link text.** ArticleCard "Read More" links include visually-hidden article titles for accessibility and SEO.
@@ -307,4 +343,4 @@ Deployed via Vercel from GitHub. The site uses ISR (Incremental Static Regenerat
 
 ## Author
 
-**Derek Engles** — Founder, Informative Media
+**Derek Engles** -- Founder, Informative Media

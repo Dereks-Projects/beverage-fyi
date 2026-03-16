@@ -283,4 +283,23 @@
   .body h2 {
     font-size: 1.75rem;
   }
+
+  /* Desktop-only image sizing tweaks */
+  .imageWrapper {
+    margin-left: -25%;
+    margin-right: -25%;
+  }
+
+  .mainImage {
+    width: 150%;
+  }
+
+  .bodyImage {
+    margin-left: -15%;
+    margin-right: -15%;
+  }
+
+  .bodyImage img {
+    width: 130%;
+  }
 }

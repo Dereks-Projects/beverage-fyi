@@ -39,6 +39,22 @@ Beverage.fyi is the editorial hub of the Informative Media ecosystem. It is a co
 - TeaserCard: external links (target="_blank"), used for sister site content
 - FilterTabs: pill-style Link navigation for collection pages (not JS toggles)
 
+## Article Page Features
+The single article page (app/articles/[slug]/page.tsx) has three distinct linking systems:
+
+- **Internal Article Links:** The Sanity body field supports an `internalLink` annotation. The GROQ query resolves the reference slug and doc type. PortableText renders these as Next.js `<Link>` components styled with a gold underline.
+- **Related Reading Box:** Hand-picked articles selected in the `relatedArticles` field in Sanity. Displayed as a light gray box with linked titles, positioned below the first in-body image. Only renders if articles are selected. Styles: `.relatedReading`, `.relatedReadingTitle`, `.relatedReadingList`, `.relatedReadingLink`.
+- **Related Articles Cards:** Auto-pulled 3 most recent articles from the same subcategory. Rendered by the `RelatedArticles` component at the bottom of the page.
+
+These are three separate systems. Do not confuse them or remove one when editing another.
+
+## GROQ Query Rules
+All queries live in `sanity/queries.ts`. The correct Beverage.fyi category filter is:
+```
+category in ["industry", "spirits", "beer", "sake", "coffee-tea", "education"]
+```
+Never use the old list `["wine", "spirits", "beer", "sake"]`. Wine content is owned by SOMM.SITE and should only appear in the `wineShowcaseQuery`.
+
 ## How to Work
 - Be surgical. Only edit what needs editing. Never refactor working code unless asked.
 - Never give more than 2-3 files at once.
@@ -59,24 +75,3 @@ Beverage.fyi is the editorial hub of the Informative Media ecosystem. It is a co
 - Never use client-side JavaScript filtering where server-rendered routes would serve SEO better
 - Never use em dashes in written content
 - Never use British English; American English only
-
-## Current Task: Internal Linking Project
-Two changes to the article page (app/articles/[slug]/page.tsx):
-
-### 1. Internal Article Links in Body Text
-- The Sanity schema already has the internalLink annotation on the body field
-- Update the GROQ query (articleBySlugQuery in sanity/queries.ts) to resolve internalLink references: get slug and docType from the referenced document
-- Add a marks.internalLink renderer in the PortableText components that outputs a Next.js <Link> using the resolved slug
-- Style as subtle underlined text links
-
-### 2. Related Reading Box
-- Fetch relatedArticles[]->{ title, slug } from the article via GROQ
-- Display as a light gray box with linked article titles, positioned below the first in-body image
-- If no hand-picked relatedArticles exist on the article, show nothing
-- The existing auto-pulled RelatedArticles component at the bottom of the page stays untouched
-
-### Files Affected
-- sanity/queries.ts (update articleBySlugQuery)
-- app/articles/[slug]/page.tsx (PortableText renderer + Related Reading box)
-- app/articles/[slug]/page.module.css (styles for internal links and Related Reading box)
-- types/article.ts (extend interface if needed)
