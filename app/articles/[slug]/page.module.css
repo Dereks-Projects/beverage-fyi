@@ -263,6 +263,81 @@
   text-decoration: underline;
 }
 
+/* ===========================================
+   FAQ ACCORDION — Click to expand Q&A pairs
+   =========================================== */
+
+.faqSection {
+  margin-top: var(--spacing-2xl);
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--color-border);
+}
+
+.faqTitle {
+  font-family: var(--font-primary);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-lg) 0;
+}
+
+/* Each FAQ item is a native <details> accordion */
+.faqItem {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.faqItem:last-child {
+  border-bottom: none;
+}
+
+/* The clickable question row */
+.faqQuestion {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  padding: var(--spacing-md) 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color var(--transition-fast);
+}
+
+/* Remove default browser arrow */
+.faqQuestion::-webkit-details-marker {
+  display: none;
+}
+
+/* Custom expand/collapse indicator */
+.faqQuestion::after {
+  content: '+';
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+  margin-left: var(--spacing-md);
+  transition: transform var(--transition-fast);
+}
+
+/* Rotate indicator when open */
+.faqItem[open] .faqQuestion::after {
+  content: '-';
+}
+
+
+
+/* The answer that reveals on click */
+.faqAnswer {
+  font-family: var(--font-primary);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin: 0;
+  padding: 0 0 var(--spacing-md) 0;
+}
+
 @media (min-width: 768px) {
   .article {
     padding: var(--spacing-3xl) var(--spacing-xl);

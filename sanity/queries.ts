@@ -65,6 +65,10 @@ export const articleBySlugQuery = `
       _id,
       title,
       "slug": slug.current
+    },
+    faq[] {
+      question,
+      answer
     }
   }
 `

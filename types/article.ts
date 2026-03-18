@@ -23,6 +23,10 @@ export interface Article {
     title: string
     slug: string
   }[]
+  faq?: {
+    question: string
+    answer: string
+  }[]
 }
 
 export interface PortableTextBlock {

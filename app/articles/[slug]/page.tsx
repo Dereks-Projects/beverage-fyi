@@ -184,6 +184,22 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     itemListElement: breadcrumbItems,
   }
 
+  /* FAQ structured data for Google rich results */
+  const faqJsonLd = article.faq && article.faq.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: article.faq.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer,
+          },
+        })),
+      }
+    : null
+
   return (
     <>
       <script
@@ -194,6 +210,12 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
 
       <article className={styles.article}>
         <header className={styles.header}>
@@ -281,6 +303,19 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </Link>
             ))}
           </div>
+        )}
+
+        {/* FAQ accordion section -- renders only if FAQ items exist on the article */}
+        {article.faq && article.faq.length > 0 && (
+          <section className={styles.faqSection}>
+            <h2 className={styles.faqTitle}>Frequently Asked Questions</h2>
+            {article.faq.map((item, index) => (
+              <details key={index} className={styles.faqItem}>
+                <summary className={styles.faqQuestion}>{item.question}</summary>
+                <p className={styles.faqAnswer}>{item.answer}</p>
+              </details>
+            ))}
+          </section>
         )}
 
         <RelatedArticles articles={relatedArticles} />
