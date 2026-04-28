@@ -119,11 +119,14 @@
 }
 
 .body blockquote {
-  border-left: 3px solid var(--color-accent);
-  padding-left: var(--spacing-lg);
+  border-top: 2px solid var(--color-accent);
+  border-bottom: 2px solid var(--color-accent);
+  padding: var(--spacing-lg) 0;
   margin: var(--spacing-xl) 0;
-  font-style: italic;
-  color: var(--color-text-secondary);
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
 }
 
 .body img {
@@ -252,6 +255,7 @@
 
 .relatedReadingLink {
   font-family: var(--font-primary);
+  font-weight: 500;
   font-size: 0.9375rem;
   color: var(--color-text-primary);
   text-decoration: none;
@@ -376,5 +380,12 @@
 
   .bodyImage img {
     width: 130%;
+  }
+
+  /* Desktop pull quote — italic, slightly larger, regular weight */
+  .body blockquote {
+    font-size: 1.1875rem;
+    font-style: italic;
+    font-weight: 400;
   }
 }
